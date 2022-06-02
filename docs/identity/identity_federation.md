@@ -10,8 +10,8 @@ Identity Federation is used to provide users/entities outside of aws permissions
 - SAML 2.0 Federation: This feature enables federated single sign-on (SSO), so users can log into the AWS Management Console or call the AWS API operations without you having to create an IAM user for everyone in your organization.
     - AWS SSO is best suited for SMAL 2.0 Federation   
 
-## Federation Services
 
+## Federation Services:
 ### SAML2.0 Federation:
 
 - Integration with Microsoft ADFS (Active Directory Federation Services)
