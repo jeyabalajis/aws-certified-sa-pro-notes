@@ -39,6 +39,28 @@
 - The entity's identity-based policy permissions are limited by the session policy and the permissions boundary. 
 - The effective permissions for this set of policy types are the intersection of all three policy types.
 
+## AWS Organizations
+- Prevent any non - compliant tagging operations on specified services and resources
+- Generate a report that lists all tagged/non - compliant resources
+- IAM Policy evaluation logic: 
+	- Evaluate explicit deny
+	- Organizations SCPs
+	- Resource - based Policies
+	- IAM Permissions Boundaries
+	- Session Policies
+	- Identity - based Policies
+- Control Tower
+	- Uses Service Catalog to provision new aws accounts
+	- Guardrails: Preventive using SCP. Detective using AWS Config.
+	- Example: Detect untagged resources and report them.
+- Resources Access Manager  (RAM)
+	- Allow sharing of resources
+	- Cannot share security groups and default VPC. Security groups from other accounts can be referenced for maximum security.
+	- AWS Network firewall policies can be shared.
+	- EC2 (Dedicated Hosts, Capacity Reservation)
+	- Aurora DB Clusters can be shared. 
+	- All accounts must belong to the same organization
+
 ## Deep Dive:
 
 ### Roles vs. Resource-based Policy
