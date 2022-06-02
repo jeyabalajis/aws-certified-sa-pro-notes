@@ -1,0 +1,19 @@
+site_name: AWS Solution Architect Professional - Concept Notes
+repo_url: https://github.com/jeyabalajis/aws-certified-sa-pro-notes.git
+theme:
+  name: 'material'
+  logo: 'images/logo.png'
+use_directory_urls: false
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - codehilite
+  - pymdownx.superfences
+plugins:
+    - search
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+nav:
+  - Home: index.md
+  - Identity & Federation:
+      - Identity: identity/identity.md
