@@ -22,7 +22,7 @@
 - **Requester account**: Provide _permissions_ to the users or group or role to assume this *cross-account role* that is created in the resource owner account.
 - **Providing access to aws accounts owned by third-parties**:
   - The 3rd party aws account id is required.
-	- Add External ID - secret between you and the 3rd party
+	- Add External ID - secret between you and the 3rd party. It helps to handle *confused deputy* problem.
 	- Define permissions in the IAM Policy
 
 ## IAM Permission Boundary
