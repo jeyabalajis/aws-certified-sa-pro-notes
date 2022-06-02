@@ -1,4 +1,4 @@
-# Identity and Federation
+# Identity
 
 ## Summary of IAM Entities
 
