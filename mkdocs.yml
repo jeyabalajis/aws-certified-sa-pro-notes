@@ -17,3 +17,4 @@ nav:
   - Home: index.md
   - Identity & Federation:
       - Identity: identity/identity.md
+      - Identity Federation: identity/identity_federation.md
