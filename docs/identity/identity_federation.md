@@ -67,6 +67,26 @@ Example Trust Policy:
 
 ## Directory Services
 
-## Best Practices
+### AWS Managed Microsoft AD
+
+- Enables use of managed Active Directory **in the AWS Cloud**.
+
+### AD Connector
+
+- Enables **on-premises** users to access AWS Services via Active Directory.
+
+### Simple AD
+
+- Provides low-scale, low-cost basic Active Directory capability.
+
+## Scenarios
+
+### Question:
+> The system admin would like to rely solely on the company’s **on-premises Active Directory** to use existing user credentials. 
+A user portal for logins and MFA is required for easy access and added security.
+
+### Answer:
+
+> Use AD Connector (User Authentication) and SSO (User Access).
 
 ## References
