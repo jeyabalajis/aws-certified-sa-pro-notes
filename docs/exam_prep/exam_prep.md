@@ -33,3 +33,15 @@
 3. Identify the features mentioned in the answers.
 4. Pay attention to qualifying clauses. For example, clauses like “in the most cost-effective way” and “will best fulfill” may eliminate certain answers.
 5. Eliminate obviously wrong answers to narrow the selection of possible right answers.
+
+## Practice Exams
+- [Tutorials DOJO Cheatsheets](https://tutorialsdojo.com/aws-cheat-sheets/)
+
+[Jon Bonso’s practice exams](https://www.udemy.com/course/aws-solutions-architect-professional-practice-exams-amazon/) 
+
+[Braincert](https://www.braincert.com/) 
+
+
+[Blog](https://blog.dataminded.com/hooray-im-an-aws-certified-pro-architect-now-what-89f4d8b22596) 
+
+[Skill set pro](https://skillsetpro.com)
