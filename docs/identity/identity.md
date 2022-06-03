@@ -12,6 +12,8 @@
   - Explicitly grant your users permission  to assume the role.
   - Users must switch to the this role using Console (or) AWS CLI (or) AWS API
   - Additional protection: Mandate MFA for assuming the role, for extra security.
+- MFA can be added as an additional layer of security for either assuming the role (or) for accessing aws services.
+- Federated users cannot be assigned an MFA device. So resources protected by *MFA Mandatory* condition cannot be accessed by federated session contexts.
 
 > Important:  When you assume a role, you give up your current permissions and temporarily take on a new role (with corresponding permissions).
 
@@ -24,6 +26,19 @@
   - The 3rd party aws account id is required.
 	- Add External ID - secret between you and the 3rd party. It helps to handle *confused deputy* problem.
 	- Define permissions in the IAM Policy
+	
+### AssumeRole vs GetSessionToken
+
+- GetSessionToken:
+    - User or root account
+    - Access resources in the **same account** as that of the user.
+    - The purpose of the GetSessionToken operation is to authenticate the user using MFA. 	
+    - Note that temporary credentials from a GetSessionToken request can access IAM and AWS STS API operations only if you include MFA information in the request for credentials.
+- AssumeRole
+    - Role
+    - Call API operations that access resources in the _same or a different AWS account_.
+    - The temporary credentials returned by AssumeRole **do not include MFA information** in the context
+
 
 ## IAM Permission Boundary
 - IAM Permission Boundaries are supported for users and roles (not groups)
@@ -38,6 +53,7 @@
 - The permissions for a session come from the IAM entity (user or role) used to create the session and from the session policy. 
 - The entity's identity-based policy permissions are limited by the session policy and the permissions boundary. 
 - The effective permissions for this set of policy types are the intersection of all three policy types.
+
 
 ## AWS Organizations
 - Prevent any non - compliant tagging operations on specified services and resources
@@ -60,6 +76,21 @@
 	- EC2 (Dedicated Hosts, Capacity Reservation)
 	- Aurora DB Clusters can be shared. 
 	- All accounts must belong to the same organization
+- OrganizationAccountAccessRole: used in the management account to operate on member account
+- Use tagging standards for billing purpose
+- Enable CloudTrail on all accounts, send logs to central S3 account
+- Send CloudWatch Logs to central logging account
+- Consolidated billing features (or) all features (default)
+- Consolidated billing features:
+    - Consolidated Billing across all accounts - single payment method
+    - Pricing benefits from aggregated usage (volume discount for EC2, S3…)
+    - Reserved Instances (RI) benefits
+
+### Service Control Policies (SCP)
+- Service-linked roles enable other AWS services to integrate with AWS Organizations and can't be restricted by SCPs
+- SCP must have an explicit Allow (does not allow anything by default)
+- Explicit Deny at a higher level OU impacts all children OU & corresponding accounts.
+- Use CloudWatch Events to monitor non compliant tags
 
 ## Deep Dive:
 
@@ -120,6 +151,19 @@ Do not give Example Corp access to an IAM user and its long-term credentials in 
 - Use least privilege for maximum security.
 - _Access Advisor_: See permissions granted and when last accessed.
 - _Access Analyzer_: Analyze resources that are shared with external entity.
+
+### Mandate MFA for Cross-account assume role
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Principal": {"AWS": "ACCOUNT-B-ID"},
+    "Action": "sts:AssumeRole",
+    "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}}
+  }
+}
+```
 
 ## References
 - [STS Assume Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/example_sts_AssumeRole_section.html)

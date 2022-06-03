@@ -42,12 +42,27 @@ Example Trust Policy:
 ### AWS SSO:
 
 - AWS SSO Federation is the new and managed way. Underlying uses SAML 2.0 Federation.
+- STS Integration is automatically handled with SSO.
+- Integrated with AWS Organizations
+- Centralized Permissions Management
+- Centralizing auditing with Cloudtrail
+-  Identity source:
+     - SSO-built in: manage users & groups
+     - Active Directory through Directory Services (AWS Managed Microsoft AD or AD Connector)
+     - External Identity Provider: any SAML 2.0 Identity Provider (e.g., Azure AD, Okta Universal Directory) 
+- Integration with MS AD
+     - aws managed microsoft AD
+     - AWS Managed Microsoft AD with 2-way forest trust with on-premises AD
+     - AD Connector to on-premises AD       
+- Control tower: to automate creation of accounts with organizations through service catalog. 
+     - Preventive – using SCPs (e.g., Disallow Creation of Access Keys for the Root User)
+     - Detective – using AWS Config (e.g., Detect Whether MFA for the Root User is Enabled)
 
 ### Custom Identity Broker Application
 
 - Use only if Identity provider is NOT compatible with SAML 2.0
 - *Disadvantage:* The identity broker must determine appropriate IAM role (with SAML 2.0, the assertion has a role)
-- GetFederationToken
+- Uses STS API _AssumeRole_ or _GetFederationToken_
 
 ### Web Identity Federation - without Cognito (not recommended)
 
@@ -57,27 +72,45 @@ Example Trust Policy:
 
 - Preferred by aws.
 - Can create Roles within Cognito with least privileges.
-- MFA, Data sync and anonymous users support.
+- **Key Advantages**: MFA, Data sync and anonymous users support.
 
 ### Web Identity Federation - IAM Policy
 
 - After identity federation, can identify a user in IAM Policy through variables.
-- Example: cognito- identity.amazonaws.com:sub
+- Example: cognito- identity.amazonaws.com:sub (or) accounts.google.com:sub
 
 
 ## Directory Services
 
+### ADFS (AD Federation Services)
+
+- ADFS provides Single Sign-On across applications
+- SAML across 3rd party: AWS Console, Dropbox, Office365, etc…
+
 ### AWS Managed Microsoft AD
 
 - Enables use of managed Active Directory **in the AWS Cloud**.
+- Establish “trust” connections with your on-premises AD. (I.e. extend on-premises AD)
+- To connect to on-premises AD,  Must establish a Direct Connect (DX) or VPN connection
+- Multi AZ deployment of AD in 2 AZ, # of DC (Domain Controllers) can be increased for scaling
+- Automated Multi-Region replication of your directory
+- For AD Replication, the data can be replicated to an EC2 managed AD & establish trust-relationship with aws managed Microsoft AD.
+
+![AD Replication](../images/ad_replication.png)
 
 ### AD Connector
 
+- Gateway to redirect directory requests to an on-premises AD (via VPN or Direct Connect) 
 - Enables **on-premises** users to access AWS Services via Active Directory.
+- Users are managed **on-premises**
+- Supports MFA
 
 ### Simple AD
 
 - Provides low-scale, low-cost basic Active Directory capability.
+- Cannot be joined with on-premises AD.
+- Supports joining EC2 instances, manage users and groups
+- No trust relationship
 
 ## Scenarios
 
