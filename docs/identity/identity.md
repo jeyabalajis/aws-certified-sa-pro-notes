@@ -102,6 +102,7 @@
 - Resource policies are inline only, not managed.
 - If there is a deny in either of identity or resource policies, the action is denied, otherwise allowed, provided the resource is within an aws account
 - For cross-account, the action must be allowed in both the accounts.
+- For KMS and IAM role trust policies, resources must have a resource-based policy even when the principal and the KMS key or IAM role are in the same account.
 
 ### Effect of resource based policies, identity policies and permissions boundary:
 
@@ -147,10 +148,17 @@ Do not give Example Corp access to an IAM user and its long-term credentials in 
 }  
 ```    
 
+#### Customer Managed vs Inline
+- Customer managed policies are reusable identity-based policies that can be attached to multiple identities. 
+- Customer managed policies are useful when you have multiple principals with identical access requirements. 
+- Inline policies are identity-based policies that are attached to a single principal. 
+- Use AWS managed policies as a starting point, but better move to customer managed policies.
+
 ## Best Practices
 - Use least privilege for maximum security.
 - _Access Advisor_: See permissions granted and when last accessed.
 - _Access Analyzer_: Analyze resources that are shared with external entity.
+- Use SCP and Permission Boundaries to *control access*. They **DO NOT** provice access, but rather control.
 
 ### Mandate MFA for Cross-account assume role
 ```json
