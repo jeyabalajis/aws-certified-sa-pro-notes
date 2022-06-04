@@ -12,6 +12,10 @@
 - Microservices on AWS
 - AWS: Overview of the Security Process
 - Using AWS for Disaster Recovery
+- [Security White Paper](https://docs.aws.amazon.com/whitepapers/latest/introduction-aws-security/introduction-aws-security.pdf)
+
+## Best Practices
+- [Best Practices for Security, Identity and Compliance](https://aws.amazon.com/architecture/security-identity-compliance/?cards-all.sort-by=item.additionalFields.sortDate&cards-all.sort-order=desc&awsf.content-type=*all&awsf.methodology=*all)
 
 > The exam tests reading comprehension heavily. How you can *solve for the ask* is key.
 
