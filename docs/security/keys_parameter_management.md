@@ -24,6 +24,11 @@
 > You can configure your own CloudHSM cluster and authorize AWS KMS to use it as a dedicated key store for your keys rather than the default AWS KMS key store.
 KMS keys that are generated in your custom key store never leave the HSMs in the CloudHSM cluster in plaintext and all AWS KMS operations that use those keys are only performed in your HSMs.
 
+### RDS Security
+-  KMS encryption at rest for underlying EBS volumes / snapshots
+- Can copy an un-encrypted RDS snapshot into an encrypted one
+- Transparent Data Encryption (TDE) for Oracle and SQL Server
+
 ## SSM Parameter store ($)
 - Secure storage for configuration and secrets
 - Optional seamless encryption using KMS.

@@ -21,6 +21,7 @@ nav:
   - Security:
       - CloudTrail: security/cloudtrail.md
       - Keys and Parameters Management: security/keys_parameter_management.md
+      - Mitigate DDoS Attacks: security/ddos_attacks_mitigation.md
   - Exam Preparation:
       - Exam Prep: exam_prep/exam_prep.md
   - Networking:
