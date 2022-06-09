@@ -13,7 +13,8 @@
 ## Application Layer Defence
 - Leverage both CloudFront and AWS WAF to help defend against application layer DDoS attacks
 - CloudFront - cache static content, prevent non-web traffic from reaching your origin, automatically close connections from slow-reading/slow-writing attackers
-- AWS WAF - Filter and block requests using web access control lists (ACLs)
+- AWS WAF - Filter and block requests using web access control lists (ACLs). 
+- WAF is NOT for DDoS protection. But can be used in conjunction with ALB, API Gateway (Regional or Edge) and CloudFront (Edge)  
 - Allow or block based on URI, query string, HTTP method or Headers  
 - To block attacks based on IP address reputation, you can create rules using IP match conditions or use Managed Rules for AWS WAF offered by sellers in the AWS Marketplace
 - Use AWS Firewall Manager to centrally configure and manage security rules, such as AWS Shield Advanced protections and AWS WAF rules, across your organization.
