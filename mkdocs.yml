@@ -30,5 +30,7 @@ nav:
       - EBS: storage/ebs.md
       - EFS: storage/efs.md
       - S3: storage/s3.md
+      - CloudFront: cloudfront.md
+      - ElastiCache: elasticache.md
   - Exam Preparation:
       - Exam Prep: exam_prep/exam_prep.md
