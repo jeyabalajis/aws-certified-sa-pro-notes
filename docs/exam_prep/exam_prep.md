@@ -40,12 +40,10 @@
 
 ## Practice Exams
 - [Tutorials DOJO Cheatsheets](https://tutorialsdojo.com/aws-cheat-sheets/)
+- [Jon Bonso’s practice exams](https://www.udemy.com/course/aws-solutions-architect-professional-practice-exams-amazon/) 
+- [Braincert](https://www.braincert.com/) 
+- [Blog](https://blog.dataminded.com/hooray-im-an-aws-certified-pro-architect-now-what-89f4d8b22596) 
+- [Skill set pro](https://skillsetpro.com)
 
-[Jon Bonso’s practice exams](https://www.udemy.com/course/aws-solutions-architect-professional-practice-exams-amazon/) 
-
-[Braincert](https://www.braincert.com/) 
-
-
-[Blog](https://blog.dataminded.com/hooray-im-an-aws-certified-pro-architect-now-what-89f4d8b22596) 
-
-[Skill set pro](https://skillsetpro.com)
+## Well-Architected Pillars
+- [Performance Pillar](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html)
