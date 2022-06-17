@@ -26,6 +26,9 @@ nav:
       - Inspector & Config: security/inspector_config.md
   - Networking:
       - Hybrid Networking: network/hybrid_networking.md
+      - VPC: network/vpc.md
+      - Route 53: network/route53.md
+      - CloudFront: network/CloudFront.md
   - Storage:
       - EBS: storage/ebs.md
       - EFS: storage/efs.md
