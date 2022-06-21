@@ -20,7 +20,7 @@
 2. You must manage these instances yourself (failover, recovery)
 3. SSM Session Manager is a more secure way to remote control without SSH
 
-### AWS PrivateLink
+### AWS PrivateLink (VPC Endpoint Service)
 1. You do not need to use an internet gateway, NAT device, public IP address, AWS Direct Connect connection, or AWS Site-to-Site VPN connection to allow communication with the service from your private subnets.
 2. Use Cases:
     - Connect to other aws services (hosted in a separate VPC)
@@ -28,7 +28,25 @@
     - Connect to an AWS Marketplace partner service
 3. Endpoint services that are hosted by service providers.
 4. Service consumers create interface VPC endpoints to connect to the endpoint services (created in service provider account)
-5. You can configure Amazon Route 53 to route domain traffic to a VPC endpoint. 
+5. You can configure Amazon Route 53 to route domain traffic to a VPC endpoint.
+6. If the NLB is in multiple AZ, and the ENI in multiple AZ, the solution is fault tolerant!
+7. NLB on the service provider side and ENI on the service consumer side. 
+
+#### Interface endpoint
+
+1. An elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported AWS service, endpoint service, or AWS Marketplace service.
+2. Leverage security groups for security
+3. Uses Private DNS
+4.  Interface can be accessed from Direct Connect and Site-to-Site VPN, through intra-region VPC peering connections from Nitro instances, and through inter-region VPC peering connections from any type of instance.
+
+#### VPC Endpoint policies
+- Does not replace IAM Policies or resource based policies.
+- use aws:SourceVpc in S3 bucket policies to allow access only from endpoint (more secure) 
+
+#### Gateway Endpoint
+1. Works only for S3 and DynamoDB
+2. Gateway is defined at VPC Level and must update route table entries
+3. Gateway endpoint **cannot** be extended out of a VPC (VPN, DX, TGW, peering)
 
 ### Transit Gateway
 - Works with Direct Connect Gateway, VPN connections
@@ -41,6 +59,29 @@
 > With Transit Gateway, communication between VPCs through NAT Gateway can be denied 
 >& outbound communication to internet from VPCs can be routed through Transit Gateway, which in turn routes all traffic to Internet Gateway.  
 
-### VPC Endpoint policies
-- Does not replace IAM Policies or resource based policies.
-- use aws:SourceVpc in S3 bucket policies to allow access only from endpoint (more secure) 
+### Site-to-Site VPN
+
+1. Setup a software or hardware VPN appliance to your on-premises network.
+2. On-premises VPN must be accessible through public IP.
+3. Customer Gateway on the data center side, Virtual Gateway on aws side
+4. Can use Global Accelerator for worldwide networks.  
+5. An accelerated Site-to-Site VPN connection (accelerated VPN connection) uses AWS Global Accelerator to route traffic from your on-premises network to an AWS edge location that is closest to your customer gateway device.
+6. Static routing to allow bi-directional traffic. Use BGP (Border Gateway Protocol) for dynamic routing.
+7. The cost of a VPN is very less when compared with AWS Direct Connect. Also, there is an option of VPN per connection hour pricing which is not available with Direct Connect.
+8. AWS VPN CloudHub can connect upto 10 Customer Gateway for a single virtual gateway. The traffic goes through public network only.
+9. Can be a failover connection between your on-premises locations
+10. VPN to multiple VPC: Direct Connect is preferred since it has direct connect gateway.
+
+### Direct Connect
+- Provides a dedicated private connection from a remote network to your VPC
+- Dedicated connection must be setup between your DC and AWS Direct Connect locations
+- More expensive than running a VPN solution
+- Private access to AWS services through VIF
+- Bypass ISP, reduce network cost, increase bandwidth and stability
+- Not redundant by default (must setup a failover DX or VPN)
+- Dedicated connections: Lead times are often longer than 1 month to establish a new connection, but offers upto 100 Gbps
+- Hosted connections: upto 10 Gbps from partners
+- **Data in transit is not encrypted but is private**
+- AWS Direct Connect + VPN provides an IPsec-encrypted private connection (complicated to setup)
+- LAG: Get increased speed and failover by summing up existing DX connections into a logical one (up to 4 can be aggregated)
+- If you want to setup a Direct Connect to one or more VPC in many different regions (same/cross account), you must use a Direct Connect Gateway
