@@ -28,4 +28,7 @@
 ### Database Migration service
 - Supports On-premises to aws, aws to aws and aws to on-premises
 - Works with various database technologies (Oracle, MySQL, DynamoDB, etc..)
--        
+
+### Best Practices
+> Real-time indexing of DynamoDB objects into Elastic Search: Can be accomplished by dynamodb streams - Kinesis Data Streams - Kinesis Data Firehose - Elastic Search/Open Search.
+> Aurora maximum capacity is 128 TB. For unlimited storage, choose DynamoDB.
