@@ -38,3 +38,10 @@
 - Finally, Amazon S3 is an object store good at storing vast numbers of backups or user files.
 - EFS is the most expensive (3x of gp2 pricing) and available across multiple instances.
 - S3 - typical for huge, long term storage. Glacier for cold storage.
+
+### Best Practices
+> To get additional IOPS performance on a gp2 EBS Volume, simply increase the storage size.
+> POSIX and on-premise is supported by EFS; this works on-premise when you connect through Direct Connect or Site-to-Site VPN. 
+> Storage Gateway Volume connects with S3, which is an object store.
+> S3 Event vs CloudWatch event. S3 Event is the fastest.
+> SSD - IOPs is the metric. HDD - Throughput is the metric. io2 block express - sub-millisecond latency.
