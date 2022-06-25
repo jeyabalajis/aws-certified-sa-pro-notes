@@ -19,6 +19,7 @@
 - By default, there is a soft limit of 350 ENIs per region. If this limit is reached then invocations of VPC-enabled functions will be throttled. 
 - Which is why you should always ask for a limit raise for ENIs whenever you ask for a concurrency raise for Lambda. 
 - it’s recommended that you create dedicated subnets with large IP ranges for your Lambda functions.
+- In Lambda, more RAM means better vCPU. **There is no specific config for CPU**
 
 > “Don’t put your Lambda function in a VPC unless you have to”!
 
@@ -26,7 +27,11 @@
 - To ensure connection reuse for short-lived/infrequently invoked functions, 
 - we recommend that you use TCP keep-alive for connections that were created during your function initialization, to avoid creating new connections for subsequent invokes.
 
-- Lambda – Asynchronous Invocation: S3, SNS, CloudWatch Events
+### Asynchronous processing
+> Lambda – Asynchronous Invocation: S3, SNS, CloudWatch Events
+> Configure a dead letter queue (DLQ) on AWS Lambda to give you more control over message handling for all asynchronous invocations, including those delivered via AWS events (S3, SNS, IoT, etc).
+> To invoke a function asynchronously, set the invocation type parameter to Event.
+> Lambda allows configuration of destinations for asynchronous invocation.
 
 ### Lambda Event Source Mapping:
 
