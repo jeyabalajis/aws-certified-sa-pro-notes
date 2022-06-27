@@ -24,3 +24,13 @@ This type of endpoint acts like a regional endpoint, but has an AWS-managed Clou
 
 > Lambda@Edge, can handle 1000s of requests per second. Deployed at the Regional Edge Cache. Lambda@Edge can be used as a global application that invokes lambda & connects with DynamoDB and cache data.
 
+## CloudFront vs Global Accelerator
+- Global accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP.
+- Also good for HTTP use cases that require static IP addresses
+- CloudFront uses multiple sets of dynamically changing IP addresses while Global Accelerator will provide you a set of static IP addresses as a fixed entry point to your applications.
+
+> CloudFront uses the edge location to cache, while GA uses the edge location to find the optimal path to the origin.
+
+Global Accelerator Use Case:
+- For example, you have a banking application that is scattered through multiple AWS regions and low latency is a must. 
+- Global Accelerator will route the user to the nearest edge location then route it to the nearest regional endpoint where your applications are hosted. 
