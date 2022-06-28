@@ -109,4 +109,5 @@ typically between 250 MB/s and 400 MB/s
 - A fully managed service for running fault injection experiments on AWS workloads
 - Supports the following AWS services: EC2, ECS, EKS, RDS
 
+![image](https://user-images.githubusercontent.com/15995686/176113768-3cf28d3a-9138-4a54-b7dd-c887f2f6aecb.png)
 
