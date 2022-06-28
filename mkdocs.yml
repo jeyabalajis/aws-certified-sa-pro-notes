@@ -33,7 +33,15 @@ nav:
       - EBS: storage/ebs.md
       - EFS: storage/efs.md
       - S3: storage/s3.md
-      - CloudFront: cloudfront.md
-      - ElastiCache: elasticache.md
+      - CloudFront: storage/cloudfront.md
+      - ElastiCache: storage/elasticache.md
+  - Migration:
+      - Migration: migration/migration.md
+  - Computing:
+      - EC2: computing/ec2.md
+      - ECS & Lambda: computing/ecs_lambda.md
+      - Data Management: computing/data_management.md
+      - ELB & API Gateway: computing/elb_apigw_appsync.md
+      - Auto-Scaling: computing/autoscaling.md
   - Exam Preparation:
       - Exam Prep: exam_prep/exam_prep.md

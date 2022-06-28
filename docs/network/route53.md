@@ -26,6 +26,12 @@
 - Geo-location routing lets you choose the resources that serve your traffic based on the geographic location of your users, meaning the location that DNS queries originate from. 
 - For example, you might want all queries from Europe to be routed to an ELB load balancer in the Frankfurt region.
 
+## Hosted Zones
+> Health check of private hosted zones can be done through Cloud Watch Metric and Cloud Watch Alarms.
+> Health check for databases: They need to either be connected to CloudWatch Alarms or talk through an HTTP enabled application as a proxy to checking the health of your RDS database
+> If private hosted zone has to be shared with another account, VPC Peering must be in place, and perform associate-vpc-with-hosted-zone.
+
+
 ## CNAME vs Alias Record
 - Unlike a CNAME record, you can create an alias record at the top node of a DNS namespace, also known as the zone apex.
 - You can't create a CNAME record that has the same name as the hosted zone (the zone apex). This is true both for hosted zones for domain names (example.com) and for hosted zones for subdomains (zenith.example.com).
