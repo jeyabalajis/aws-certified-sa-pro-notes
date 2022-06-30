@@ -65,6 +65,10 @@ Note that it cannot convert CSV to Parquet automatically, so be careful with the
 
 > If real-time flush from Kinesis Data Streams to S3 is needed, use Lambda
 
+> Amazon Kinesis agent is a standalone Java software application that offers an easy way to collect and send data to Kinesis Data Firehose. 
+> The agent continuously monitors a set of files and sends new data to your Kinesis Data Firehose delivery stream. 
+> The agent handles file rotation, checkpointing, and retry upon failures.
+
 ### Glue vs Firehose:
 
 - Glue ETL provides an easy option to automatically generate ETL scripts and run the script as a scheduled job.  
@@ -142,7 +146,7 @@ For large files, you would also need to chunk into many messages when adding to 
 (use Athena if the queries are sporadic instead)
 
 > You can configure Amazon Redshift to automatically copy snapshots 
-(automated or manual) of a cluster to another AWS Region
+(automated or manual) of a cluster to another AWS Region through feature **Enable Cross-Region Snapshots**
 
 ### DocumentDB
 
