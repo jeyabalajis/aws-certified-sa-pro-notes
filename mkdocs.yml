@@ -43,5 +43,7 @@ nav:
       - Data Management: computing/data_management.md
       - ELB & API Gateway: computing/elb_apigw_appsync.md
       - Auto-Scaling: computing/autoscaling.md
+  - Data Engineering:
+      - Data Engineering: data_engineering/data_engineering.md
   - Exam Preparation:
       - Exam Prep: exam_prep/exam_prep.md
