@@ -24,6 +24,10 @@
 - Use Aurora multi-master if immediate failover is required for Write node (HA)
         - every node does R/W instead of only one master node.
         
+
+> Before you can create an Aurora MySQL DB cluster that is a cross-Region read replica, 
+>you must turn on binary logging on your source Aurora MySQL DB cluster. 
+>Cross-region replication for Aurora MySQL uses MySQL binary replication to replay changes on the cross-Region read replica DB cluster.
         
 ### Database Migration service
 - Supports On-premises to aws, aws to aws and aws to on-premises

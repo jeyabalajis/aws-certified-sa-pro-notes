@@ -34,3 +34,11 @@ This type of endpoint acts like a regional endpoint, but has an AWS-managed Clou
 Global Accelerator Use Case:
 - For example, you have a banking application that is scattered through multiple AWS regions and low latency is a must. 
 - Global Accelerator will route the user to the nearest edge location then route it to the nearest regional endpoint where your applications are hosted. 
+
+## CloudFront Signed URL
+
+- To create signed URLs or signed cookies, you need a signer. 
+- A signer is either a trusted key group that you create in CloudFront, or an AWS account that contains a CloudFront key pair. 
+- We recommend that you use trusted key groups with signed URLs and signed cookies.
+
+> S3 cannot be used as a signer for CloudFront. 

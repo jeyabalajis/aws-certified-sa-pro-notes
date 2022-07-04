@@ -45,7 +45,12 @@ nav:
       - Auto-Scaling: computing/autoscaling.md
   - Data Engineering:
       - Data Engineering: data_engineering/data_engineering.md
+  - Databases:
+      - RDS: databases/rds.md
+      - DynamoDB: databases/dynamodb.md
   - Cost Control:
       - Cost Control: cost_control/cost_control.md
+  - Logging:
+      - Logging: logging/logging.md
   - Exam Preparation:
       - Exam Prep: exam_prep/exam_prep.md
