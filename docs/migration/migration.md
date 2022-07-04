@@ -111,3 +111,18 @@ typically between 250 MB/s and 400 MB/s
 
 ![image](https://user-images.githubusercontent.com/15995686/176130733-6d0ed710-ee76-4b08-976e-845a6497669d.png)
 
+### Server Migration Service (SMS)
+
+We recommend using AWS Server Migration Service (SMS) to migrate VMs from a vCenter 
+environment to AWS. SMS automates the migration process by replicating on-premises 
+VMs incrementally and converting them to Amazon machine images (AMIs). You can 
+continue using your on-premises VMs while migration is in progress. For more information 
+about AWS SMS, see AWS Server Migration Service.
+
+If any of the following are true, you should consider using AWS SMS:
+• You are using vCenter 6.5 Server.
+• You want to specify BYOL licenses during migration.
+• You are interested in migrating VMs to Amazon EC2.
+• You want to use incremental migration.
+
+

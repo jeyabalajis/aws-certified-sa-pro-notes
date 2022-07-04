@@ -2,6 +2,9 @@
 
 Amazon GuardDuty is a threat detection service that provides you with an accurate and easy way to continuously monitor and protect AWS accounts and workloads.
 
+> GuardDuty analyzes continuous metadata streams generated from your account and network activity found in AWS CloudTrail Events, Amazon Virtual Private Cloud (VPC) Flow Logs, and domain name system (DNS) Logs. 
+>GuardDuty also uses integrated threat intelligence such as known malicious IP addresses, anomaly detection, and machine learning (ML) to more accurately identify threats.
+
 ## Reconnaissance: 
 Activity suggesting reconnaissance by an attacker, such as unusual API activity, intra-VPC port scanning, unusual failed login request patterns, or unblocked port probing from a known bad IP.
 
@@ -16,3 +19,9 @@ Activity indicating a bucket compromise, such as suspicious data access patterns
 
 ### Typical use cases
 - GuardDuty can detect signs of account compromise, such as AWS resource access from an unusual geo-location at an atypical time of day.
+
+> AWS CloudTrail Management Event analysis: GuardDuty continuously analyzes CloudTrail management events, monitoring all access and behavior of your AWS accounts and infrastructure. CloudTrail management event analysis is charged per 1,000,000 events per month and pro-rated.
+
+> AWS CloudTrail S3 Data Event analysis: GuardDuty continuously analyzes CloudTrail S3 data events, monitoring access and activity of all your Amazon S3 buckets. CloudTrail S3 data event analysis is charged per 1,000,000 events per month and is pro-rated.
+
+> VPC Flow Log and DNS Log analysis: GuardDuty continuously analyzes VPC Flow Logs and DNS requests and responses to identify malicious, unauthorized, or unexpected behavior in your AWS accounts and workloads. Flow log and DNS log analysis is charged per Gigabyte (GB) per month. Flow log and DNS log analysis is offered with tiered volume discounts.

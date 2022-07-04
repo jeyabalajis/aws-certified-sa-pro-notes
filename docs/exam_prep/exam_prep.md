@@ -48,3 +48,11 @@
 ## Well-Architected Pillars
 - [Performance Pillar](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html)
 - [Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html)
+
+## Sub-domains
+
+### Design for Organizational Complexity
+1. Cross-account authentication and access strategies
+2. Networks: Hybrid virtual private network (VPN) connections, storage gateways, and virtual private cloud (VPC) endpoints
+3. Multi-account AWS environments:  multi-account AWS environments, billing strategies for multiple accounts and policy based central management (AWS Organizations)
+

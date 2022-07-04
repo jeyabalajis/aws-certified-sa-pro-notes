@@ -41,3 +41,29 @@
 > When you use an alias record to route traffic to an AWS resource, Route 53 automatically recognizes changes in the resource. 
 > For example, suppose an alias record for example.com points to an ELB load balancer at lb1-1234.us-east-2.elb.amazonaws.com. 
 > If the IP address of the load balancer changes, Route 53 automatically starts to respond to DNS queries using the new IP address.
+
+## Hosted Zone and Health Checks
+
+> A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain, such as example.com, and its subdomains (acme.example.com, zenith.example.com).
+
+### Health checks:
+- Health checks that monitor an endpoint
+- Health checks that monitor other health checks (calculated health checks)
+- Health checks that monitor CloudWatch alarms
+
+> Route 53 health checkers can’t access private endpoints.
+
+Use case:  RDS multi-region failover (Promote Read Replica)
+- Use health endpoint (or) CloudWatch Alarms
+- Create an CW event out of health checks (or) push to SNS Topic
+- Lambda function to update DNS Records in Route 53
+
+DNS Firewall is a feature of Route53 Resolver.
+DNS exfiltration can happen when a bad actor compromises an application instance in your VPC and then uses DNS lookup to send data out of the VPC to a domain that they control.
+With DNS Firewall, you can monitor and control the domains that your applications can query.
+DNS Firewall is a feature of Route 53 Resolver and doesn't require any additional Resolver setup to use.
+
+> **DNSSEC validation only applies to public signed names in Amazon Route 53, and not to forwarded zones.**
+
+
+

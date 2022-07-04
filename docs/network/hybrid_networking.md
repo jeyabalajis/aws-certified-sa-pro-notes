@@ -21,6 +21,8 @@
     - A transit gateway when you have multiple VPCs in the same Region
     - A virtual private gateway
 
+> **AWS Managed VPN can be combined with Direct Connect Gateway to provide an IPSEC-encrypted private connection**
+
 ## Transit Gateway
 - AWS Transit Gateway connects your Amazon Virtual Private Clouds (VPCs) and on-premises networks through a central hub. Your data is automatically encrypted and never travels over the public internet.
 - A route table includes dynamic and static routes that decide the next hop based on the destination IP address of the packet.

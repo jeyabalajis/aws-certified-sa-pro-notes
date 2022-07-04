@@ -14,6 +14,8 @@
 - Creating your own KMS key gives you more control than you have with AWS managed KMS keys.
 - You can schedule a AWS KMS key and associated metadata that you created in AWS KMS for deletion, with a configurable waiting period from 7 to 30 days.
 
+> **KMS does not protect data in-transit!**
+
 ### Key Material
 - The key material for a KMS key is generated within hardware security modules (HSMs) managed by AWS KMS. 
 - Alternatively, you can import key material from your own key management infrastructure and associate it with a KMS key. 

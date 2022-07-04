@@ -169,6 +169,15 @@ For large files, you would also need to chunk into many messages when adding to 
 - Supports CSV, JSON, Parquet, ORC, etc…
 - Queries are logged in CloudTrail (which can be chained with CloudWatch logs & used with metrics filters)
 
+## AWS Batch
+
+> We can use Multi-node parallel jobs in Batch to run large-scale, tightly coupled, high performance computing applications and distributed GPU model training without the need to launch, configure, and manage Amazon EC2 resources directly
+
+## Amazon EMR
+
+> EMR allows us to run Hive, which has a direct connector against DynamoDB
 
 
+## Redshift
 
+> Redshift supports automated backups and auto cross-region copy.

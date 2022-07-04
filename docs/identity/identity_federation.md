@@ -122,4 +122,13 @@ A user portal for logins and MFA is required for easy access and added security.
 
 > Use AD Connector (User Authentication) and SSO (User Access).
 
-## References
+## Best Practices and Gotchas
+
+- Ability to create and manage AWS accounts via the AWS Management Console and API.
+- Restricting the usage of AWS services per AWS account with a Service Control Policy (SCP).
+
+> AWS CloudFormation Stack Sets can be used to deploy your Infrastructure as Code templates to multiple/all AWS accounts within your organization.
+
+
+
+
