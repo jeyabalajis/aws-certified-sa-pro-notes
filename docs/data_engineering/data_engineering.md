@@ -120,6 +120,10 @@ For large files, you would also need to chunk into many messages when adding to 
 - Compute Trade-Offs: One big cluster vs many smaller ones? Long running vs transient?
 - Instance Configuration: Uniform Instance Groups (has auto-scaling) vs. Instance Fleet (no auto-scaling)
 
+> On demand pricing for master and core nodes is ideal for clusters that run periodically.
+> Scheduled Reserved may work better in cases where the task runs for more than 8 hours.
+
+
 ### Glue
 
 - MapReduce and Apache Spark provide a protocol of data processing and node task distribution and management. 
