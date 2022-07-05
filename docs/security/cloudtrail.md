@@ -23,6 +23,10 @@
 - Cloudtrail delivery to Cloudwatch logs. Can use metric filters to analyze occurrences and anomalies.
 - S3 storage - can be used for long term storage, cross-account delivery, logs integrity.
 
+### CloudTrail log file integrity:
 
+When you enable log file integrity validation, CloudTrail creates a hash for every log file that it delivers. Every hour, CloudTrail also creates and delivers a file that references the log files for the last hour and contains a hash of each. This file is called a digest file.
 
+CloudTrail signs each digest file using the private key of a public and private key pair. After delivery, you can use the public key to validate the digest file. CloudTrail uses different key pairs for each AWS region.
 
+> For log file integrity use cases, use CloudTrail. Glacier Vault with Vault lock may also be an option.
