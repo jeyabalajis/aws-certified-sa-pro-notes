@@ -52,12 +52,23 @@
 ## Sub-domains
 
 ### Design for Organizational Complexity
+
 1. Cross-account authentication and access strategies
 2. Networks: Hybrid virtual private network (VPN) connections, storage gateways, and virtual private cloud (VPC) endpoints
 3. Multi-account AWS environments:  multi-account AWS environments, billing strategies for multiple accounts and policy based central management (AWS Organizations)
 
 ### New Solutions
+
 1. Implementation strategies for reliability requirements
 2. Ensuring business continuity
 3. Meeting performance objectives
+4. Security requirements and controls
+5. Deployment strategies for business requirements
+
+### Migration Planning
+
+1. Existing workloads and processes for potential migration to the cloud
+2. Migration tools or services for new and migrated solutions based on detailed AWS knowledge
+3. Strategies for migrating existing on-premises workloads to the cloud
+4. New cloud architectures for existing solutions
 
