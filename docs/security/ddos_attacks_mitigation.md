@@ -10,6 +10,8 @@
 - Be ready to scale – leverage AWS Auto Scaling
 - Separate static resources (S3 / CloudFront) from dynamic ones (EC2 / ALB)
 
+> Route 53 may prevent disruption, but does not stop DDoS attacks.
+
 ## Application Layer Defence
 - Leverage both CloudFront and AWS WAF to help defend against application layer DDoS attacks
 - CloudFront - cache static content, prevent non-web traffic from reaching your origin, automatically close connections from slow-reading/slow-writing attackers
@@ -31,6 +33,10 @@
 - Application Load Balancer blocks many common DDoS attacks, such as SYN floods or UDP reflection attacks, protecting your application from the attack
 - You can use AWS Shield Advanced to configure DDoS protection for Elastic IP addresses, when NLB is used - since NLB will not absorb attacks. 
 - AWS edge locations provide additional layer of security (CloudFront, Global Accelerator, and Amazon Route 53)
+
+> WAF vs. NACL (or) Security Groups: WAF is an excellent choice for filtering out malicious requests, but takes time. NACL is _quick and easy_ and can implement DENY. Security Groups implements *ONLY ALLOW*.
+
+> For blocking a known set of malicious IPs, NACL is the easiest and quickest option.
 
 ## Protection across multiple accounts
 - When managing AWS Shield Advanced protected resources in multiple accounts, you can set up centralized monitoring by using AWS Firewall Manager and AWS Security Hub. 
