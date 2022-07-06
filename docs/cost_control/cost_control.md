@@ -17,6 +17,8 @@
 	- Ability to set CloudWatch alarms when reaching limits
 	- Programmatic Access using AWS Support API
 - Recommendation on Cost Optimization & Recommendations, and Service Limits
+- AWS Basic Support and AWS Developer Support customers can access core security checks and all checks for service quotas.
+- AWS Business Support and AWS Enterprise Support customers can access all checks, including cost optimization, security, fault tolerance, performance, and service quotas.
 
 > Trsuted Advisor cannot check for S3 objects that are public inside of your bucket! Use CloudWatch Events / S3 Events instead.
 
