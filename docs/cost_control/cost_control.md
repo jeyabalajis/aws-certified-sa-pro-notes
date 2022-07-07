@@ -5,6 +5,13 @@
 - Cost Allocation Tags just appear in the Billing Console
 - Takes up to 24 hours for the tags to show up in the report
 
+> A tag is a label that you or AWS assigns to an AWS resource. 
+>Each tag consists of a key and a value. A key can have more than one value. 
+>You can use tags to organize your resources, and cost allocation tags to track your AWS costs on a detailed level. 
+>After you activate cost allocation tags, AWS uses the cost allocation tags to organize your resource costs on your cost allocation report, to make it easier for you to categorize and track your AWS costs.
+
+[Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html?ref=wellarchitected)
+
 ## AWS Tag Editor
 
 - Allows you to manage tags of multiple resources at once
@@ -52,3 +59,11 @@
 
 - Choose an optimal Savings Plan (to lower prices on your bill)
 - Forecast usage up to 12 months based on previous usage
+
+## Cost Management Best Practices
+- Only allow specific groups or teams to deploy chosen AWS resources.
+- Create policies for each environment.
+- Require tags in order to instantiate resources.
+- Monitor and send alerts or shut down instances that are improperly tagged.
+- Use CloudWatch to send alerts when billing thresholds are met.
+- Analyze spend using AWS or partner tools.
