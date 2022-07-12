@@ -58,6 +58,8 @@ Example Trust Policy:
      - Preventive – using SCPs (e.g., Disallow Creation of Access Keys for the Root User)
      - Detective – using AWS Config (e.g., Detect Whether MFA for the Root User is Enabled)
 
+> AWS SSO supports single sign-on to business applications through web browsers only.
+
 ### Custom Identity Broker Application
 
 - Use only if Identity provider is NOT compatible with SAML 2.0

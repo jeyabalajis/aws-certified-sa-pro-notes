@@ -6,7 +6,9 @@
 > CNAME: Points a hostname to any other hostname. Only for non-root domain.
 > You cannot set an ALIAS record for an EC2 DNS name
 
-
+> For EC2 instances, always use a Type A Record without an Alias. 
+>For ELB, Cloudfront and S3, always use a Type A Record with an Alias 
+>For RDS, always use the CNAME Record with no Alias.
 
 ## Routing Internet Traffic to AWS Resources
 - Route traffic to an Amazon Virtual Private Cloud interface endpoint by using your domain name
@@ -75,5 +77,29 @@ DNS Firewall is a feature of Route 53 Resolver and doesn't require any additiona
 
 > **DNSSEC validation only applies to public signed names in Amazon Route 53, and not to forwarded zones.**
 
+## Associate Route53 private hosted zone with a VPC in a different account
+
+1. Authorize the association between the private hosted zone in Account A and the VPC in Account B. **Perform this in Account A**
+
+```commandline
+aws route53 create-vpc-association-authorization --hosted-zone-id <hosted-zone-id> --vpc VPCRegion=<region>,VPCId=<vpc-id> --region us-east-1
+```
+
+2. Create the association between the private hosted zone in Account A and the VPC in Account B. **Perform this in Account B**
+
+```commandline
+aws route53 associate-vpc-with-hosted-zone --hosted-zone-id <hosted-zone-id> --vpc VPCRegion=<region>,VPCId=<vpc-id> --region us-east-1
+``` 
+
+3. Delete the authorization in account A
+
+```commandline
+aws route53 delete-vpc-association-authorization --hosted-zone-id <hosted-zone-id>  --vpc VPCRegion=<region>,VPCId=<vpc-id> --region us-east-1
+``` 
+
+Amazon EC2 instances in the VPC from Account B can now resolve records in the private hosted zone in Account A.
+
+
+[Route53 private hosted zone](https://aws.amazon.com/premiumsupport/knowledge-center/route53-private-hosted-zone/) 
 
 

@@ -32,6 +32,10 @@
 - Each volume up to 32TB in cached mode (1PB per Gateway)
 - Each volume up to 16 TB in stored mode (512TB per Gateway)
 
+> Cached volume gateway provides you low-latency access to your frequently accessed data but not to the entire data.
+
+> By using stored volumes, you can store your primary data locally, while asynchronously back up that data to AWS. Stored volumes provide your on-premises applications with low-latency access to the entire data sets.
+
 ### Tape Gateway
 - Some companies have backup processes using physical tapes (!)
 - With Tape Gateway, companies use the same processes but in the cloud
@@ -124,5 +128,16 @@ If any of the following are true, you should consider using AWS SMS:
 • You want to specify BYOL licenses during migration.
 • You are interested in migrating VMs to Amazon EC2.
 • You want to use incremental migration.
+
+## Database Migration
+
+When you use AWS SCT and an AWS Snowball Edge device, you migrate your data in two stages. 
+
+- First, you use the AWS SCT to process the data locally and then move that data to the AWS Snowball Edge device. 
+- You then send the device to AWS using the AWS Snowball Edge process, and then AWS automatically loads the data into an Amazon S3 bucket. 
+
+- Next, when the data is available on Amazon S3, you use AWS SCT to migrate the data to Amazon Redshift. 
+- Data extraction agents can work in the background while AWS SCT is closed. You manage your extraction agents by using AWS SCT. 
+- The extraction agents act as listeners. When they receive instructions from AWS SCT, they extract data from your data warehouse.
 
 
