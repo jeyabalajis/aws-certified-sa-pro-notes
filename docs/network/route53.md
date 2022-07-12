@@ -26,6 +26,16 @@
 - Geo-location routing lets you choose the resources that serve your traffic based on the geographic location of your users, meaning the location that DNS queries originate from. 
 - For example, you might want all queries from Europe to be routed to an ELB load balancer in the Frankfurt region.
 
+> Geo-location routing is based on location of the users. On the other hand, use *Geo-proximity routing* when you want to route traffic _based on the location of your resources_ and, optionally, shift traffic from resources in one location to resources in another.
+
+## Multi-value routing
+
+When a client makes a DNS request with multivalue answer routing, Route 53 responds to DNS queries with up to **eight healthy records selected at random for the particular domain name**. These records can each be attached to a Route 53 health check, which helps prevent clients from receiving a DNS response that is not reachable.
+
+> Multi-value answer routing policy may cause the users to be **randomly sent to other healthy regions** that may be far away from the user's location.
+> So, if you want to maintain proximity as much as possible, use failover answer routing policy.
+
+
 ## Hosted Zones
 > Health check of private hosted zones can be done through Cloud Watch Metric and Cloud Watch Alarms.
 > Health check for databases: They need to either be connected to CloudWatch Alarms or talk through an HTTP enabled application as a proxy to checking the health of your RDS database
