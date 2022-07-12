@@ -10,6 +10,7 @@
 - Public virtual interfaces allow for direct routing into AWS’s public services.
 - Key requirement: Your device must support Border Gateway Protocol (BGP) and BGP MD5 authentication.
 
+> To connect to services such as EC2 using just Direct Connect you need to create a private virtual interface. However, if you want to encrypt the traffic flowing through Direct Connect, you will need to use the public virtual interface of DX to create a VPN connection that will allow access to AWS services such as S3, EC2, and other services. Direct Connect in itself does not provide encryption in-transit.
 
 ![image](https://user-images.githubusercontent.com/15995686/173286279-cc5571dc-fdeb-4c36-9836-d8006d5cf648.png)
 
