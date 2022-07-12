@@ -11,3 +11,5 @@
 > Elastic Beanstalk abstracts the finer details and automatically handles all the details such as provisioning an ECS cluster, balancing load, auto-scaling, monitoring, and placing the containers across the cluster.
 
 > ECS provides more control over Elastic BeanStalk
+
+> You can't deploy an application to your on-premises servers using Elastic Beanstalk. This is only applicable to your Amazon EC2 instances. However, CodeDeploy can deploy an application to your on-premises servers.
