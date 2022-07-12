@@ -56,5 +56,7 @@ nav:
       - Logging: logging/logging.md
   - Deployment:
       - Systems Manager: deployment/systems_manager.md
+  - Organizations:
+      - Organizations: organizations/organizations.md
   - Exam Preparation:
       - Exam Prep: exam_prep/exam_prep.md

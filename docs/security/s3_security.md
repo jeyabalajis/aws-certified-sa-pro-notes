@@ -20,3 +20,16 @@
 
 > With SSE-KMS, you manage keys with KMS. with SSE-C, you manage the encryption keys outside of aws. With SSE-S3, aws manages the encryptions keys, and internally uses KMS.
 
+## Macie
+
+- Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover, monitor, and help you protect your sensitive data in Amazon Simple Storage Service (Amazon S3). 
+- Macie automates the discovery of sensitive data, such as personally identifiable information (PII) and intellectual property, to provide you with a better understanding of the data that your organization stores in Amazon S3.
+- Amazon Macie automates the discovery of sensitive data at scale and lowers the cost of protecting your data. 
+- Macie automatically provides an inventory of Amazon S3 buckets including a list of unencrypted buckets, publicly accessible buckets, and buckets shared with AWS accounts outside those you have defined in AWS Organizations. 
+- Then, Macie applies machine learning and pattern matching techniques to the buckets you select to identify and alert you to sensitive data, such as personally identifiable information (PII).
+
+> Integrated with Amazon Event Bridge, which can further integrate with other services such as Step Functions to take automated remediation actions.
+> This can help you meet regulations, such as the Health Insurance Portability and Accountability Act (HIPAA) and General Data Privacy Regulation (GDPR).
+
+
+
