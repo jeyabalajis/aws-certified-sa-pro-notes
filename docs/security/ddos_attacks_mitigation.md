@@ -71,3 +71,32 @@
     - Shield Advanced protecting an AWS Global Accelerator standard accelerator; attached to an Elastic IP address
 - Protect a UDP-based game server against a DDoS attack:
     - Shield Advanced protecting an Amazon EC2 instance attached to an Elastic IP address
+
+### Cloudfront for DDoS
+
+- Persistent TCP connections and variable time-to-live (TTL) can be used to accelerate delivery of content, even if it cannot be cached at an edge location. 
+- This allows you to use Amazon CloudFront to protect your web application, even if you are not serving static content. 
+- Amazon CloudFront only accepts well-formed connections to prevent many common DDoS attacks like SYN floods and UDP reflection attacks from reaching your origin.
+
+> Persistent connections and variable time-to-live (TTL) settings can be used to offload traffic from your origin, even if you are not serving cacheable content. 
+> Use of these CloudFront features reduces the number of requests and TCP connections back to your origin, helping protect your web application from HTTP floods.
+
+### Global accelerator
+
+- Global Accelerator is a networking service that improves availability and performance of users’ traffic by up to 60%. 
+- This is accomplished by ingressing traffic at the edge location closest to your users and routing it over the AWS global network infrastructure to your application, whether it runs in a single or multiple AWS Regions.
+
+> You may require IP addresses that your end users can add to the allow list in their firewalls and are not used by any other AWS customers. In these scenarios you can use Global Accelerator to protect web applications running on Application Load Balancer and in conjunction with AWS WAF to also detect and mitigate web application layer request floods.
+
+### Route 53
+
+- Amazon Route 53 uses techniques such as shuffle sharding and anycast striping, that can help users access your application even if the DNS service is targeted by a DDoS attack.
+
+#### Shuffle Sharding
+
+> With shuffle sharding, each name server in your delegation set corresponds to a unique set of edge locations and internet paths. This provides greater fault tolerance and minimizes overlap between customers. If one name server in the delegation set is unavailable, users can retry and receive a response from another name server at a different edge location.
+
+#### Anycast Striping
+
+> Anycast striping allows each DNS request to be served by the most optimal location, dispersing the network load and reducing DNS latency. This provides a faster response for users. Additionally, Amazon Route 53 can detect anomalies in the source and volume of DNS queries, and prioritize requests from users that are known to be reliable.
+
