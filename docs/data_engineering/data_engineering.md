@@ -17,6 +17,11 @@
 - Data is replicated asynchronously to three AZ
 - Allows data storage, but customers must manage scaling (no auto-scaling)
 
+> Kinesis is best suited for applications that need to process large real-time transactional records and have the ability to consume records in the 
+>same order a few hours later.
+
+> Kinesis provides ability for multiple applications to consume the same stream concurrently. This is the speciality of Kinesis & SQS does not help here. 
+
 #### Kinesis Data throughput Limits
 ##### Writes
 - Writes: A single shard can ingest up to 1 MB of data per second (including partition keys) or 1,000 records per second (i.e. ingestion rate). 
@@ -151,6 +156,9 @@ For large files, you would also need to chunk into many messages when adding to 
 
 > You can configure Amazon Redshift to automatically copy snapshots 
 (automated or manual) of a cluster to another AWS Region through feature **Enable Cross-Region Snapshots**
+
+> Amazon Redshift automatically takes incremental snapshots that track changes to the cluster since the previous automated snapshot. 
+>Automated snapshots retain all of the data required to restore a cluster from a snapshot. You can create a snapshot schedule to control when automated snapshots are taken, or you can take a manual snapshot any time.
 
 ### DocumentDB
 

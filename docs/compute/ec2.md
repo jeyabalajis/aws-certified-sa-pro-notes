@@ -41,3 +41,6 @@
 > Use CloudWatch Alarms for restarting EC2 instances on failed state. StatusCheckFailed_System
 > aws vpc networking mode gives each of your ECS Task a different ENI.
 > Use case: Multiple ECS Services in a single instance: Keep minimum permissions as EC2 instance role. Provide specific IAM Role per each ECS Task in Task Definition.
+
+> If you receive a capacity error when launching an instance in a placement group that already has running instances, stop and start all of the instances in the placement group, and try the launch again. 
+>Starting the instances may migrate them to hardware that has capacity for all of the requested instances.

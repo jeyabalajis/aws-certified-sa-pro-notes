@@ -13,4 +13,10 @@
 4. Availability, durability, and multi-Region fault tolerance
 5. Consistency and conflict resolution (Last-Write-Wins)
 
+## Auto-Scaling
+
+- Amazon DynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns. This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling.
+- When the workload decreases, Application Auto Scaling decreases the throughput so that you don't pay for unused provisioned capacity.
+
+
 
