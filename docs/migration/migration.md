@@ -57,6 +57,16 @@
 - Snowcone: 8 TB Snowball edge storage optimized: 80 TB Snowmobile: < 100 PB
 - Use AWS OpsHub to manage Snow family device
 
+### Snowball Edge Performance 
+
+In general, you can improve the transfer speed from your data source to the device in the following ways. This following list is ordered from **largest to smallest** positive impact on performance:
+
+1. Perform multiple write operations at one time – To do this, run each command from multiple terminal windows on a computer with a network connection to a single AWS Snowball Edge device.
+2. Transfer small files in batches – Each copy operation has some overhead because of encryption. To speed up the process, batch files together in a single archive. When you batch files together, they can be auto-extracted when they are imported into Amazon S3. For more information, see Batching Small Files.
+3. Don't perform other operations on files during transfer – Renaming files during transfer, changing their metadata, or writing data to the files during a copy operation has a negative impact on transfer performance. We recommend that your files remain in a static state while you transfer them.
+4. Reduce local network use – Your AWS Snowball Edge device communicates across your local network. So you can improve data transfer speeds by reducing other local network traffic between the AWS Snowball Edge device, the switch it's connected to, and the computer that hosts your data source.
+5. Eliminate unnecessary hops – We recommend that you set up your AWS Snowball Edge device, your data source, and the computer running the terminal connection between them so that they're the only machines communicating across a single switch. Doing so can improve data transfer speeds.
+
 ### Recommendations:
 - Perform multiple write operations at one time - from multiple terminals
 - Transfer small files in batches – zip up small files until at least 1MB
