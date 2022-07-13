@@ -150,4 +150,18 @@ When you use AWS SCT and an AWS Snowball Edge device, you migrate your data in t
 - Data extraction agents can work in the background while AWS SCT is closed. You manage your extraction agents by using AWS SCT. 
 - The extraction agents act as listeners. When they receive instructions from AWS SCT, they extract data from your data warehouse.
 
+## VM Export / Import
 
+Exporting a VM file based on an Amazon Machine Image (AMI) is useful when you want to deploy a new, standardized instance in your on-site virtualization environment. You can export most AMIs to Citrix Xen, Microsoft Hyper-V, or VMware vSphere.
+
+Use aws ec2 export-image command. The exported file is written to the specified S3 bucket using the following S3 key: prefixexport-ami-id.format (for example, my-export-bucket/exports/export-ami-1234567890abcdef0.ova).
+
+To export from an instance, use the following command:
+
+```
+aws ec2 create-instance-export-task --instance-id instance-id --target-environment vmware --export-to-s3-task file://C:\file.json
+```
+
+```
+aws ec2 export-image --image-id ami-id --disk-image-format VMDK --s3-export-location S3Bucket=my-export-bucket,S3Prefix=exports/
+```
