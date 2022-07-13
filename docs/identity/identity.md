@@ -88,6 +88,8 @@
  
  > The migration from consolidated billing features to all features is one-way. You can't switch an organization with all features enabled back to consolidated billing features only.
 
+> For moving an OU under another OU, create a new OU under the parent, move accounts and delete the current OU.
+
 ### Service Control Policies (SCP)
 - Service-linked roles enable other AWS services to integrate with AWS Organizations and can't be restricted by SCPs
 - SCP must have an explicit Allow (does not allow anything by default)
