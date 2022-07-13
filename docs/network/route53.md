@@ -102,4 +102,9 @@ Amazon EC2 instances in the VPC from Account B can now resolve records in the pr
 
 [Route53 private hosted zone](https://aws.amazon.com/premiumsupport/knowledge-center/route53-private-hosted-zone/) 
 
+## DNS Resolvers
 
+- _Inbound Resolver_: This allows your DNS resolvers to easily resolve domain names for AWS resources such as EC2 instances or records in a Route 53 private hosted zone.
+- _Outbound Resolver_: Resolver conditionally forwards queries to resolvers on your network via this endpoint
+
+> **Conditional forwarding rules** – You create conditional forwarding rules (also known as forwarding rules) when you want to forward DNS queries for specified domain names to DNS resolvers on your network.
