@@ -85,6 +85,8 @@
     - Consolidated Billing across all accounts - single payment method
     - Pricing benefits from aggregated usage (volume discount for EC2, S3…)
     - Reserved Instances (RI) benefits
+ 
+ > The migration from consolidated billing features to all features is one-way. You can't switch an organization with all features enabled back to consolidated billing features only.
 
 ### Service Control Policies (SCP)
 - Service-linked roles enable other AWS services to integrate with AWS Organizations and can't be restricted by SCPs
