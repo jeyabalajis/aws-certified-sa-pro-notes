@@ -86,6 +86,10 @@ typically between 250 MB/s and 400 MB/s
 
 > One useful pattern: Edge (snow device) to S3 to DMS to Target database.
 
+### DMS vs SCT
+> DMS traditionally moves smaller relational workloads (<10 TB) and MongoDB, whereas SCT is primarily used to migrate large data warehouse workloads.
+> DMS supports ongoing replication to keep the target in sync with the source; SCT does not.
+
 ## Disaster Recovery (DR)
 - RPO: Recovery Point Objective - deals with data loss
 - RTO: Recovery Time Objective - deals with time to recover
