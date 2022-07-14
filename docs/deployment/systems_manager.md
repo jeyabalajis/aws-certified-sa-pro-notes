@@ -78,3 +78,9 @@ AWS Systems Manager lets you scan your managed instances for patch compliance an
 AWS Systems Manager collects information about your instances and the software installed on them, helping you to understand your system configurations and installed applications. You can collect data about applications, files, network configurations, Windows services, registries, server roles, updates, and any other system properties.
 
 > Both EC2 instances and on-premise instances are supported.
+
+## Run Command
+
+AWS Systems Manager provides you safe, secure remote management of your instances at scale without logging into your servers, replacing the need for bastion hosts, SSH, or remote PowerShell.
+
+> Bulk changes across instances are supported, by targeting using tag based queries. 
