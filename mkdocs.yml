@@ -58,5 +58,7 @@ nav:
       - Systems Manager: deployment/systems_manager.md
   - Organizations:
       - Organizations: organizations/organizations.md
+  - Disaster Recovery:
+      - Disaster Recovery: disaster_recovery/disaster_recovery.md
   - Exam Preparation:
       - Exam Prep: exam_prep/exam_prep.md
