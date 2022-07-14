@@ -72,3 +72,15 @@
 3. Strategies for migrating existing on-premises workloads to the cloud
 4. New cloud architectures for existing solutions
 
+### Cost Control
+1. Select a cost-effective pricing model for a solution.
+2. Determine which controls to design and implement that will ensure cost optimization.
+3. Identify opportunities to reduce cost in an existing solution.
+
+### Continuous Improvement for Existing Solutions
+1. Troubleshoot solution architectures.
+2. Determine a strategy to improve an existing solution for operational excellence.
+3. Determine a strategy to improve the reliability of an existing solution.
+4. Determine a strategy to improve the performance of an existing solution.
+5. Determine a strategy to improve the security of an existing solution.
+6. Determine how to improve the deployment of an existing solution
