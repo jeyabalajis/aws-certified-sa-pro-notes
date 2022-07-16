@@ -85,3 +85,8 @@
 - AWS Direct Connect + VPN provides an IPsec-encrypted private connection (complicated to setup)
 - LAG: Get increased speed and failover by summing up existing DX connections into a logical one (up to 4 can be aggregated)
 - If you want to setup a Direct Connect to one or more VPC in many different regions (same/cross account), you must use a Direct Connect Gateway
+
+### NAT Gateway
+
+> If you have resources in multiple Availability Zones and they share one NAT gateway, in the event that the NAT gateway’s Availability Zone is down, resources in the other Availability Zones lose internet access.
+
