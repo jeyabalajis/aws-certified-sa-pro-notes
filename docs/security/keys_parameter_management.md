@@ -21,6 +21,21 @@
 - Alternatively, you can import key material from your own key management infrastructure and associate it with a KMS key. 
 - You can also have the key material generated and used in an AWS CloudHSM cluster as a part of the custom key store feature in AWS KMS.
 
+> **Bring your Own Key (BYOK)**: You can use your company HSMs (on-premise) as an independent CMK source and import them to AWS KMS by **creating a CMK with no material and using EXTERNAL as the origin**. 
+
+### Bring your Own Key
+
+- Create a KMS key in AWS KMS that has no key material associated.
+- Download the import wrapping key and import token from KMS.
+- Import the wrapping key provided by KMS into the HSM.
+- Create a 256 bit symmetric key on AWS CloudHSM.
+- Use the imported wrapping key to wrap the symmetric key.
+- Import the symmetric key into AWS KMS using the import token from step 2.
+- Terminate your HSM, which triggers a backup. Delete or leave your cluster, depending on your needs.
+
+![image](https://user-images.githubusercontent.com/15995686/179398384-4969e09c-5c7c-496a-8ece-b3a1b263069a.png)
+
+
 ### Custom Key store
 
 > You can configure your own CloudHSM cluster and authorize AWS KMS to use it as a dedicated key store for your keys rather than the default AWS KMS key store.
