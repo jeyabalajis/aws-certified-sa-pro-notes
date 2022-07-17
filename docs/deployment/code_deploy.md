@@ -23,3 +23,17 @@ Deploying a CodeDeploy application revision to an on-premises instance involves 
 ## Multi-region deployments
 
 > AWS CodeDeploy performs deployments with AWS resources located in the same region. To deploy an application to multiple regions, define the application in your target regions, copy the application bundle to an Amazon S3 bucket in each region, and then start the deployments using either a serial or parallel rollout across the regions.
+
+## Code Deploy options for ECS / Elastic Beanstalk
+
+### Lambda
+
+- Canary
+- Linear
+- All at Once
+
+### EC2
+
+- All at Once
+- Half at Once
+- One at a Time
