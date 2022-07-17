@@ -64,6 +64,14 @@
     - Using a custom routing accelerator, you can leverage the performance benefits of Global Accelerator for your VoIP or gaming applications.
 
 
+## Site to Site VPN
+
+A virtual private gateway is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. You create a virtual private gateway and attach it to the VPC from which you want to create the Site-to-Site VPN connection.
+
+> **Only one virtual private gateway (VGW) can be attached to a VPC at a time.**
+
+
+
 ## Network to Amazon VPC Connectivity Options
 
 ### AWS Direct Connect + VPN
