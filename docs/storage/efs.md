@@ -16,7 +16,9 @@
 - Throughput mode
     - Bursting (1 TB = 50MiB/s + burst of up to 100MiB/s)
     - Provisioned: set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage
-    
+ 
+ > FSx for Lustre file systems can scale to hundreds of GB/s of throughput and millions of IOPS. FSx for Lustre also supports concurrent access to the same file or directory from thousands of compute instances. You use Lustre for workloads where speed matters, such as machine learning, high-performance computing (HPC), video processing, and financial modeling.
+ > For some HPC use cases where there is a need for improving performance, FSx for Lustre may perform better than EFS. 
     
 ### EFS on-premises
 - To access Amazon EFS file systems from on premises, you must have an AWS Direct Connect or AWS VPN connection between your on-premises datacenter and your Amazon VPC.
