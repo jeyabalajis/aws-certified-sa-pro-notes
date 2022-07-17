@@ -43,6 +43,8 @@
 - Does not replace IAM Policies or resource based policies.
 - use aws:SourceVpc in S3 bucket policies to allow access only from endpoint (more secure) 
 
+> To provide aws-only access from EC2 instances to S3 bucket, create S3 Gateway endpoint and set endpoint policy with _SourceVpce_ as a condition.
+
 #### Gateway Endpoint
 1. Works only for S3 and DynamoDB
 2. Gateway is defined at VPC Level and must update route table entries
