@@ -30,6 +30,9 @@
 
 > Geo-location routing is based on location of the users. On the other hand, use *Geo-proximity routing* when you want to route traffic _based on the location of your resources_ and, optionally, shift traffic from resources in one location to resources in another.
 
+> If you have bigger resources in a location, _Geoproximity_ allows you to specify more bias or weight to that location. This is not possible with Geo-Location. 
+> On the other hand, you can restrict users from a region or location with Geo-location routing policy. 
+
 ## Multi-value routing
 
 When a client makes a DNS request with multivalue answer routing, Route 53 responds to DNS queries with up to **eight healthy records selected at random for the particular domain name**. These records can each be attached to a Route 53 health check, which helps prevent clients from receiving a DNS response that is not reachable.
