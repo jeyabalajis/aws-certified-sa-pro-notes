@@ -105,4 +105,13 @@ VPC sharing allows customers to share subnets with other AWS accounts within the
 
 > Essentially, we can now decouple accounts and networks. I expect customers to continue to have multiple VPCs even with VPC sharing. But they can now have fewer, larger, centrally managed VPCs. Highly interconnected apps automatically benefit from this approach.
 
+### Best Practices
 
+- Isolate subnets across child accounts to reduce blast radius. On non-production accounts, share subnets
+- Have dedicated subnets for shared AWS infrastructure components such as VPC interface endpoints, firewall endpoints, and NAT Gateways.
+- Isolate environments (dev, staging, production) and isolate VPCs per each environment
+- Segregate security zones inside a VPC, such as External zone, Customer Zone and Internal Zone, with different permissions
+- For bigger scale, have a separate VPC per each unique security zone.
+- VPC Sharing uses RAM for controlling which subnets are shared with which AWS accounts.
+- Enable fow logs at each VPC that is shared
+- Amazon GuardDuty logs findings on the owner account  
