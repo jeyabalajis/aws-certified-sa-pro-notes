@@ -27,6 +27,8 @@ This type of endpoint acts like a regional endpoint, but has an AWS-managed Clou
 
 > We recommend that you configure your HTTP server to add a Content-Length header to prevent CloudFront from caching partial objects.
 
+> For enabling PCI-DSS compliance on sensitive information, leverage **Field Level Encryption** feature of CloudFront. 
+
 ## CloudFront vs Global Accelerator
 - Global accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP.
 - Also good for HTTP use cases that require static IP addresses
@@ -45,5 +47,12 @@ Global Accelerator Use Case:
 - We recommend that you use trusted key groups with signed URLs and signed cookies.
 
 > S3 cannot be used as a signer for CloudFront.
+
+## Field Level Encryption
+
+- Field-level encryption adds an additional layer of security that lets you protect specific data throughout system processing so that only certain applications can see it.
+- The sensitive information provided by your users is encrypted at the edge, close to the user, and remains encrypted throughout your entire application stack. This encryption ensures that only applications that need the data—and have the credentials to decrypt it—are able to do so.
+
+> To use field level encryption, you origin must support **chunked encoding**
 
     
