@@ -15,12 +15,12 @@
     - Edge to edge routing through an internet gateway not allowed  
 - For edge-to-edge routing and transitive connections, _use Transit Gateway_, which supports more complex routing rules, overlapping CIDR ranges, network-level packet filtering.     
 
-###  Bastion Hosts
+##  Bastion Hosts
 1. SSH into private EC2 instances through a public EC2 instance (bastion host)
 2. You must manage these instances yourself (failover, recovery)
 3. SSM Session Manager is a more secure way to remote control without SSH
 
-### AWS PrivateLink (VPC Endpoint Service)
+## AWS PrivateLink (VPC Endpoint Service)
 1. You do not need to use an internet gateway, NAT device, public IP address, AWS Direct Connect connection, or AWS Site-to-Site VPN connection to allow communication with the service from your private subnets.
 2. Use Cases:
     - Connect to other aws services (hosted in a separate VPC)
@@ -32,25 +32,25 @@
 6. If the NLB is in multiple AZ, and the ENI in multiple AZ, the solution is fault tolerant!
 7. NLB on the service provider side and ENI on the service consumer side. 
 
-#### Interface endpoint
+### Interface endpoint
 
 1. An elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported AWS service, endpoint service, or AWS Marketplace service.
 2. Leverage security groups for security
 3. Uses Private DNS
 4.  Interface can be accessed from Direct Connect and Site-to-Site VPN, through intra-region VPC peering connections from Nitro instances, and through inter-region VPC peering connections from any type of instance.
 
-#### VPC Endpoint policies
+### VPC Endpoint policies
 - Does not replace IAM Policies or resource based policies.
 - use aws:SourceVpc in S3 bucket policies to allow access only from endpoint (more secure) 
 
 > To provide aws-only access from EC2 instances to S3 bucket, create S3 Gateway endpoint and set endpoint policy with _SourceVpce_ as a condition.
 
-#### Gateway Endpoint
+### Gateway Endpoint
 1. Works only for S3 and DynamoDB
 2. Gateway is defined at VPC Level and must update route table entries
 3. Gateway endpoint **cannot** be extended out of a VPC (VPN, DX, TGW, peering)
 
-### Transit Gateway
+## Transit Gateway
 - Works with Direct Connect Gateway, VPN connections
 - Supports IP Multicast (not supported by any other AWS service)
 - Instances in a VPC can access a NAT Gateway, NLB, PrivateLink, and EFS in others VPCs attached to the AWS Transit Gateway (This is not possible with Transit Gateway)
@@ -61,7 +61,7 @@
 > With Transit Gateway, communication between VPCs through NAT Gateway can be denied 
 >& outbound communication to internet from VPCs can be routed through Transit Gateway, which in turn routes all traffic to Internet Gateway.  
 
-### Site-to-Site VPN
+## Site-to-Site VPN
 
 1. Setup a software or hardware VPN appliance to your on-premises network.
 2. On-premises VPN must be accessible through public IP.
@@ -74,7 +74,7 @@
 9. Can be a failover connection between your on-premises locations
 10. VPN to multiple VPC: Direct Connect is preferred since it has direct connect gateway.
 
-### Direct Connect
+## Direct Connect
 - Provides a dedicated private connection from a remote network to your VPC
 - Dedicated connection must be setup between your DC and AWS Direct Connect locations
 - More expensive than running a VPN solution
@@ -88,7 +88,21 @@
 - LAG: Get increased speed and failover by summing up existing DX connections into a logical one (up to 4 can be aggregated)
 - If you want to setup a Direct Connect to one or more VPC in many different regions (same/cross account), you must use a Direct Connect Gateway
 
-### NAT Gateway
+## NAT Gateway
 
 > If you have resources in multiple Availability Zones and they share one NAT gateway, in the event that the NAT gateway’s Availability Zone is down, resources in the other Availability Zones lose internet access.
+
+## VPC Sharing
+
+VPC sharing allows customers to share subnets with other AWS accounts within the same AWS Organization. This is a very powerful concept that allows for a number of benefits:
+
+1. Separation of duties: centrally controlled VPC structure, routing, IP address allocation.
+2. Application owners continue to own resources, accounts, and security groups.
+3. VPC sharing participants can reference security group IDs of each other.
+4. Efficiencies: higher density in subnets, efficient use of VPNs and AWS Direct Connect.
+5. Hard limits can be avoided, for example, 50 VIFs per AWS Direct Connect connection through simplified network architecture.
+5. Costs can be optimized through reuse of NAT gateways, VPC interface endpoints, and intra-Availability Zone traffic.
+
+> Essentially, we can now decouple accounts and networks. I expect customers to continue to have multiple VPCs even with VPC sharing. But they can now have fewer, larger, centrally managed VPCs. Highly interconnected apps automatically benefit from this approach.
+
 

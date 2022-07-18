@@ -55,4 +55,14 @@ Global Accelerator Use Case:
 
 > To use field level encryption, you origin must support **chunked encoding**
 
-    
+> you must create an RSA key pair that includes a public key and a private key. The public key enables CloudFront to encrypt data, and the private key enables components at your origin to decrypt the fields that have been encrypted. You can use OpenSSL or another tool to create a key pair. The key size must be 2048 bits.
+
+[CloudFront Field Level Encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html)
+
+## Viewer Protocol Policy
+
+Choose the protocol policy that you want viewers to use to access your content in CloudFront edge locations:
+
+- HTTP and HTTPS: Viewers can use both protocols.
+- Redirect HTTP to HTTPS: Viewers can use both protocols, but HTTP requests are automatically redirected to HTTPS requests.
+- HTTPS Only: Viewers can only access your content if they're using HTTPS.

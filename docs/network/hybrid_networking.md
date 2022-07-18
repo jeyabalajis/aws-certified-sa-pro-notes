@@ -10,10 +10,12 @@
 - Public virtual interfaces allow for direct routing into AWS’s public services.
 - Key requirement: Your device must support Border Gateway Protocol (BGP) and BGP MD5 authentication.
 
-> To connect to services such as EC2 using just Direct Connect you need to create a private virtual interface. However, if you want to encrypt the traffic flowing through Direct Connect, you will need to use the public virtual interface of DX to create a VPN connection that will allow access to AWS services such as S3, EC2, and other services. Direct Connect in itself does not provide encryption in-transit.
+> To connect to services such as EC2 using just Direct Connect you need to create a private virtual interface. 
+However, if you want to encrypt the traffic flowing through Direct Connect, you will need to use _the public virtual interface of DX to create a VPN connection_ that will allow access to AWS services such as S3, EC2, and other services. Direct Connect in itself does not provide encryption in-transit.
 
 ![image](https://user-images.githubusercontent.com/15995686/173286279-cc5571dc-fdeb-4c36-9836-d8006d5cf648.png)
 
+> If you want a short-term or lower-cost solution, you might consider configuring a hardware VPN as a failover option for a Direct Connect connection. VPN connections are not designed to provide the same level of bandwidth available to most Direct Connect connections. Ensure that your use case or application can tolerate a lower bandwidth if you are configuring a VPN as a backup to a Direct Connect connection.
 
 ## Direct Connect Gateways
 
@@ -71,7 +73,6 @@ A virtual private gateway is the VPN concentrator on the Amazon side of the Site
 > **Only one virtual private gateway (VGW) can be attached to a VPC at a time.**
 
 
-
 ## Network to Amazon VPC Connectivity Options
 
 ### AWS Direct Connect + VPN
@@ -79,6 +80,8 @@ A virtual private gateway is the VPN concentrator on the Amazon side of the Site
 > This solution combines the benefits of the end-to-end secure IPSec connection with low latency 
 >and increased bandwidth of the AWS Direct Connect to provide a more consistent network experience 
 >than internet-based VPN connections.
+
+> AWS Direct Connect public VIF establishes a dedicated network connection between your network to public AWS resources, such as an Amazon virtual private gateway IPsec endpoint.
 
 ### AWS Direct Connect + Transit Gateway
 

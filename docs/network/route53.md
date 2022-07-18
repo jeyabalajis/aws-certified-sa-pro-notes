@@ -40,6 +40,14 @@ When a client makes a DNS request with multivalue answer routing, Route 53 respo
 > Multi-value answer routing policy may cause the users to be **randomly sent to other healthy regions** that may be far away from the user's location.
 > So, if you want to maintain proximity as much as possible, use failover answer routing policy.
 
+## Active-Active vs. Active-Passive
+
+- You configure active-active failover using any routing policy (or combination of routing policies) other than failover
+- You configure active-passive failover using the failover routing policy.
+
+> Use an active-passive failover configuration when you want a primary resource or group of resources to be available the majority of the time and you want a secondary resource or group of resources to be on standby in case all the primary resources become unavailable. 
+
+> You can setup active-passive with weighted routing policy - by tweaking weight of certain targets as zero. However, this may reduce availability since the last healthy resource (with weight 0) may not be able to handle the traffic.
 
 ## Hosted Zones
 > Health check of private hosted zones can be done through Cloud Watch Metric and Cloud Watch Alarms.
