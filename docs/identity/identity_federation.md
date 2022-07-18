@@ -58,7 +58,9 @@ Example Trust Policy:
      - Preventive – using SCPs (e.g., Disallow Creation of Access Keys for the Root User)
      - Detective – using AWS Config (e.g., Detect Whether MFA for the Root User is Enabled)
 
-> AWS SSO supports single sign-on to business applications through web browsers only.
+> **AWS SSO supports single sign-on to business applications through web browsers only.**
+> For mobile apps federated access, Cognito would be a good choice (User Pools for AuthN and Identity Pools for AuthZ). 
+> On rare cases, Web Identity Federation without Cognito may be used, but desist from this, since it entails additional overhead.
 
 ### Custom Identity Broker Application
 
