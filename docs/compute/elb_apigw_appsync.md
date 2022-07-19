@@ -2,20 +2,31 @@
 
 ## ELB
 
+### ALB:
 - ALB vs CLB: ALB supports SNI (Server Name Indication) that allows multiple SSL certificates to be stored.
 - ALB: Load balancing to multiple HTTP applications across machines (target groups) - one more level of indirection before the actual targets are identified.
 - ALB: Load balancing to multiple applications within a container (through dynamic port mapping)
 - ALB: Routing rules for path, header, query string
 - ALB: Health checks are at target group level. Targets can be EC2 instances (auto-scaling group), ECS Service, Lambda functions or private IPs.
+
+### NLB:
+
 - NLB: Layer 4 - forward TCP & UDP traffic to your instances. Handles millions of requests per second. around 100ms latency vs. 400 ms for ALB
 - NLB: can redirect to only IP Addresses
 - NLB: Target groups: private IPs, EC2 instances or ALB
+- NLB: NLB **does not** have a security group. Basically, you will have the ability to either use the security group function already associated with your EC2 Instance’s network card (ENI), a VPC Network Access Control List (NACL), AWS Network Firewall, or some other type of marketplace solution to provide the necessary security controls that you are seeking. 
+
+### GLB:
+
 - GLB: New way to run virtual network appliances in the cloud
 - GLB: Gateway Load Balancer helps you easily deploy, scale, and manage your third-party virtual appliances. 
 - GLB: It gives you one gateway for distributing traffic across multiple virtual appliances while scaling them up or down, based on demand. 
 - GLB: Centralize your third-party virtual appliances, Add third-party security appliances to your network, visibility of third-party analytics solutions
 - GLB: Operates at Layer 3 (Network Layer) – IP Packet
 - GLB: Target groups: EC2 instances and Private IP Addresses
+
+### Cross-Zone Load Balancing:
+
 - NLB: Cross-zone load balancing is disabled by default and need to pay $ for cross-AZ traffic
 - GLB: Cross-zone load balancing is disabled by default and need to pay $ for cross-AZ traffic
 - NLB: Flow Hash request routing. Each TCP/UDP connection is routed to a single target for the life of the connection

@@ -65,6 +65,8 @@
 
 > If you’re using Amazon S3 to serve static content on the internet, AWS recommends you use CloudFront to protect your bucket.
 
+> Although AWS Shield Standard can mitigate Layer 3 or Layer 4 attacks, it does not include a detailed notification of the recent layer attacks to your AWS resources such as SYN floods and UDP reflection attacks.
+
 - Protect a web application and RESTful APIs against a DDoS attack:
     - Shield Advanced protecting an Amazon CloudFront distribution and an Application Load Balancer.
 - Protect a TCP-based application against a DDoS attack:

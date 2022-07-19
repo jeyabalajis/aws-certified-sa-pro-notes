@@ -50,4 +50,17 @@ After your video is packaged into the right formats, you can store it on a serve
 
 ### Live streaming
 
-For live video streaming, your video content is streamed real time as live events happen, or is set up as a 24x7 live channel. To create live outputs for broadcast and streaming delivery, use an encoder such as AWS Elemental MediaLive, to compress the video and format it for viewing devices. 
+For live video streaming, your video content is streamed real time as live events happen, or is set up as a 24x7 live channel. To create live outputs for broadcast and streaming delivery, use an encoder such as AWS Elemental MediaLive, to compress the video and format it for viewing devices.
+
+## Custom Headers
+
+You can configure CloudFront to add custom headers to the requests that it sends to your origin. These custom headers enable you to send and gather information from your origin that you don’t get with typical viewer requests.
+
+Use cases:
+- Identifying requests from CloudFront: You can identify the requests that your origin receives from CloudFront. This can be useful if you want to know if users are bypassing CloudFront, or if you’re using more than one CDN and you want information about which requests are coming from each CDN.
+- Determining which requests come from a particular distribution
+- Enabling cross-origin resource sharing (CORS): If your viewers don't support CORS, you can add a CORS header *origin* to the origins of CloudFront.
+- Prevent users from bypassing CloudFront.
+
+## Best Practices
+- If you are enabling pre-signed URL or Cookie with CloudFront, remove direct access from S3 and enforce access through OAI (Origin Access Identity).

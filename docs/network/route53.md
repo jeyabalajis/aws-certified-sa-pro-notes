@@ -40,6 +40,8 @@ When a client makes a DNS request with multivalue answer routing, Route 53 respo
 > Multi-value answer routing policy may cause the users to be **randomly sent to other healthy regions** that may be far away from the user's location.
 > So, if you want to maintain proximity as much as possible, use failover answer routing policy.
 
+> For simple availability enhancement, setting up Non-alias record with a multi-value answer configuration to target IP addresses of the web servers could be a good solution.
+
 ## Active-Active vs. Active-Passive
 
 - You configure active-active failover using any routing policy (or combination of routing policies) other than failover

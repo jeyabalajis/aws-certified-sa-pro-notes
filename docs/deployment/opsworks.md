@@ -8,6 +8,14 @@
 >with Chef recipes using Chef Solo. This allows you to automate tasks such as installing packages and programming 
 >languages or frameworks, configuring software, and more.
 
+## Under the Hood
+
+- In OpsWorks, you will be provisioning a stack and layers. 
+- The stack is the top-level AWS OpsWorks Stacks entity. It represents a set of instances that you want to manage collectively, typically because they have a common purpose such as serving PHP applications. 
+- In addition to serving as a container, a stack handles tasks that apply to the group of instances as a whole, such as managing applications and cookbooks.
+- Every stack contains one or more layers, each of which represents a stack component, such as a load balancer or a set of application servers. As you work with AWS OpsWorks Stacks layers, keep the following in mind:
+- Each layer in a stack must have at least one instance and can optionally have multiple instances.
+- Each instance in a stack must be a member of at least one layer, except for registered instances. You cannot configure an instance directly, except for some basic settings such as the SSH key and hostname. You must create and configure an appropriate layer, and add the instance to the layer.
 
 ## OpsWorks vs. CloudFormation
 

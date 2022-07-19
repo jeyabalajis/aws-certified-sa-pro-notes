@@ -5,8 +5,12 @@
 -  Transparent Data Encryption (TDE) for Oracle and SQL Server
 -  CloudTrail cannot be used to track queries made within RDS
 
+> Multi-AZ is for improving availability. For improving performance, use read replicas.
+
+> Read replicas are available in Amazon RDS for MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server as well as Amazon Aurora.
+
 ### Oracle RDS
-- DMS works on Oracle RD
+- DMS works on Oracle RDS
 - RDS for Oracle does NOT support RAC
 - If Oracle RMAN is used, restore to RDS not supported (only non-RDS supported)
 
@@ -29,6 +33,8 @@
 >you must turn on binary logging on your source Aurora MySQL DB cluster. 
 
 > Cross-region replication for Aurora MySQL uses MySQL binary replication to replay changes on the cross-Region read replica DB cluster.
+
+> Amazon Aurora further extends the benefits of read replicas by employing an SSD-backed virtualized storage layer purpose-built for database workloads. Amazon Aurora replicas share the same underlying storage as the source instance, lowering costs and avoiding the need to copy data to the replica nodes.
 
 #### Aurora vs. RDS
 

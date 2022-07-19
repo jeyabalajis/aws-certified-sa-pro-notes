@@ -39,3 +39,6 @@ This policy enables you to specify whether AWS CloudFormation replaces an Auto S
 
 - AWS::Lambda::Alias: For AWS::Lambda::Alias resources, CloudFormation performs an CodeDeploy deployment when the version changes on the alias. 
 
+## CloudFormation vs ElasticBeanStalk
+
+> For Infrastructure resources, CloudFormation is the choice. Elastic Beanstalk is for packaging application code, without the need to setup ALB etc.  
