@@ -9,6 +9,10 @@
 >languages or frameworks, configuring software, and more.
 
 
+## OpsWorks vs. CloudFormation
+
+Compared to CloudFormation, OpsWorks focuses more on orchestration and software configuration, and less on what and how AWS resources are procured.
+
 ## Best Practices
 
 > For preparation work (like VPC, NAT etc.), it is okay to use CloudFormation. For dynamic workloads (EC2), OpsWorks is preferred.

@@ -20,7 +20,10 @@
 > Kinesis is best suited for applications that need to process large real-time transactional records and have the ability to consume records in the 
 >same order a few hours later.
 
-> Kinesis provides ability for multiple applications to consume the same stream concurrently. This is the speciality of Kinesis & SQS does not help here. 
+> Kinesis provides ability for multiple applications to consume the same stream concurrently. This is the speciality of Kinesis & SQS does not help here.
+
+> For Kinesis Data Streams, a common use is the real-time aggregation of data followed by loading the aggregate data into a data warehouse or map-reduce cluster.
+> Data is put into Kinesis data streams, which ensures durability and elasticity. The delay between the time a record is put into the stream and the time it can be retrieved (put-to-get delay) is typically less than 1 second.  
 
 #### Kinesis Data throughput Limits
 ##### Writes
@@ -193,3 +196,13 @@ For large files, you would also need to chunk into many messages when adding to 
 ## Redshift
 
 > Redshift supports automated backups and auto cross-region copy.
+
+## Amazon Rekognition Video
+
+Amazon Kinesis Video Streams is a fully managed AWS service that you can use to stream live video from devices to the AWS Cloud, or build applications for real-time video processing or batch-oriented video analytics.
+
+To use Amazon Rekognition Video with streaming video, your application needs to implement the following:
+
+- A Kinesis video stream for sending streaming video to Amazon Rekognition Video.
+- An Amazon Rekognition Video stream processor to manage the analysis of the streaming video.
+- A Kinesis data stream consumer to read the analysis results that Amazon Rekognition Video sends to the Kinesis data stream.
