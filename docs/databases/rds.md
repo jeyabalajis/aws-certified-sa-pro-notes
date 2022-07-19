@@ -27,8 +27,15 @@
 
 > Before you can create an Aurora MySQL DB cluster that is a cross-Region read replica, 
 >you must turn on binary logging on your source Aurora MySQL DB cluster. 
->Cross-region replication for Aurora MySQL uses MySQL binary replication to replay changes on the cross-Region read replica DB cluster.
+
+> Cross-region replication for Aurora MySQL uses MySQL binary replication to replay changes on the cross-Region read replica DB cluster.
+
+#### Aurora vs. RDS
+
+> Amazon RDS MySQL does not have a single reader endpoint for read replicas. You must use Amazon Aurora for MySQL to support this.
         
+> Amazon RDS volumes are built using Amazon EBS volumes, except for Amazon Aurora, which uses an SSD-backed virtualized storage layer purpose-built for database workloads.
+
 ### Database Migration service
 - Supports On-premises to aws, aws to aws and aws to on-premises
 - Works with various database technologies (Oracle, MySQL, DynamoDB, etc..)

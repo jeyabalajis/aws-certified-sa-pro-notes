@@ -90,6 +90,17 @@
 
 > For moving an OU under another OU, create a new OU under the parent, move accounts and delete the current OU.
 
+> For removing an account, you must sign in as an IAM user or role in the management account with the following permissions: 
+> organizations:DescribeOrganization – required only when using the Organizations console
+> organizations:RemoveAccountFromOrganization
+
+> From a member account, organizations:LeaveOrganization is required. Note that the organization administrator can apply a policy to your account that removes this permission, preventing you from removing your account from the organization.
+
+### Troubleshooting
+
+- You can remove a member account only after you enable IAM user access to billing in the member account. For more information, see Activating Access to the Billing and Cost Management Console in the AWS Billing User Guide.
+- You can remove an account from your organization only if the account has the information required for it to operate as a standalone account. 
+
 ### Service Control Policies (SCP)
 - Service-linked roles enable other AWS services to integrate with AWS Organizations and can't be restricted by SCPs
 - SCP must have an explicit Allow (does not allow anything by default)

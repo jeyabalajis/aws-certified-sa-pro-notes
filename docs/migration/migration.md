@@ -34,7 +34,9 @@
 
 > Cached volume gateway provides you low-latency access to your frequently accessed data but not to the entire data.
 
-> By using stored volumes, you can store your primary data locally, while asynchronously back up that data to AWS. Stored volumes provide your on-premises applications with low-latency access to the entire data sets.
+> By using stored volumes, you can store your primary data locally, while asynchronously back up that data to AWS. Stored volumes provide your on-premises applications with low-latency access to the **entire data sets**.
+
+> In the _cached mode_, **your primary data is written to S3**, while retaining your frequently accessed data locally in a cache for low-latency access. In the _stored mode_, your **primary data is stored locally** and your entire dataset is available for low-latency access while asynchronously backed up to AWS.
 
 ### Tape Gateway
 - Some companies have backup processes using physical tapes (!)

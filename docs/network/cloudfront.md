@@ -27,6 +27,8 @@ This type of endpoint acts like a regional endpoint, but has an AWS-managed Clou
 
 > We recommend that you configure your HTTP server to add a Content-Length header to prevent CloudFront from caching partial objects.
 
+> For enabling PCI-DSS compliance on sensitive information, leverage **Field Level Encryption** feature of CloudFront. 
+
 ## CloudFront vs Global Accelerator
 - Global accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP.
 - Also good for HTTP use cases that require static IP addresses
@@ -46,4 +48,21 @@ Global Accelerator Use Case:
 
 > S3 cannot be used as a signer for CloudFront.
 
-    
+## Field Level Encryption
+
+- Field-level encryption adds an additional layer of security that lets you protect specific data throughout system processing so that only certain applications can see it.
+- The sensitive information provided by your users is encrypted at the edge, close to the user, and remains encrypted throughout your entire application stack. This encryption ensures that only applications that need the data—and have the credentials to decrypt it—are able to do so.
+
+> To use field level encryption, you origin must support **chunked encoding**
+
+> you must create an RSA key pair that includes a public key and a private key. The public key enables CloudFront to encrypt data, and the private key enables components at your origin to decrypt the fields that have been encrypted. You can use OpenSSL or another tool to create a key pair. The key size must be 2048 bits.
+
+[CloudFront Field Level Encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html)
+
+## Viewer Protocol Policy
+
+Choose the protocol policy that you want viewers to use to access your content in CloudFront edge locations:
+
+- HTTP and HTTPS: Viewers can use both protocols.
+- Redirect HTTP to HTTPS: Viewers can use both protocols, but HTTP requests are automatically redirected to HTTPS requests.
+- HTTPS Only: Viewers can only access your content if they're using HTTPS.

@@ -60,5 +60,7 @@ nav:
       - Organizations: organizations/organizations.md
   - Disaster Recovery:
       - Disaster Recovery: disaster_recovery/disaster_recovery.md
+  - Miscellaneous:
+      - Miscellaneous: misc/misc_services.md
   - Exam Preparation:
       - Exam Prep: exam_prep/exam_prep.md

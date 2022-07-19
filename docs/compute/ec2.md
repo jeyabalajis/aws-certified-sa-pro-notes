@@ -44,3 +44,11 @@
 
 > If you receive a capacity error when launching an instance in a placement group that already has running instances, stop and start all of the instances in the placement group, and try the launch again. 
 >Starting the instances may migrate them to hardware that has capacity for all of the requested instances.
+
+## Spot Instances
+
+### Capacity Rebalancing
+
+The goal of Capacity Rebalancing is to keep processing your workload without interruption. When Spot Instances are at an elevated risk of interruption, the Amazon EC2 Spot service notifies Amazon EC2 Auto Scaling with an EC2 instance rebalance recommendation.
+
+> Capacity Rebalancing helps you maintain workload availability by proactively augmenting your fleet with a new Spot Instance before a running instance is interrupted by Amazon EC2. You can switch on _Capacity Rebalancing_ in your Auto-Scaling-Group (ASG) configuration.
