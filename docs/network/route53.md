@@ -51,11 +51,6 @@ When a client makes a DNS request with multivalue answer routing, Route 53 respo
 
 > You can setup active-passive with weighted routing policy - by tweaking weight of certain targets as zero. However, this may reduce availability since the last healthy resource (with weight 0) may not be able to handle the traffic.
 
-## Hosted Zones
-> Health check of private hosted zones can be done through Cloud Watch Metric and Cloud Watch Alarms.
-> Health check for databases: They need to either be connected to CloudWatch Alarms or talk through an HTTP enabled application as a proxy to checking the health of your RDS database
-> If private hosted zone has to be shared with another account, VPC Peering must be in place, and perform associate-vpc-with-hosted-zone.
-
 
 ## CNAME vs Alias Record
 - Unlike a CNAME record, you can create an alias record at the top node of a DNS namespace, also known as the zone apex.
@@ -71,9 +66,22 @@ When a client makes a DNS request with multivalue answer routing, Route 53 respo
 
 > A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain, such as example.com, and its subdomains (acme.example.com, zenith.example.com).
 
+### Public Hosted Zones
+- Contains records that specify how to route traffic on the internet (public domain names)
+
+> DNS Security Extensions (DNSSEC) works only with _Public Hosted Zones_ 
+
+### Private Hosted Zones
+- Contains records that specify how to route traffic within one or more VPCs (private domain names).
+
+> Must enable _enableDnsHostNames_ and _enableDnsSupport_ for private hosted zones.
+
 ### Health checks:
+
+- Health Checks provide _Automated DNS Failover_.
+
 - Health checks that monitor an endpoint
-- Health checks that monitor other health checks (calculated health checks)
+- Health checks that monitor other health checks (calculated health checks). Perform maintenance on your website without causing all healthchecks to fail.
 - Health checks that monitor CloudWatch alarms
 
 > Route 53 health checkers can’t access private endpoints.
@@ -90,7 +98,14 @@ DNS Firewall is a feature of Route 53 Resolver and doesn't require any additiona
 
 > **DNSSEC validation only applies to public signed names in Amazon Route 53, and not to forwarded zones.**
 
-## Associate Route53 private hosted zone with a VPC in a different account
+> Health check of private hosted zones can be done through Cloud Watch Metric and Cloud Watch Alarms.
+> Create a CW Metric and associate a CW alarm - then create a Route 53 Health check that checks the alarm itself.
+ 
+> Health check for databases: They need to either be connected to CloudWatch Alarms or talk through an HTTP enabled application as a proxy to checking the health of your RDS database, which sits inside a private endpoint.
+
+### Associate Route53 private hosted zone with a VPC in a different account
+
+> If private hosted zone has to be shared with another account, VPC Peering must be in place, and perform associate-vpc-with-hosted-zone.
 
 1. Authorize the association between the private hosted zone in Account A and the VPC in Account B. **Perform this in Account A**
 
@@ -110,14 +125,35 @@ aws route53 associate-vpc-with-hosted-zone --hosted-zone-id <hosted-zone-id> --v
 aws route53 delete-vpc-association-authorization --hosted-zone-id <hosted-zone-id>  --vpc VPCRegion=<region>,VPCId=<vpc-id> --region us-east-1
 ``` 
 
-Amazon EC2 instances in the VPC from Account B can now resolve records in the private hosted zone in Account A.
+**Amazon EC2 instances in the VPC from Account B can now resolve records in the private hosted zone in Account A.**
 
 
 [Route53 private hosted zone](https://aws.amazon.com/premiumsupport/knowledge-center/route53-private-hosted-zone/) 
 
-## DNS Resolvers
+## DNS Resolvers / Hybrid DNS
+
+### Inbound Resolver
 
 - _Inbound Resolver_: This allows your DNS resolvers to easily resolve domain names for AWS resources such as EC2 instances or records in a Route 53 private hosted zone.
-- _Outbound Resolver_: Resolver conditionally forwards queries to resolvers on your network via this endpoint
+
+> Inbound here is from the perspective of Route 53. Any DNS resolver in your on-premises network can reach Route 53 inbound resolver to reach AWS resources (such as EC2 instances and Route 53 Private Hosted Zones).
+
+**To accomplish inbound, link up domain names of your AWS resources to Route 53 inbound endpoint _in your on-premise resolver_.**
+
+### Outbound Resolver
+
+- _Outbound Resolver_: Resolver conditionally forwards queries to resolvers on your network (_on-premises_) via this endpoint
+- Outbound resolve requires resolver rules.
+
+> Outbound is from the perspective of Route 53. Route 53 can _conditionally_ forward queries to on-premises resolvers. 
+>A classic example of this is to resolve On-prem Active Directory servers through Route 53 resolvers. 
 
 > **Conditional forwarding rules** – You create conditional forwarding rules (also known as forwarding rules) when you want to forward DNS queries for specified domain names to DNS resolvers on your network.
+
+#### Outbound Resolver rules
+- Conditional Forwarding Rules
+- System Rules
+- Auto-defined System Rules
+- If multiple rules are matched, Route 53 chooses the mose specific match.
+
+> Route 53 resolver is _within a VPC_, can be deployed across multiple AZ. 10,000 queries per second per IP.

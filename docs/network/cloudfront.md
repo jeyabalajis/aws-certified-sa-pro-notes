@@ -30,15 +30,20 @@ This type of endpoint acts like a regional endpoint, but has an AWS-managed Clou
 > For enabling PCI-DSS compliance on sensitive information, leverage **Field Level Encryption** feature of CloudFront. 
 
 ## CloudFront vs Global Accelerator
+
+**They both use AWS global network and it's edge locations around the world.**
+
 - Global accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP.
 - Also good for HTTP use cases that require static IP addresses
 - CloudFront uses multiple sets of dynamically changing IP addresses while Global Accelerator will provide you a set of static IP addresses as a fixed entry point to your applications.
 
-> CloudFront uses the edge location to cache, while GA uses the edge location to find the optimal path to the origin.
+> CloudFront uses the edge location to **cache**, while GA uses the edge location to **find the optimal path to the origin**.
 
 Global Accelerator Use Case:
 - For example, you have a banking application that is scattered through multiple AWS regions and low latency is a must. 
 - Global Accelerator will route the user to the nearest edge location then route it to the nearest regional endpoint where your applications are hosted. 
+
+> GA preserves client IP except for NLBs and EIPs endpoints.
 
 ## CloudFront Signed URL
 

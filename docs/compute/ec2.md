@@ -21,12 +21,17 @@
 - RAM is not included in EC2 Metrics
 
 ## Enhanced networking
--  Elastic Network Adapter (ENA) up to 100 Gbps 
+
+### EC2 Enhanced Networking (SR-IOV)
+- Higher bandwidth, higher Packets Per Second (PPS), lower latency
+- Option I: Elastic Network Adapter (ENA) up to 100 Gbps
+- Option II: Intel 82599 VF up to 10 Gbps
+ 
 
 ### Elastic Fabric Adapter
 - Improved ENA for HPC, only works for Linux
-- Great for inter-node communications, tightly coupled workloads
-- Leverages Message Passing Interface (MPI) standard 
+- Great for inter-node communications, tightly coupled workloads (distributed computing)
+- Leverages Message Passing Interface (MPI) standard
 - Bypasses the underlying Linux OS to provide low-latency, reliable transport
 
 ## Auto Scaling – Instance Refresh
