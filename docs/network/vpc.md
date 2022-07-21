@@ -21,6 +21,9 @@
 3. SSM Session Manager is a more secure way to remote control without SSH
 
 ## AWS PrivateLink (VPC Endpoint Service)
+
+AWS PrivateLink is a highly available, scalable technology that enables you to privately connect your VPC to services as if they were in your VPC.
+
 1. You do not need to use an internet gateway, NAT device, public IP address, AWS Direct Connect connection, or AWS Site-to-Site VPN connection to allow communication with the service from your private subnets.
 2. Use Cases:
     - Connect to other aws services (hosted in a separate VPC)
@@ -30,7 +33,7 @@
 4. Service consumers create interface VPC endpoints to connect to the endpoint services (created in service provider account)
 5. You can configure Amazon Route 53 to route domain traffic to a VPC endpoint.
 6. If the NLB is in multiple AZ, and the ENI in multiple AZ, the solution is fault tolerant!
-7. NLB on the service provider side and ENI on the service consumer side. 
+7. NLB on the service provider side and VPC endpoint on the service consumer side. 
 
 ### Interface endpoint
 

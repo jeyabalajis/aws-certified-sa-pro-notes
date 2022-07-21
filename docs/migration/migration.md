@@ -92,6 +92,13 @@ typically between 250 MB/s and 400 MB/s
 > DMS traditionally moves smaller relational workloads (<10 TB) and MongoDB, whereas SCT is primarily used to migrate large data warehouse workloads.
 > DMS supports ongoing replication to keep the target in sync with the source; SCT does not.
 
+### Snowball + DMS
+
+- You use the AWS Schema Conversion Tool (AWS SCT) to extract the data locally and move it to an Edge device.
+- You ship the Edge device or devices back to AWS.
+- After AWS receives your shipment, the Edge device automatically loads its data into an Amazon S3 bucket.
+- AWS DMS takes the files and migrates the data to the target data store. If you are using change data capture (CDC), those updates are written to the Amazon S3 bucket and then applied to the target data store.
+
 ## Disaster Recovery (DR)
 - RPO: Recovery Point Objective - deals with data loss
 - RTO: Recovery Time Objective - deals with time to recover
@@ -177,3 +184,21 @@ aws ec2 create-instance-export-task --instance-id instance-id --target-environme
 ```
 aws ec2 export-image --image-id ami-id --disk-image-format VMDK --s3-export-location S3Bucket=my-export-bucket,S3Prefix=exports/
 ```
+
+## AWS Application Discovery Service
+
+Plan migration projects by gathering information about on-premises data centers
+
+- Agentless Discovery (AWS Agentless Discovery Connector)
+- Agent-based Discovery (AWS Application Discovery Agent)
+- Resulting data can be exported as CSV or viewed within AWS Migration Hub
+- Analyze data using Athena
+
+## AWS Elastic Disaster Recovery Service (DRS)
+
+- Quickly and easily recover your physical, virtual, and cloud-based servers into AWS
+- Example: protect your most critical databases (including Oracle, MySQL, and SQL Server), enterprise apps (SAP), protect your data from ransomware attacks.
+- Continuous block-level replication for your servers
+
+
+

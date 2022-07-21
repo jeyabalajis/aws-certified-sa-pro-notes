@@ -21,7 +21,7 @@ However, if you want to encrypt the traffic flowing through Direct Connect, you 
 
 - A Direct Connect gateway is a globally available resource. You can create the Direct Connect gateway in any Region and access it from all other Regions.
 - A Direct connect Gateway is associated with either of the following:
-    - A transit gateway when you have multiple VPCs in the same Region
+    - A transit gateway when you have _multiple VPCs in the same Region_
     - A virtual private gateway
 
 > **AWS Managed VPN can be combined with Direct Connect Gateway to provide an IPSEC-encrypted private connection**
@@ -70,8 +70,11 @@ However, if you want to encrypt the traffic flowing through Direct Connect, you 
 
 A virtual private gateway is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. You create a virtual private gateway and attach it to the VPC from which you want to create the Site-to-Site VPN connection.
 
-> **Only one virtual private gateway (VGW) can be attached to a VPC at a time.**
+- Static Routing
+- Dynamic Routing: BGP (Border Gateway Protocol). Routing tables are updated automatically. Just need to specify the ASN (Autonomous System Number) of the CGW and VGW.
 
+> **Only one virtual private gateway (VGW) can be attached to a VPC at a time.**
+> Site to Site VPN and Internet access to corporate data center can be facilitated by NAT instance, but not through NAT Gateway.
 
 ## Network to Amazon VPC Connectivity Options
 
