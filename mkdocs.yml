@@ -21,6 +21,7 @@ nav:
   - Security:
       - CloudTrail: security/cloudtrail.md
       - Keys and Parameters Management: security/keys_parameter_management.md
+      - WAF: security/waf.md
       - Mitigate DDoS Attacks: security/ddos_attacks_mitigation.md
       - Guard Duty: security/guard_duty.md
       - Inspector & Config: security/inspector_config.md
