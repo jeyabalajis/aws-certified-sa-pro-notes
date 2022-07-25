@@ -84,3 +84,15 @@ AWS Systems Manager collects information about your instances and the software i
 AWS Systems Manager provides you safe, secure remote management of your instances at scale without logging into your servers, replacing the need for bastion hosts, SSH, or remote PowerShell.
 
 > Bulk changes across instances are supported, by targeting using tag based queries. 
+
+## State Manager
+
+AWS Systems Manager State Manager is primarily used as a secure and scalable configuration management service that automates the process of keeping your Amazon EC2 and hybrid infrastructure in a state that you define.
+
+## Session Manager
+
+The AWS Systems Manager Sessions Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys for your EC2 instances but it does not provide the capability of helping you diagnose and troubleshoot problems in your instance.
+
+## EC2Rescue on unreachable instances
+
+EC2Rescue can help you diagnose and troubleshoot problems on Amazon Elastic Compute Cloud (Amazon EC2) instances for Linux and Windows Server. You can run the tool manually, or, you can run the tool automatically by using Systems Manager Automation and the AWSSupport-ExecuteEC2Rescue runbook.

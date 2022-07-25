@@ -7,9 +7,12 @@
 
 ## Amazon Lex
 
-> Amazon Lex is a service for building conversational interfaces into any application using voice and text. Amazon Lex provides the advanced deep learning functionalities of automatic speech recognition (ASR) for converting speech to text, and natural language understanding (NLU) to recognize the intent of the text, to enable you to build applications with highly engaging user experiences and lifelike conversational interactions. With Amazon Lex, the same deep learning technologies that power Amazon Alexa are now available to any developer, enabling you to quickly and easily build sophisticated, natural language, conversational bots ("chatbots").
+> Amazon Lex is a service for building conversational interfaces into any application using voice and text. Amazon Lex provides the advanced deep learning functionalities of automatic speech recognition (ASR) for converting speech to text, and natural language understanding (NLU) to recognize the intent of the text, to enable you to build applications with highly engaging user experiences and lifelike conversational interactions. 
+>With Amazon Lex, the same deep learning technologies that power Amazon Alexa are now available to any developer, enabling you to quickly and easily build sophisticated, natural language, conversational bots ("chatbots").
 
 > Amazon Lex uses AWS Lambda functions to query your business applications, provide information back to callers, and make updates as requested. Amazon Lex chatbots also maintain context and manage the dialogue, dynamically adjusting responses based on the conversation.
+
+> For conversational interfaces such as chatbots, Amazon Lex is an ideal choice. 
 
 ## AWS Elemental MediaConnect
 

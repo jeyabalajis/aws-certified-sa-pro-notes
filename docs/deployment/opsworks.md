@@ -24,3 +24,14 @@ Compared to CloudFormation, OpsWorks focuses more on orchestration and software 
 ## Best Practices
 
 > For preparation work (like VPC, NAT etc.), it is okay to use CloudFormation. For dynamic workloads (EC2), OpsWorks is preferred.
+
+## Updating Patches
+
+By default, AWS OpsWorks Stacks automatically installs the latest updates during setup, after an instance finishes booting. 
+
+> **AWS OpsWorks Stacks does not automatically install updates after an instance is online, to avoid interruptions such as restarting application servers. Instead, you manage updates to your online instances yourself, so you can minimize any disruptions.**
+
+AWS recommends that you use one of the following to update your online instances:
+
+- Create and start new instances to replace your current online instances. Then delete the current instances. The new instances will have the latest set of security patches installed during setup.
+- On Linux-based instances in Chef 11.10 or older stacks, run the Update Dependencies stack command, which installs the current set of security patches and other updates on the specified instances.

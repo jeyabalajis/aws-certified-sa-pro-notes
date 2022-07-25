@@ -149,14 +149,18 @@ about AWS SMS, see AWS Server Migration Service.
 If any of the following are true, you should consider using AWS SMS:
 • You are using vCenter 6.5 Server.
 • You want to specify BYOL licenses during migration.
-• You are interested in migrating VMs to Amazon EC2.
+• You are interested in __migrating VMs__ to Amazon EC2.
 • You want to use incremental migration.
+
+> > AWS SMS is primarily designed to migrate on-premises VMware vSphere, Microsoft Hyper-V/SCVMM, and Azure virtual machines to the AWS Cloud.
 
 ## Application Migration (AWS MGN)
 
 With AWS MGN, you can migrate your applications from physical infrastructure, VMware vSphere, Microsoft Hyper-V, Amazon Elastic Compute Cloud (Amazon EC2), Amazon Virtual Private Cloud (Amazon VPC), and other clouds to AWS.
 
 > AWS Application Migration Service (MGN) utilizes continuous, block-level replication and enables short cutover windows measured in **minutes**. AWS Server Migration Service (SMS) utilizes incremental, snapshot-based replication and enables cutover windows measured in **hours**.
+
+> AWS Application Migration Service (MGN) is a highly automated lift-and-shift (rehost) solution that simplifies, expedites, and reduces the cost of migrating applications to AWS. It enables companies to lift-and-shift a large number of physical, virtual, or cloud servers without compatibility issues, performance disruption, or long cutover windows. MGN replicates source servers into your AWS account
 
 ## Database Migration
 
@@ -200,5 +204,8 @@ Plan migration projects by gathering information about on-premises data centers
 - Example: protect your most critical databases (including Oracle, MySQL, and SQL Server), enterprise apps (SAP), protect your data from ransomware attacks.
 - Continuous block-level replication for your servers
 
+## S3 Sync
 
+AWS CLI's S3 sync command can be used to migrate data on an ongoing basis from on-premises folder to S3.
 
+> aws s3 cp will copy all files, even if they already exist in the destination area. It also will not delete files from your destination if they are deleted from the source. aws s3 sync looks at the destination before copying files over and only copies over files that are new and updated.

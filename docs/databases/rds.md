@@ -14,6 +14,8 @@
 - RDS for Oracle does NOT support RAC
 - If Oracle RMAN is used, restore to RDS not supported (only non-RDS supported)
 
+> Use Provisioned IOPS storage to improve the read performance of your database.
+
 ### RDS Proxy
 - With RDS Proxy, you no longer need code that handles cleaning up idle connections and managing connection pools
 - Multiple Lambda functions can connect to a single RDS Proxy, which handles connection pool
