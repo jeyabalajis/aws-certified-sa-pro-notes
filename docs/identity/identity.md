@@ -113,6 +113,11 @@
 >Attaching an SCP to an AWS Organizations entity just defines a guardrail for what actions the principals can perform. 
 >You still need to attach identity-based or resource-based policies to principals or resources in your organization's accounts to actually grant permission to them.
 
+### Policy Inheritance
+- When you attach a policy to the organization root, all OUs and accounts in the organization inherit that policy.
+- When you attach a policy to a specific OU, accounts that are directly under that OU or any child OU inherit the policy.
+- When you attach a policy to a specific account, it affects only that account.
+
 ## Deep Dive:
 
 ### Roles vs. Resource-based Policy
