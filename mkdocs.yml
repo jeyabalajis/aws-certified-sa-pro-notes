@@ -41,6 +41,7 @@ nav:
       - ElastiCache: storage/elasticache.md
   - Migration:
       - Migration: migration/migration.md
+      - Discover Agent: migration/aws_discovery_agent.md
   - Computing:
       - EC2: compute/ec2.md
       - ECS & Lambda: compute/ecs_lambda.md
