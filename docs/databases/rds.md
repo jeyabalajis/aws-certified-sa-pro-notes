@@ -9,18 +9,39 @@
 
 > Read replicas are available in Amazon RDS for MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server as well as Amazon Aurora.
 
-### Oracle RDS
+## Oracle RDS
 - DMS works on Oracle RDS
 - RDS for Oracle does NOT support RAC
 - If Oracle RMAN is used, restore to RDS not supported (only non-RDS supported)
 
 > Use Provisioned IOPS storage to improve the read performance of your database.
 
+### RDS Storage Types
+
+Amazon RDS provides three storage types:
+
+- General Purpose SSD (also known as gp2), Provisioned IOPS SSD (also known as io1), and magnetic (also known as standard)
+- You can create MySQL, MariaDB, Oracle, and PostgreSQL RDS DB instances with up to 64 tebibytes (TiB) of storage. 
+- You can create SQL Server RDS DB instances with up to 16 TiB of storage. 
+- General Purpose SSD: Cost effective storage for a broad range of workloads. Ability to burst to 3000 IOPS for extended period of time
+- Provisioed IOPS SSD: Designed to meet the needs of I/O-intensive workloads, that require low I/O latency and consistent I/O throughput.
+- Magnetic: Supports magnetic storage for backward compatibility. We recommend that you use General Purpose SSD or Provisioned IOPS for any new storage needs. 
+
+> You can also use Provisioned IOPS SSD storage with read replicas for MySQL, MariaDB or PostgreSQL.
+
+![image](https://user-images.githubusercontent.com/15995686/180932123-a3b54ddd-2642-421e-bb6b-71a2070a9476.png)
+
+### RDS Multi-AZ
+
+- Supports multiple availability zones **but not multiple regions**.
+
+[RDS Multi-AZ](https://aws.amazon.com/rds/features/multi-az/)
+
 ### RDS Proxy
 - With RDS Proxy, you no longer need code that handles cleaning up idle connections and managing connection pools
 - Multiple Lambda functions can connect to a single RDS Proxy, which handles connection pool
 
-### Aurora
+## Aurora
 - Cross Region RR: entire database is copied (not select tables)
 - Cross Region replication supported in Aurora
 - Shared storage volume across all instances (master and reader) - auto expandable upto 128 TB
@@ -38,11 +59,16 @@
 
 > Amazon Aurora further extends the benefits of read replicas by employing an SSD-backed virtualized storage layer purpose-built for database workloads. Amazon Aurora replicas share the same underlying storage as the source instance, lowering costs and avoiding the need to copy data to the replica nodes.
 
-#### Aurora vs. RDS
+### Aurora Global Database
+
+- Amazon Aurora Global Database is designed for globally distributed applications, allowing a single Amazon Aurora database to span multiple AWS regions. 
+- It replicates your data with no impact on database performance, enables fast local reads with low latency in each region, and provides disaster recovery from region-wide outages.
+
+### Aurora vs. RDS
 
 > Amazon RDS MySQL does not have a single reader endpoint for read replicas. You must use Amazon Aurora for MySQL to support this.
         
-> Amazon RDS volumes are built using Amazon EBS volumes, except for Amazon Aurora, which uses an SSD-backed virtualized storage layer purpose-built for database workloads.
+> Amazon RDS volumes are built using Amazon EBS volumes (multiple types), except for Amazon Aurora, which uses an SSD-backed virtualized storage layer purpose-built for database workloads.
 
 ### Database Migration service
 - Supports On-premises to aws, aws to aws and aws to on-premises
