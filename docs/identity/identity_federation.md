@@ -19,7 +19,7 @@ Identity Federation is used to provide users/entities outside of aws permissions
 - Involves creation of SAML Identity Provider in IAM
 - Can provide *trust policy* and *permission policies* as usual. The principal here would be **saml-provider**
 
-SAML Assertion Workflow:
+### SAML Assertion Workflow with SSO:
 
 ![image](https://user-images.githubusercontent.com/15995686/171585160-5532136f-b382-471a-81ad-cae41a16f58e.png)
 
@@ -65,8 +65,11 @@ Example Trust Policy:
 ### Custom Identity Broker Application
 
 - Use only if Identity provider is NOT compatible with SAML 2.0
-- *Disadvantage:* The identity broker must determine appropriate IAM role (with SAML 2.0, the assertion has a role)
+- *Disadvantage:* **The identity broker must determine appropriate IAM role (with SAML 2.0, the assertion has a role)**
 - Uses STS API _AssumeRole_ or _GetFederationToken_
+
+![image](https://user-images.githubusercontent.com/15995686/180926800-46f53859-0ed4-4fb5-bc09-306792a9cacb.png)
+
 
 ### Web Identity Federation - without Cognito (not recommended)
 
