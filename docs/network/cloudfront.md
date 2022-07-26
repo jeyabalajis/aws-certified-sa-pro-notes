@@ -29,6 +29,8 @@ This type of endpoint acts like a regional endpoint, but has an AWS-managed Clou
 
 > For enabling PCI-DSS compliance on sensitive information, leverage **Field Level Encryption** feature of CloudFront. 
 
+> You cannot cache API Gateway results in CloudFront. Enable API Caching at API Gateway level itself.
+
 ## CloudFront vs Global Accelerator
 
 **They both use AWS global network and it's edge locations around the world.**
@@ -71,3 +73,24 @@ Choose the protocol policy that you want viewers to use to access your content i
 - HTTP and HTTPS: Viewers can use both protocols.
 - Redirect HTTP to HTTPS: Viewers can use both protocols, but HTTP requests are automatically redirected to HTTPS requests.
 - HTTPS Only: Viewers can only access your content if they're using HTTPS.
+
+## Lambda@Edge
+
+- Lambda@Edge can be configured to inspect the viewer request and look for the user-agent HTTP header.
+- This header is a string that can be used to identify the application, operating system, vendor, and/or version of the requesting user agent.
+- Based on the operating system of the client, the function can then return different media assets from the CloudFront cache.
+
+### Key Use Cases
+- Inspect cookies to rewrite URLs to different versions of a site for A/B testing.
+- Send different objects to your users based on the User-Agent header, which contains information about the device that submitted the request. For example, you can send images in different resolutions to users based on their devices.
+- Inspect headers or authorized tokens, inserting a corresponding header and allowing access control before forwarding a request to the origin.
+- Add, delete, and modify headers, and rewrite the URL path to direct users to different objects in the cache.
+- Generate new HTTP responses to do things like redirect unauthenticated users to login pages, or **create and deliver static webpages right from the edge**.
+
+## Origin Failover
+
+- You can set up CloudFront with origin failover for scenarios that require high availability. 
+- To get started, you create an origin group with two origins: a primary and a secondary. 
+- If the primary origin is unavailable, or returns specific HTTP response status codes that indicate a failure, CloudFront automatically switches to the secondary origin.
+
+> **Tip:** You can use Lambda@Edge function in origin failover use cases. 
