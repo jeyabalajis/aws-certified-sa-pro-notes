@@ -26,6 +26,18 @@
 
 DAX is a caching solution for DynamoDB that can be placed in front of the database. This will provide much improved read performance _without any application changes_.
 
+> For read-heavy or bursty workloads, DAX provides increased throughput and potential operational cost savings by reducing the need to overprovision read capacity units. This is especially beneficial for applications that require repeated reads for individual keys.
 
+### Use Cases
+- Applications that require the fastest possible response time for reads. Some examples include real-time bidding, social gaming, and trading applications. DAX delivers fast, in-memory read performance for these use cases.
+- Applications that read a small number of items more frequently than others. For example, consider an ecommerce system that has a one-day sale on a popular product. During the sale, demand for that product (and its data in DynamoDB) would sharply increase, compared to all of the other products. To mitigate the impacts of a "hot" key and a non-uniform traffic distribution, you could offload the read activity to a DAX cache until the one-day sale is over.
+- Applications that are read-intensive, but are also cost-sensitive.
+- Applications that require repeated reads against a large set of data. Such an application could potentially divert database resources from other applications. For example, a long-running analysis of regional weather data could temporarily consume all the read capacity in a DynamoDB table. 
+
+DAX is not ideal for the following types of applications:
+
+- Applications that require strongly consistent reads (or that cannot tolerate eventually consistent reads).
+- Applications that do not require microsecond response times for reads, or that do not need to offload repeated read activity from underlying tables.
+- Applications that are write-intensive, or that do not perform much read activity.
 
 
