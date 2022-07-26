@@ -33,7 +33,8 @@ Your functions' concurrency is the number of instances that serve requests at a 
 
 **When seeing the TooManyRequestsException in AWS Lambda, it is possible that the throttles that you're seeing aren't on your Lambda function.**
 
-An ideal solution in this case may be to group data sets and reduce the number of calls to the Lambda function, if the Lambda function is processing data.
+An ideal solution in this case may be to **group data sets and reduce the number of calls to the Lambda function**, if the Lambda function is processing data.
+If the Lambda is being called through SQS, ensure that the **SQS employs batching** to reduce the number of calls to the Lambda function.
 
 [Lambda Throttling](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-troubleshoot-throttling/) 
 
