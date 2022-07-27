@@ -61,8 +61,16 @@ AWS PrivateLink is a highly available, scalable technology that enables you to p
 > Without AWS Transit Gateway, you have to combine an internet gateway with NAT gateways or NAT instances for each VPC needing outbound internet access. 
 > However, if you have more significant numbers of VPCs, the management of multiple internet gateways and NAT gateways and instances adds labor and costs. 
 > In that case, you can save overhead by centralizing outbound traffic with AWS Transit Gateway.
-> With Transit Gateway, communication between VPCs through NAT Gateway can be denied 
->& outbound communication to internet from VPCs can be routed through Transit Gateway, which in turn routes all traffic to Internet Gateway.  
+> With Transit Gateway, communication between VPCs through NAT Gateway can be denied & outbound communication to internet from VPCs can be routed through Transit Gateway, which in turn routes all traffic to Internet Gateway.  
+
+### Centralized Egress to Internet
+
+![image](https://user-images.githubusercontent.com/15995686/181173529-397c004c-ee62-435d-9088-99e7a0ca02cf.png)
+
+#### High Availability
+
+- For high availability, you should use two NAT gateways (one in each Availability Zone). Within an Availability Zone, the NAT gateway has an availability SLA of 99.9%. 
+- Redundancy against component failure within an AZ is handled by AWS under the SLA agreement. 
 
 ## Site-to-Site VPN
 
