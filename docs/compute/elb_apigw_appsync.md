@@ -14,6 +14,8 @@ With Application Load Balancers, the load balancer node that receives the reques
 - Evaluates the listener rules in priority order to determine which rule to apply.
 - Selects a target from the target group for the rule action, using the routing algorithm configured for the target group. The default routing algorithm is round robin. Routing is performed independently for each target group, even when a target is registered with multiple target groups.
 
+> ALB supports Round Robin and least outstanding requests. Consider using least outstanding requests when the requests for your application vary in complexity or your targets vary in processing capability.
+> NLB uses a **flow hash** algorithm.
 
 #### Classic Load Balancer
 With Classic Load Balancers, the load balancer node that receives the request selects a registered instance as follows:
