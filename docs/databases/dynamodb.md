@@ -13,6 +13,8 @@
 4. Availability, durability, and multi-Region fault tolerance
 5. Consistency and conflict resolution (Last-Write-Wins)
 
+> The DynamoDB global tables solution is **the only database solution that will allow writes in both AWS Regions**. Aurora global databases provide read access in multiple Regions _but writes can only be made in one Region_.
+
 ## Auto-Scaling
 
 - Amazon DynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns. This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling.
