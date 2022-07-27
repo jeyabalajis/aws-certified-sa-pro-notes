@@ -57,6 +57,10 @@
 - Supports EC2, ElastiCache, RDS, Redshift
 - Up to 5 SNS notifications per budget
 
+> You can use AWS Budgets to track your service costs and usage within AWS Service Catalog. You can associate budgets with AWS Service Catalog products and portfolios.
+
+[Using Budgets in Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_budgets.html)
+
 ## AWS Costs Explorer
 
 - Choose an optimal Savings Plan (to lower prices on your bill)
