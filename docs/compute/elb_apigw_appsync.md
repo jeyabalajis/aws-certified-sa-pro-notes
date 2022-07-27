@@ -28,6 +28,7 @@ With Classic Load Balancers, the load balancer node that receives the request se
 - NLB: Target groups: private IPs, EC2 instances or ALB
 
 - NLB: NLB **does not** have a security group. Basically, you will have the ability to either use the security group function already associated with your EC2 Instance’s network card (ENI), a VPC Network Access Control List (NACL), AWS Network Firewall, or some other type of marketplace solution to provide the necessary security controls that you are seeking. 
+- Note that NLBs do not have security groups configured and pass connections straight to EC2 instances with the source IP of the client preserved (when registered by instance-id).You must ensure that the security groups for these instances allow traffic on both the listener port and the health check port.
 
 With Network Load Balancers, the load balancer node that receives the connection uses the following process:
 - Selects a target from the target group for the default rule using a flow hash algorithm. It bases the algorithm on:
