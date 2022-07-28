@@ -1,12 +1,20 @@
 # OpsWorks
 
+- A canary deployment is not supported by AWS OpsWorks so the only option that will work is blue/green.
+
+## Chef vs. Puppet
+
+- **Chef** works with AWS OpsWorks Chef **cookbooks and recipes**, while AWS OpsWorks for **Puppet Enterprise** works with **manifests and modules**.
+
 ## OpsWorks Stacks
 
-> AWS OpsWorks Stacks is an application and server management service. With OpsWorks Stacks, 
->you can model your application as a stack containing different layers, such as load balancing, database, and application server. 
->Within each layer, you can provision Amazon EC2 instances, enable automatic scaling, and configure your instances 
->with Chef recipes using Chef Solo. This allows you to automate tasks such as installing packages and programming 
->languages or frameworks, configuring software, and more.
+- AWS OpsWorks Stacks is an application and server management service. 
+- With OpsWorks Stacks, you can model your application as a stack containing different layers, such as load balancing, database, and application server. 
+- Within each layer, you can provision Amazon EC2 instances, enable automatic scaling, and configure your instances with Chef recipes using Chef Solo. 
+- This allows you to automate tasks such as installing packages and programming languages or frameworks, configuring software, and more.
+- Stacks can be automatically healed by the AWS OpsWorks service. 
+- OpsWorks Stacks can replace a failed instance in your stack with a new one, ensuring maximum uptime and availability
+- AWS OpsWorks Stacks integrates perfectly with Amazon CloudTrail and send logs to the CloudTrail console without having to configure this yourself.
 
 ## Under the Hood
 
@@ -35,3 +43,7 @@ AWS recommends that you use one of the following to update your online instances
 
 - Create and start new instances to replace your current online instances. Then delete the current instances. The new instances will have the latest set of security patches installed during setup.
 - On Linux-based instances in Chef 11.10 or older stacks, run the Update Dependencies stack command, which installs the current set of security patches and other updates on the specified instances.
+
+## Pricing
+
+- Chef: You are charged based on the number of nodes connected to your Chef Automate instance the times they are running for and the EC2 instance which is running.
