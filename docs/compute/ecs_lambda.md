@@ -50,6 +50,10 @@ If the Lambda is being called through SQS, ensure that the **SQS employs batchin
 
 > Provisioned concurrency – Provisioned concurrency initializes a requested number of execution environments so that they are prepared to respond immediately to your function's invocations. Note that configuring provisioned concurrency incurs charges to your AWS account.
 
+Can set a “reserved concurrency” at the function level (=limit)
+• Each invocation over the concurrency limit will trigger a “Throttle”
+
+
 ### Asynchronous processing
 > Lambda – Asynchronous Invocation: S3, SNS, CloudWatch Events
 > Configure a dead letter queue (DLQ) on AWS Lambda to give you more control over message handling for all asynchronous invocations, including those delivered via AWS events (S3, SNS, IoT, etc).
@@ -75,13 +79,26 @@ A batching window is the maximum amount of time to gather records into a single 
 ### AWS Lambda Aliases
 - Aliases are ”pointers” to Lambda function versions
 
-Can set a “reserved concurrency” at the function level (=limit)
-• Each invocation over the concurrency limit will trigger a “Throttle”
+You can’t incrementally deploy your software across a fleet of servers when there are no servers!* In fact, even the term “deployment” takes on a different meaning with functions as a service (FaaS).
 
-There are two types of concurrency controls available:
+> With the introduction of alias traffic shifting, it is now possible to trivially implement canary deployments of Lambda functions. By updating additional version weights on an alias, invocation traffic is routed to the new function versions based on the weight specified. 
 
-> Reserved concurrency – Reserved concurrency guarantees the maximum number of concurrent instances for the function. 
-When a function has reserved concurrency, no other function can use that concurrency. There is no charge for configuring reserved concurrency for a function.
+### Using AWS CLI for Canary
 
-> Provisioned concurrency – Provisioned concurrency initializes a requested number of execution environments so that they are prepared to respond immediately to your function's invocations.
-Note that configuring provisioned concurrency incurs charges to your AWS account.
+```
+# Update $LATEST version of function
+aws lambda update-function-code --function-name myfunction ….
+
+# Publish new version of function
+aws lambda publish-version --function-name myfunction
+
+# Point alias to new version, weighted at 5% (original version at 95% of traffic)
+aws lambda update-alias --function-name myfunction --name myalias --routing-config '{"AdditionalVersionWeights" : {"2" : 0.05} }'
+
+# Verify that the new version is healthy
+…
+# Set the primary version on the alias to the new version and reset the additional versions (100% weighted)
+aws lambda update-alias --function-name myfunction --name myalias --function-version 2 --routing-config '{}'
+```
+
+The above can be automated with AWS Step Functions.
