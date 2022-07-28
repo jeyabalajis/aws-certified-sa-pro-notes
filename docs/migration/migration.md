@@ -140,19 +140,27 @@ typically between 250 MB/s and 400 MB/s
 
 ## Server Migration Service (SMS)
 
-We recommend using AWS Server Migration Service (SMS) to migrate VMs from a vCenter 
-environment to AWS. SMS automates the migration process by replicating on-premises 
-VMs incrementally and converting them to Amazon machine images (AMIs). You can 
-continue using your on-premises VMs while migration is in progress. For more information 
-about AWS SMS, see AWS Server Migration Service.
+- We recommend using AWS Server Migration Service (SMS) to migrate VMs from a vCenter environment to AWS. 
+- SMS automates the migration process by replicating on-premises VMs incrementally and converting them to Amazon machine images (AMIs). 
+- **You can continue using your on-premises VMs while migration is in progress.**
 
 If any of the following are true, you should consider using AWS SMS:
-• You are using vCenter 6.5 Server.
-• You want to specify BYOL licenses during migration.
-• You are interested in __migrating VMs__ to Amazon EC2.
-• You want to use incremental migration.
+- You are using vCenter 6.5 Server.
+- You want to specify BYOL licenses during migration.
+- You are interested in __migrating VMs__ to Amazon EC2.
+- You want to use incremental migration.
 
-> > AWS SMS is primarily designed to migrate on-premises VMware vSphere, Microsoft Hyper-V/SCVMM, and Azure virtual machines to the AWS Cloud.
+> AWS SMS is primarily designed to migrate on-premises VMware vSphere, Microsoft Hyper-V/SCVMM, and Azure virtual machines to the AWS Cloud.
+
+> With support for incremental replication, AWS SMS allows fast, scalable testing of migrated servers. This can also be used to perform a final replication to synchronize the final changes before cutover.
+
+### Snowball based migration vs SMS
+
+**A possible solution for migration of VMs:** 
+- Migrate mission-critical VMs with AWS SMS. Export the other VMs locally and transfer them to Amazon S3 using AWS Snowball. 
+- Use VM Import/Export to import the VMs into Amazon EC2
+
+> The VMs that are exported and transported using Snowball will be offline for several days in this scenario - for always available & incremental migration, this is not acceptable.
 
 ## Application Migration (AWS MGN)
 
