@@ -66,7 +66,8 @@
 - Near-real time (60 seconds latency for non batch records)
 - Destinations: Splunk, MongoDB, Datadog, S3, Redshift (COPY through S3), Amazon ElasticSearch, HTTP Custom endpoint.
 - Supports Serverless data transformations through Lambda
-- **Automated scaling, but no data storage**
+- **Automated scaling, but no data storage**. 
+- Firehose does not use Kinesis clients; it loads data directly to a destination.
 
 > Kinesis Data Firehose supports JSON to Parquet conversion, making it an ideal streaming option for S3. 
 Note that it cannot convert CSV to Parquet automatically, so be careful with the question.
