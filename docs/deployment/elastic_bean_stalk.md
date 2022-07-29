@@ -2,6 +2,7 @@
 
 - Elastic Beanstalk also supports deployment versioning. 
 - It maintains a copy of older deployments so that it is easy for the developer to rollback any changes made on the application.
+- Elastic Beanstalk is best suited for running web applications that are developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker.
 
 ## CloudFormation vs BeanStalk
 
