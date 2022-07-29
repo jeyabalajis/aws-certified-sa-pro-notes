@@ -94,3 +94,14 @@ Choose the protocol policy that you want viewers to use to access your content i
 - If the primary origin is unavailable, or returns specific HTTP response status codes that indicate a failure, CloudFront automatically switches to the secondary origin.
 
 > **Tip:** You can use Lambda@Edge function in origin failover use cases. 
+
+## Pricing
+
+### Price Class
+
+- If you’re willing to accept potentially higher latency for viewers in some geographic regions in return for lower cost, you can choose a price class that doesn’t include all geographic regions.
+
+### Savings Bundle
+
+- The CloudFront security savings bundle is a simple way to save up to 30% on the CloudFront charges on your AWS bill when you make an upfront commitment.
+- When you purchase a savings bundle, you also get credits for AWS WAF, a web application firewall that helps protect your CloudFront distribution against common web exploits.
