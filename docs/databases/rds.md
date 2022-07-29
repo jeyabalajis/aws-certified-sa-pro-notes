@@ -41,6 +41,12 @@ Amazon RDS provides three storage types:
 - With RDS Proxy, you no longer need code that handles cleaning up idle connections and managing connection pools
 - Multiple Lambda functions can connect to a single RDS Proxy, which handles connection pool
 
+### RDS Encryption
+
+- The only way to **unencrypt an encrypted database** is to export the data and import the data into another DB instance. 
+- You cannot create unencrypted snapshots of encrypted DB instance.
+- You cannot create unencrypted read replicas of an encrypted DB instance.
+
 ## Aurora
 - Cross Region RR: entire database is copied (not select tables)
 - Cross Region replication supported in Aurora
