@@ -15,6 +15,8 @@
     - Edge to edge routing through an internet gateway not allowed  
 - For edge-to-edge routing and transitive connections, _use Transit Gateway_, which supports more complex routing rules, overlapping CIDR ranges, network-level packet filtering.     
 
+> When configuring NACL in a private subnet to reach ALB node (which is in a public subnet), an outbound rule for ports 1024 through 65535 to destination CIDR is required. This is because, **source port of ALB Node is a dynamically defined high number port between 1024 and 65535.** 
+
 ##  Bastion Hosts
 1. SSH into private EC2 instances through a public EC2 instance (bastion host)
 2. You must manage these instances yourself (failover, recovery)
