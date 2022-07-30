@@ -67,3 +67,19 @@ KMS keys that are generated in your custom key store never leave the HSMs in the
 If you have stringent compliance requirements that mandate that you *manage your own HSM*. In this case, KS can use CloudHSM as a store.
 
 ![KMS Cloud HSM Integration](../images/kms_cloudhsm.png)
+
+### Cloud HSM
+
+#### Managing Quorum Authentication
+
+The first time setup for M of N authentication involves creating and registering a key for signing and setting the minimum value on the HSM. This involves the following high-level steps:
+
+- To use quorum authentication, each CO must create an asymmetric key for signing (a signing key). This is done outside of the HSM. Keys can be personal keys or public keys.
+  - Create an RSA key pair: This can be done with OpenSSL.
+  - Create and sign a registration token: This can be done with OpenSSL.
+  - Register the public key with the HSM. Login as a CO and register the public Key with HSM.
+- A CO must log in to the HSM and then set the quorum minimum value, also known as the m value. This is the minimum number of CO approvals that are required to perform HSM user management operations. Any CO on the HSM can set the quorum minimum value, including COs that have not registered a key for signing.
+
+> You will need the signed token, the unsigned token, and the public key to register the CO as an MofN user with the HSM.
+
+https://docs.aws.amazon.com/cloudhsm/latest/userguide/quorum-authentication.html#quorum-authentication-overview
