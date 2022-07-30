@@ -74,6 +74,11 @@ It is architected to handle millions of requests/second, volatile traffic patter
 - Can send logs directly into Kinesis Data Firehose (as an alternative to CW logs)
 - X-Ray: Enable tracing to get extra information about requests in API Gateway. X-Ray API Gateway + AWS Lambda gives you the full picture.
 
+### Caching:
+
+- You can enable API caching in Amazon API Gateway to cache your endpoint's responses.
+- With caching, you can reduce the number of calls made to your endpoint and also improve the latency of requests to your API.
+
 ### API Gateway Errors
 
 5xx means Server errors 
