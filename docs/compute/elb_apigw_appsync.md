@@ -60,8 +60,12 @@ It is architected to handle millions of requests/second, volatile traffic patter
 > All load balancers support Connection draining (deregistration delay)
 
 
-
 ## API Gateway
+
+### Edge-Optimized vs. Region
+
+> **An edge-optimized API endpoint is best for geographically distributed clients. API requests are routed to the nearest CloudFront Point of Presence (POP). For mobile clients this is a good use case for this type of endpoint.**
+>  **The Regional endpoint is best suited to traffic coming from within the Region only.**
 
 ### Security & Logging:
 
