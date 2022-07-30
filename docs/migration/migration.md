@@ -92,6 +92,8 @@ typically between 250 MB/s and 400 MB/s
 > DMS traditionally moves smaller relational workloads (<10 TB) and MongoDB, whereas SCT is primarily used to migrate large data warehouse workloads.
 > DMS supports ongoing replication to keep the target in sync with the source; SCT does not.
 
+> Oracle Data Warehouses can be migrated to RedShift using DMS and the Schema Conversion Tool (SCT).
+
 ### Snowball + DMS
 
 - You use the AWS Schema Conversion Tool (AWS SCT) to extract the data locally and move it to an Edge device.
