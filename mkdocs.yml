@@ -51,6 +51,7 @@ nav:
       - Elastic Beanstalk: compute/elastic_bean_stalk.md
       - AppSync: compute/appsync.md
       - WorkDocs: compute/workdocs.md
+      - X-Ray: compute/xray.md
   - Data Engineering:
       - Data Engineering: data_engineering/data_engineering.md
   - Databases:
