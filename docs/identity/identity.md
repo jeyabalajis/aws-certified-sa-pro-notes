@@ -17,6 +17,20 @@
 
 > Important:  When you assume a role, you give up your current permissions and temporarily take on a new role (with corresponding permissions).
 
+### IAM Groups vs Roles
+
+> For easily assigning duties or responsibilities to teams at scale, use IAM Groups
+ 
+- IAM Groups: If a person changes jobs in your organization, instead of editing that user's permissions, you can remove him or her from the old user groups and add him or her to the appropriate new user groups. **This is a simple way of assigning appropriate permissions to teams at scale**. 
+- A user group cannot be identified as a Principal in a resource-based policy. A user group is a way to attach policies to multiple users at one time. 
+
+> For allowing users *temporary* access, you can allow them to assume a role.
+
+- An IAM role is very similar to a user, in that it is an identity with permission policies that determine what the identity can and cannot do in AWS. 
+- However, *a role does not have any credentials (password or access keys) associated with it.* 
+- Instead of being uniquely associated with one person, **a role is intended to be assumable by anyone who needs it.** An IAM user can assume a role to temporarily take on different permissions for a specific task.
+
+
 ### Cross-account access
 - **Resource owner account**: Create a role in the resource owner account (i.e the account where the resource resides), and provide permission to requester account root, the required access.
   - Trust Policy: Establishes trust relationship to another account. Trust policy establishes _who_.
