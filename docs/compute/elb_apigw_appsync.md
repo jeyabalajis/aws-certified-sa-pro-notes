@@ -87,3 +87,10 @@ It is architected to handle millions of requests/second, volatile traffic patter
 - AppSync is a managed service that uses GraphQL
 - Retrieve data in real-time with WebSocket or MQTT on WebSocket
 - AppSync is the gateway that sits in between data consumers and data providers (can be databases, Lambda, ElasticSearch or HTTP APIs)
+
+### AWS AppSync vs. API Gateway
+
+> For retrieving data from various/multiple sources, AppSync is the right choice.
+
+![image](https://user-images.githubusercontent.com/15995686/181864402-c1d5982f-1720-4601-a68b-30129adc9bf4.png)
+
