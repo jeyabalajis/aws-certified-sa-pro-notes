@@ -42,7 +42,14 @@ AWS PrivateLink is a highly available, scalable technology that enables you to p
 1. An elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported AWS service, endpoint service, or AWS Marketplace service.
 2. Leverage security groups for security
 3. Uses Private DNS
-4.  Interface can be accessed from Direct Connect and Site-to-Site VPN, through intra-region VPC peering connections from Nitro instances, and through inter-region VPC peering connections from any type of instance.
+4. Interface can be accessed from Direct Connect and Site-to-Site VPN, through intra-region VPC peering connections from Nitro instances, and through inter-region VPC peering connections from any type of instance.
+
+### Under the Hood
+
+- You must ensure that the security group that's associated with the endpoint network interface allows communication between the endpoint network interface and the resources in your VPC that communicate with the service.
+- When you create an interface endpoint, endpoint-specific DNS hostnames are generated. For AWS services and AWS Marketplace Partner services, the private DNS option (enabled by default) associates a private hosted zone with your VPC.
+- The hosted zone contains a record set for the default DNS name for the service (for example, ec2.us-east-1.amazonaws.com) that resolves to the private IP addresses of the endpoint network interfaces in your VPC. **This enables you to make requests to the service using its default DNS hostname instead of the endpoint-specific DNS hostnames.**
+- With Private DNS enabled on the endpoint, instances can send requests AWS services through the interface endpoint using either the default DNS hostname or the endpoint-specific DNS hostname.
 
 ### VPC Endpoint policies
 - Does not replace IAM Policies or resource based policies.
