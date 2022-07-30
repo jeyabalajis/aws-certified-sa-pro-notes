@@ -31,5 +31,12 @@
 > Integrated with Amazon Event Bridge, which can further integrate with other services such as Step Functions to take automated remediation actions.
 > This can help you meet regulations, such as the Health Insurance Portability and Accountability Act (HIPAA) and General Data Privacy Regulation (GDPR).
 
+## S3 Compliance
 
+You can use **AWS Config Auto Remediation feature** to *auto remediate any non-compliant S3 buckets* using the following AWS Config rules:
+- s3-bucket-logging-enabled
+- s3-bucket-server-side-encryption-enabled
+- s3-bucket-public-read-prohibited
+- s3-bucket-public-write-prohibited
 
+These AWS Config rules act as controls to prevent any non-compliant S3 activities.
