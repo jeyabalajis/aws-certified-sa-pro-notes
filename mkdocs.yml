@@ -59,6 +59,7 @@ nav:
       - DynamoDB: databases/dynamodb.md
   - Cost Control:
       - Cost Control: cost_control/cost_control.md
+      - Trusted Advisor: cost_control/trusted_advisor.md
   - Logging:
       - Logging: logging/logging.md
   - Deployment:
