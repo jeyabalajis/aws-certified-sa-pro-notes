@@ -17,6 +17,8 @@ However, if you want to encrypt the traffic flowing through Direct Connect, you 
 
 > If you want a short-term or lower-cost solution, you might consider configuring a hardware VPN as a failover option for a Direct Connect connection. VPN connections are not designed to provide the same level of bandwidth available to most Direct Connect connections. Ensure that your use case or application can tolerate a lower bandwidth if you are configuring a VPN as a backup to a Direct Connect connection.
 
+> For consistent, reliable, and redundant connectivity, _install a second DX connection from a different network carrier._ You can attach it to the same virtual private gateway as the first DX connection.
+
 ## Direct Connect Gateways
 
 - A Direct Connect gateway is a globally available resource. You can create the Direct Connect gateway in any Region and access it from all other Regions.
