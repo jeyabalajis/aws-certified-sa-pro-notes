@@ -122,10 +122,12 @@
 - Use CloudWatch Events to monitor non compliant tags
 
 > Service control policies (SCPs) are a type of organization policy that you can use to manage permissions in your organization. 
->SCPs offer central control over the maximum available permissions for all accounts in your organization. 
->However, **SCPs alone are not sufficient for allowing access to the accounts in your organization.** 
->Attaching an SCP to an AWS Organizations entity just defines a guardrail for what actions the principals can perform. 
->You still need to attach identity-based or resource-based policies to principals or resources in your organization's accounts to actually grant permission to them.
+> SCPs offer central control over the maximum available permissions for all accounts in your organization. 
+> However, **SCPs alone are not sufficient for allowing access to the accounts in your organization.** 
+> Attaching an SCP to an AWS Organizations entity just defines a guardrail for what actions the principals can perform. 
+> You still need to attach identity-based or resource-based policies to principals or resources in your organization's accounts to actually grant permission to them.
+
+> SCPs affect only member accounts in the organization. They have no effect on users or roles in the management account (also known as the master account).
 
 ### Policy Inheritance
 - When you attach a policy to the organization root, all OUs and accounts in the organization inherit that policy.
