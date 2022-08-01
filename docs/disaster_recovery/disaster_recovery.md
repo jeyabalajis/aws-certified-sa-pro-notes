@@ -78,6 +78,8 @@ approach requires you to “turn on” servers, possibly deploy additional (non-
 scale up, whereas warm standby only requires you to scale up (everything is already deployed and
 running). Use your RTO and RPO needs to help you choose between these approaches.
 
+> If you have RTO of <= 5 minutes, Pilot Light would not work.
+
 ## Multi-site Active/Active
 
 - A write global strategy routes all writes to a single Region. In case of failure of that Region, another
