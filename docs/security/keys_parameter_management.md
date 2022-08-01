@@ -16,6 +16,14 @@
 
 > **KMS does not protect data in-transit!**
 
+### Customer Managed vs AWS Managed Keys
+
+> Customer managed keys are KMS keys in your AWS account that you create, own, and manage. You have full control over these KMS keys, including establishing and maintaining their key policies, IAM policies, and grants, enabling and disabling them, rotating their cryptographic material, adding tags, creating aliases that refer to the KMS keys, and scheduling the KMS keys for deletion.
+
+> AWS managed keys are KMS keys in your account that are created, managed, and used on your behalf by an AWS service integrated with AWS KMS to protect your resources in the service.
+
+> **In general, unless you are required to control the encryption key that protects your resources, an AWS managed key is a good choice.**
+
 ### Key Material
 - The key material for a KMS key is generated within hardware security modules (HSMs) managed by AWS KMS. 
 - Alternatively, you can import key material from your own key management infrastructure and associate it with a KMS key. 
@@ -36,10 +44,12 @@
 ![image](https://user-images.githubusercontent.com/15995686/179398384-4969e09c-5c7c-496a-8ece-b3a1b263069a.png)
 
 
-### Custom Key store
+### Custom (Controlled) Key store
 
 > You can configure your own CloudHSM cluster and authorize AWS KMS to use it as a dedicated key store for your keys rather than the default AWS KMS key store.
 KMS keys that are generated in your custom key store never leave the HSMs in the CloudHSM cluster in plaintext and all AWS KMS operations that use those keys are only performed in your HSMs.
+
+> CloudHSM enables your organization to control (or) fully manage the Key Store. Customer managed CMK enables your organization to provide your own keys. 
 
 ### RDS Security
 -  KMS encryption at rest for underlying EBS volumes / snapshots
