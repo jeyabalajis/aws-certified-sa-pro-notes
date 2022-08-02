@@ -81,6 +81,10 @@ running). Use your RTO and RPO needs to help you choose between these approaches
 > If you have RTO of <= 5 minutes, Pilot Light would not work.
 > If you have RTO of <= 30 minutes for application tier, a Warm standby is required. Pilot light may work as well. AMI snapshots backup and restore **would not work.**
 
+## Pilot Light vs Backup & Restore
+
+> For Backup & Restore, RTO/RPO is in hours. If the RTO is <= 30 minutes, Backup and Restore will not work. 
+
 ## Multi-site Active/Active
 
 - A write global strategy routes all writes to a single Region. In case of failure of that Region, another
