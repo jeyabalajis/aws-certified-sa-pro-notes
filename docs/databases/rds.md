@@ -51,7 +51,7 @@ Amazon RDS provides three storage types:
 - Cross Region RR: entire database is copied (not select tables)
 - Cross Region replication supported in Aurora
 - Shared storage volume across all instances (master and reader) - auto expandable upto 128 TB
-- Aurora Cross Region Read Replicas: Useful for disaster recovery
+- **Aurora Cross Region Read Replicas: Useful for disaster recovery**
 - Aurora global database: Upto 5 secondary regions with less than 1 second replication lag.
         - Promoting another region for disaster recovery has an RTO of less than 1 minute.
 - Use Aurora multi-master if immediate failover is required for Write node (HA)
@@ -69,6 +69,20 @@ Amazon RDS provides three storage types:
 
 - Amazon Aurora Global Database is designed for globally distributed applications, allowing a single Amazon Aurora database to span multiple AWS regions. 
 - It replicates your data with no impact on database performance, enables fast local reads with low latency in each region, and provides disaster recovery from region-wide outages.
+
+### Aurora Replication
+
+> Aurora Replicas also help to increase availability, apart from providing read scaling. If the writer instance in a cluster becomes unavailable, Aurora automatically promotes one of the reader instances to take its place as the new writer.
+> To increase availability, you can use Aurora Replicas as failover targets. There is a brief interruption during which read and write requests made to the primary instance fail with an exception.
+
+#### Aurora MySQL Replication
+
+- You can create an Aurora read replica of an Aurora MySQL DB cluster in a different AWS Region, by using MySQL binary log (binlog) replication.
+- Each cluster can have up to five read replicas created this way, each in a different Region.
+
+#### Aurora PostgreSQL Replication
+
+- Aurora PostgreSQL doesn't support cross-Region Aurora Replicas. However, you can use Aurora global database to scale your Aurora PostgreSQL DB cluster's read capabilities to more than one AWS Region and to meet availability goals. 
 
 ### Aurora vs. RDS
 
