@@ -68,6 +68,9 @@ nav:
       - Organizations: organizations/organizations.md
   - Disaster Recovery:
       - Disaster Recovery: disaster_recovery/disaster_recovery.md
+  - Cloud Operations:
+      - AWS Config: cloud_ops/aws_config.md
+      - Systems Manager: cloud_ops/systems_manager.md      
   - Miscellaneous:
       - Miscellaneous: misc/misc_services.md
   - Exam Preparation:
