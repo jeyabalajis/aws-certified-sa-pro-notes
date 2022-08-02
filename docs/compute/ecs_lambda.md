@@ -9,6 +9,11 @@
 - Target Tracking Policies are recommended.
 - ECS / Fargate is preferred for running arbitrary Docker images.
 
+### Spot Instance Draining
+
+- If Amazon ECS Spot Instance draining is enabled on the instance, ECS receives the Spot Instance interruption notice and places the instance in DRAINING status.
+- New tasks are not scheduled on these instances
+- Spot Instance draining is disabled by default and must be manually enabled (through user data that is executed during instance launch). 
 
 ## Lambda
 
