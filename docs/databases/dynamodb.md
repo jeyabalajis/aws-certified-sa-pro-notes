@@ -18,6 +18,8 @@
 - Amazon DynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns. This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling.
 - When the workload decreases, Application Auto Scaling decreases the throughput so that you don't pay for unused provisioned capacity.
 
+> You configure Auto Scaling by specifying the minimum and maximum capacity units and the target utilization.
+
 ## Adaptive Capacity
 
 > Adaptive capacity is enabled automatically for every DynamoDB table, at no additional cost. **You don't need to explicitly enable or disable it.**
@@ -26,7 +28,7 @@
 
 DAX is a caching solution for DynamoDB that can be placed in front of the database. This will provide much improved read performance _without any application changes_.
 
-> For read-heavy or bursty workloads, DAX provides increased throughput and potential operational cost savings by reducing the need to overprovision read capacity units. This is especially beneficial for applications that require repeated reads for individual keys.
+> For read-heavy or bursty workloads, DAX provides increased throughput and potential operational cost savings by reducing the need to overprovision read capacity units. This is especially beneficial for _applications that require repeated reads for individual keys_.
 
 ### Use Cases
 - Applications that require the fastest possible response time for reads. Some examples include real-time bidding, social gaming, and trading applications. DAX delivers fast, in-memory read performance for these use cases.
