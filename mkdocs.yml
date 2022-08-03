@@ -29,6 +29,7 @@ nav:
       - Certificate Manager: certificate_manager.md
   - Networking:
       - Hybrid Networking: network/hybrid_networking.md
+      - Advanced Networking: network/advanced_networking.md
       - VPC: network/vpc.md
       - Route 53: network/route53.md
       - CloudFront: network/CloudFront.md
