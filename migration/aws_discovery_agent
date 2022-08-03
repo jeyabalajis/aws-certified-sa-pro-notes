@@ -1,0 +1,13 @@
+# AWS Discovery Agent
+
+- The AWS Discovery Agent is AWS software that you install on _on-premises servers and VMs_ **targeted for discovery and migration**.
+- Agents capture system configuration, system performance, running processes and details of the network connections between systems. 
+- Agents support most Linux and Windows operating systems, and you can deploy them on physical on-premises servers, Amazon EC2 instances, and virtual machines.
+
+> Though you can use the agent on virtual machines, it is more efficient to use the Agentless Discovery connector for VMware virtual machines. This connector can be installed in VMware vCenter.
+
+## Agentless discovery connector
+
+- Used for VMware virtual machines.
+
+> The AWS Discovery Connector is a VMware appliance that can collect information only about VMware virtual machines (VMs). You install the Discovery Connector as a VM in your VMware vCenter Server environment using an Open Virtualization Archive (OVA) file. Because the Discovery Connector relies on VMware metadata to gather server information regardless of operating system, it minimizes the time required for initial on-premises infrastructure assessment.
