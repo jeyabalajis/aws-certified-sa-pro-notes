@@ -15,10 +15,10 @@
 
 ## Auto-Scaling
 
-- Amazon DynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns. This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling.
+- Amazon DynamoDB auto scaling uses the _AWS Application Auto Scaling service_ to dynamically adjust provisioned throughput capacity on your behalf, in response to actual traffic patterns. This enables a table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic, without throttling.
 - When the workload decreases, Application Auto Scaling decreases the throughput so that you don't pay for unused provisioned capacity.
 
-> You configure Auto Scaling by specifying the minimum and maximum capacity units and the target utilization.
+> You can scale DynamoDB tables and global secondary indexes using **target tracking scaling policies** and **scheduled scaling**.
 
 ## Adaptive Capacity
 
