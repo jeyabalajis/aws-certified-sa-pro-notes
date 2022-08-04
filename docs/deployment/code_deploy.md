@@ -32,11 +32,15 @@ Unlike CloudFormation and OpsWorks, CodeDeploy does not deal with infrastructure
 
 ### Lambda
 
+Blue/Green does not apply to Lambda functions.
+
 - Canary
 - Linear
 - All at Once
 
 ### EC2
+
+Supports In-Place and Blue/Green
 
 - All at Once
 - Half at Once
