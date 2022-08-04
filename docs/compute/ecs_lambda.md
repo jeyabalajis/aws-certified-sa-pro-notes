@@ -15,6 +15,17 @@
 - New tasks are not scheduled on these instances
 - Spot Instance draining is disabled by default and must be manually enabled (through user data that is executed during instance launch). 
 
+### Deployment Types
+
+#### Rolling update: 
+Replace current tasks with new tasks. Respect MinimumHealthyPercent
+
+#### Blue/Green deployment with CodeDeploy: 
+Can be Canary, Linear or All-at-Once
+
+#### External deployment: 
+The external deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service. 
+
 ## Lambda
 
 - By default, lambdas have internet access allowing them to communicate with any public resources. 
