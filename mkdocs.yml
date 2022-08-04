@@ -53,6 +53,7 @@ nav:
       - AppSync: compute/appsync.md
       - WorkDocs: compute/workdocs.md
       - X-Ray: compute/xray.md
+      - Application Auto Scaling: compute/application_auto_scaling.md
   - Data Engineering:
       - Data Engineering: data_engineering/data_engineering.md
   - Databases:
