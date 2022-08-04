@@ -23,6 +23,10 @@ Replace current tasks with new tasks. Respect MinimumHealthyPercent
 #### Blue/Green deployment with CodeDeploy: 
 Can be Canary, Linear or All-at-Once
 
+- Canary: Traffic is shifted in two increments. It can be 10 percent in 5 minutes (or) 10 Percent in 15 minutes (the remaining traffic is shifted after the interval)
+- Linear: Traffic is shifted in equal increments. It can be 10 percent every 1 minute (or) 10 percent every 3 minutes.
+- All-at-once: Moved all at once to new tasks
+
 #### External deployment: 
 The external deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service. 
 
