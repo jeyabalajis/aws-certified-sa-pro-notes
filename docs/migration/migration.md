@@ -148,6 +148,12 @@ typically between 250 MB/s and 400 MB/s
 - SMS automates the migration process by replicating on-premises VMs incrementally and converting them to Amazon machine images (AMIs). 
 - **You can continue using your on-premises VMs while migration is in progress.**
 
+![image](https://user-images.githubusercontent.com/15995686/183060319-fdb4a1a2-6441-4b41-9701-75b2d3bd18b5.png)
+
+### Application Migration
+
+![image](https://user-images.githubusercontent.com/15995686/183060557-24509a0f-eb5a-461d-b1f6-579f3942e695.png)
+
 If any of the following are true, you should consider using AWS SMS:
 - You are using vCenter 6.5 Server.
 - You want to specify BYOL licenses during migration.
