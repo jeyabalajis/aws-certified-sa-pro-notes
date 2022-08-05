@@ -81,6 +81,8 @@ MB/s and 40 MB/s. If you need to transfer data faster than this, use the
 Amazon S3 Adapter for Snowball, which has a data transfer rate 
 typically between 250 MB/s and 400 MB/s
 
+> If the connectivity is over-burdened and if you have a short time window for migration, Snowball is often a good choice to move data.
+
 ## Database Migration Service
 - You must create an EC2 instance to perform the replication tasks
 - Works over VPC Peering, VPN (site to site, software), Direct Connect
