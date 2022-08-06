@@ -74,7 +74,7 @@ KMS keys that are generated in your custom key store never leave the HSMs in the
 
 ### When to use CloudHSM Custom store?
 
-If you have stringent compliance requirements that mandate that you *manage your own HSM*. In this case, KS can use CloudHSM as a store.
+If you have stringent compliance requirements that mandate that you *manage your own HSM*. In this case, KMS can use CloudHSM as a store.
 
 ![KMS Cloud HSM Integration](../images/kms_cloudhsm.png)
 
