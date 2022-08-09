@@ -88,9 +88,9 @@ running). Use your RTO and RPO needs to help you choose between these approaches
 ## Multi-site Active/Active
 
 - A write global strategy routes all writes to a single Region. In case of failure of that Region, another
-Region would be promoted to accept writes. Aurora global database is a good fit for write global,
-as it supports synchronization with read-replicas across Regions, and you can promote one of the
-secondary Regions to take read/write responsibilities in less than one minute. Aurora also supports
+Region would be promoted to accept writes. **Aurora global database** is a good fit for write global,
+as it supports synchronization with read-replicas across Regions, and **you can promote one of the
+secondary Regions to take read/write responsibilities in less than one minute**. Aurora also supports
 write forwarding, which lets secondary clusters in an Aurora global database forward SQL statements
 that perform write operations to the primary cluster.
 - A write local strategy routes writes to the closest Region (just like reads). Amazon DynamoDB global
@@ -105,6 +105,8 @@ and currently supports replication between two Regions.
 accounts in multiple AWS Regions. AWS CloudFormation StackSets extends this functionality by enabling
 you to create, update, or delete CloudFormation stacks across multiple accounts and Regions with
 a single operation
+
+> Amazon RDS for MySQL instance with a cross-Region read replica in the failover Region can work for DR, **but will fail RTO of less than five minutes**
 
 ## Testing Diaster Recovery
 
