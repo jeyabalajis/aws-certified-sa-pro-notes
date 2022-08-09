@@ -19,6 +19,8 @@
 - When the workload decreases, Application Auto Scaling decreases the throughput so that you don't pay for unused provisioned capacity.
 
 > You can scale DynamoDB tables and global secondary indexes using **target tracking scaling policies** and **scheduled scaling**.
+> You cannot schedule RDS database instances to scale up or down. Auto-scaling feature is available for DynamoDB only.
+
 
 ## Adaptive Capacity
 
