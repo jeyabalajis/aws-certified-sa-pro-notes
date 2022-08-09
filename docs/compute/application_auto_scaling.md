@@ -14,6 +14,8 @@ Application Auto Scaling is a web service for developers and system administrato
 - Spot Fleet
 - Aurora
 
+> **NOTE:** RDS is not part of the above list. Autoscaling is not applicable for RDS databases.
+
 ## Types of scaling
 
 ### Target Tracking
