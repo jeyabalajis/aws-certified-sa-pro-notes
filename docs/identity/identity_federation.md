@@ -16,8 +16,9 @@ Identity Federation is used to provide users/entities outside of aws permissions
 
 - Integration with Microsoft ADFS (Active Directory Federation Services)
 - Under the hood: uses STS AssumeRolewithSAML
-- Involves creation of SAML Identity Provider in IAM
-- Can provide *trust policy* and *permission policies* as usual. The principal here would be **saml-provider**
+- Involves creation of SAML Identity Provider in IAM. 
+- In the role's trust policy, you set the SAML provider as the principal, which establishes a trust relationship between your organization and AWS.
+- Can provide *permission policies* as usual. For *trust policy*, the principal here would be **saml-provider**
 
 ### SAML Assertion Workflow with SSO:
 
