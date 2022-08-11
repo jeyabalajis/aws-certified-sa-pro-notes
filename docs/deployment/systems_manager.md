@@ -32,6 +32,10 @@ AWS Systems Manager is a collection of capabilities for configuring and managing
 - **Parameter Store**
   - Highly available, scalable and durable parameter store
   - No native rotation of keys
+- **Compliance**
+  - Scan your fleet of managed nodes for patch compliance and configuration inconsistencies.
+  - ```aws ssm put-compliance-items```
+
 
 ## Patch Manager
 
