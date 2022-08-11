@@ -22,4 +22,8 @@ AWS Elemental MediaConnect is just a high-quality transport service for live vid
 
 Amazon Polly is a machine learning service. It just turns text into lifelike speech that allows you to create applications that talk and build entirely new categories of speech-enabled products.
  
- 
+## RAM
+
+- Shares resources with accounts or organizations
+- Share TGW, Subnets, License manager configurations, and Route 53 resolver rules.
+- 
