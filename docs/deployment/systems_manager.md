@@ -5,6 +5,31 @@ AWS Systems Manager is a collection of capabilities for configuring and managing
 - With Systems Manager, you can select a resource group and view its recent API activity, resource configuration changes, related notifications, operational alerts, software inventory, and patch compliance status. 
 - Systems Manager provides a central place to view and manage your AWS resources, so you can have complete visibility and control over your operations.
 - Systems Manager enables you to manage AWS IoT Greengrass devices alongside Amazon Elastic Compute Cloud (EC2) instances and on-premises servers. 
+- Managed Instance - uses role Amazon SSM Managed Instance Core.
+
+## Systems Manager Components
+**- Automation**
+  - Example: Take snapshot of a RDS database (or) Start EC2 Instance (or) Stop EC2 Instance.    
+**- Run Command**
+  - Run commands on managed EC2 instances
+  - Example: List missing Microsoft Windows Updates 
+**- Inventory**
+  - Ensure that you have agents installed on EC2 instances and they have appropriate roles to send information to Systems Manager. 
+**- Patch Manager**
+  - Select and deploy OS and software patches across EC2 instances and on-premise instances
+  - Patch Baselines: set rules to approve select categories of patches to be installed. List of patches to override these rules as well.
+  - Schedule maintenance windows for your patches so that they are only applied during pre-defined times.
+  - Helps ensure that your software is up-to-date and meets your compliance policies.     
+  - Scan your managed instances for patch compliance and configuration inconsistencies.
+**- Session Manager**
+  - SSH or RDP to connect your managed instances through Session Manager
+  - Secure remote management of your instances (without the need for Bastion Hosts, SSH, or Remote Powershell) 
+  - Integrates with IAM for granular permissions
+  - Actions are recorded in CloudTrail
+  - Can store session logs in S3 and CloudWatch Logs 
+**- Parameter Store**
+  - Highly available, scalable and durable parameter store
+  - No native rotation of keys
 
 ## Patch Manager
 
@@ -18,7 +43,7 @@ AWS Systems Manager is a collection of capabilities for configuring and managing
 ### Patch Baselines
 
 - Patch Manager uses patch baselines, which include rules for auto-approving patches within days of their release, in addition to a list of approved and rejected patches. 
-- You can install patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task.
+- You can install patches on a regular basis by scheduling patching to run as a _Systems Manager maintenance window task_.
 
 #### Patch Group
 
