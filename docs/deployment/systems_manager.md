@@ -17,6 +17,7 @@ AWS Systems Manager is a collection of capabilities for configuring and managing
 - **Inventory**
   - Ensure that you have agents installed on EC2 instances and they have appropriate roles to send information to Systems Manager. 
 - **Patch Manager**
+  - Automate patching with native AWS Solution
   - Select and deploy OS and software patches across EC2 instances and on-premise instances
   - Patch Baselines: set rules to approve select categories of patches to be installed. List of patches to override these rules as well.
   - Schedule maintenance windows for your patches so that they are only applied during pre-defined times.
