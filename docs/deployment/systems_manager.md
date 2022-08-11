@@ -8,26 +8,27 @@ AWS Systems Manager is a collection of capabilities for configuring and managing
 - Managed Instance - uses role Amazon SSM Managed Instance Core.
 
 ## Systems Manager Components
-**- Automation**
+- **Automation**
   - Example: Take snapshot of a RDS database (or) Start EC2 Instance (or) Stop EC2 Instance.    
-**- Run Command**
+- **Run Command**
   - Run commands on managed EC2 instances
   - Example: List missing Microsoft Windows Updates 
-**- Inventory**
+  - Underlying CLI Command ```aws ssm send-command```
+- **Inventory**
   - Ensure that you have agents installed on EC2 instances and they have appropriate roles to send information to Systems Manager. 
-**- Patch Manager**
+- **Patch Manager**
   - Select and deploy OS and software patches across EC2 instances and on-premise instances
   - Patch Baselines: set rules to approve select categories of patches to be installed. List of patches to override these rules as well.
   - Schedule maintenance windows for your patches so that they are only applied during pre-defined times.
   - Helps ensure that your software is up-to-date and meets your compliance policies.     
   - Scan your managed instances for patch compliance and configuration inconsistencies.
-**- Session Manager**
+- **Session Manager**
   - SSH or RDP to connect your managed instances through Session Manager
   - Secure remote management of your instances (without the need for Bastion Hosts, SSH, or Remote Powershell) 
   - Integrates with IAM for granular permissions
   - Actions are recorded in CloudTrail
   - Can store session logs in S3 and CloudWatch Logs 
-**- Parameter Store**
+- **Parameter Store**
   - Highly available, scalable and durable parameter store
   - No native rotation of keys
 
