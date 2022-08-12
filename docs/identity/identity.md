@@ -134,6 +134,19 @@
 - When you attach a policy to a specific OU, accounts that are directly under that OU or any child OU inherit the policy.
 - When you attach a policy to a specific account, it affects only that account.
 
+### SCP Strategies
+
+#### Deny List Strategy
+- In this strategy, everything is allowed at the root. At the specific OU or account level, apply Deny as per requirements.
+- Explicit Deny overrides an Explicit Allow  
+
+#### Allow List Strategy
+- In this strategy, **Allow All Policy is removed at the root**. This means that at the root and below, there is _Implicit Deny_.
+- At the specific OU or account level, apply Allow as per requirements.
+- Explicit Allow overrides an Implicit Deny  
+
+> **An explicit Deny overrides an explicit Allow, which overrides the default implicit Deny**
+
 ## Deep Dive:
 
 ### Roles vs. Resource-based Policy
