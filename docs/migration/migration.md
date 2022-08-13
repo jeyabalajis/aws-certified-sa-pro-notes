@@ -38,6 +38,11 @@
 
 > In the _cached mode_, **your primary data is written to S3**, while retaining your frequently accessed data locally in a cache for low-latency access. In the _stored mode_, your **primary data is stored locally** and your entire dataset is available for low-latency access while asynchronously backed up to AWS.
 
+#### Volume Gateway vs File Gateway
+
+> File Gateway enables you to store and retrieve objects in Amazon S3 using file protocols such as NFS and SMB. 
+> Volume Gateway stores your data locally in the gateway and syncs them to Amazon S3. It also allows you to take point-in-time copies of your volumes with EBS snapshots which you can restore and mount to your appliance as iSCSI device.
+
 ### Tape Gateway
 - Some companies have backup processes using physical tapes (!)
 - With Tape Gateway, companies use the same processes but in the cloud
@@ -81,7 +86,7 @@ MB/s and 40 MB/s. If you need to transfer data faster than this, use the
 Amazon S3 Adapter for Snowball, which has a data transfer rate 
 typically between 250 MB/s and 400 MB/s
 
-> If the connectivity is over-burdened and if you have a short time window for migration, Snowball is often a good choice to move data.
+> **If the connectivity is over-burdened and if you have a short time window for migration, Snowball is often a good choice to move data.**
 
 ## Database Migration Service
 - You must create an EC2 instance to perform the replication tasks
@@ -148,12 +153,6 @@ typically between 250 MB/s and 400 MB/s
 - SMS automates the migration process by replicating on-premises VMs incrementally and converting them to Amazon machine images (AMIs). 
 - **You can continue using your on-premises VMs while migration is in progress.**
 
-![image](https://user-images.githubusercontent.com/15995686/183060319-fdb4a1a2-6441-4b41-9701-75b2d3bd18b5.png)
-
-### Application Migration
-
-![image](https://user-images.githubusercontent.com/15995686/183060557-24509a0f-eb5a-461d-b1f6-579f3942e695.png)
-
 If any of the following are true, you should consider using AWS SMS:
 - You are using vCenter 6.5 Server.
 - You want to specify BYOL licenses during migration.
@@ -170,7 +169,7 @@ If any of the following are true, you should consider using AWS SMS:
 - Migrate mission-critical VMs with AWS SMS. Export the other VMs locally and transfer them to Amazon S3 using AWS Snowball. 
 - Use VM Import/Export to import the VMs into Amazon EC2
 
-> The VMs that are exported and transported using Snowball will be offline for several days in this scenario - for always available & incremental migration, this is not acceptable.
+> The VMs that are exported and transported using Snowball will be offline for several days in this scenario - for **always available & incremental migration**, this is not acceptable.
 
 ## Application Migration (AWS MGN)
 
