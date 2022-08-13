@@ -163,6 +163,10 @@ If any of the following are true, you should consider using AWS SMS:
 
 > With support for incremental replication, AWS SMS allows fast, scalable testing of migrated servers. This can also be used to perform a final replication to synchronize the final changes before cutover.
 
+> Each server volume replicated is saved as a new Amazon Machine Image (AMI), which can be launched as an EC2 instance (virtual machine) in the AWS cloud. If you are using application groupings, Server Migration Service will launch the servers in a CloudFormation stack using an auto-generated CloudFormation template.
+
+> Multi-server migration provides you the ability to migrate entire application stacks as opposed to migrating each server individually. You can group servers into applications, replicate the entire application together, and monitor its migration status. You can also easily launch and configure the migrated application with an auto-generated CloudFormation Template.
+
 ### Snowball based migration vs SMS
 
 **A possible solution for migration of VMs:** 
