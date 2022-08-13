@@ -14,6 +14,13 @@
 - Use cases: Disaster recovery, backup & restore, tiered storage
 - Types: File, Volume, Tape and Amazon FSx File Gateway
 
+### Storage Gateway vs Data Sync
+
+- Use AWS DataSync to migrate existing data to Amazon S3, 
+- and subsequently use the File Gateway configuration of AWS Storage Gateway to retain access to the migrated data and for ongoing updates from your on-premises file-based applications.
+
+> You can use a combination of DataSync and File Gateway to minimize your on-premises infrastructure while seamlessly connecting on-premises applications to your cloud storage. 
+
 ### File Gateway
 
 - Virtual Machine to bridge between NFS and S3
