@@ -60,6 +60,8 @@ then routes traffic to the appropriate endpoint associated with that address. Gl
 
 > **Your backup strategy must include testing your backups.**
 
+> The backup and recovery strategy is considered the least efficient for RTO. However, you can use AWS resources like Amazon EventBridge to build serverless automation, which will reduce RTO by improving detection and recovery.
+
 ## AWS DRS
 
 - Set up AWS Elastic Disaster Recovery on your source servers to initiate secure data replication.
@@ -72,6 +74,8 @@ then routes traffic to the appropriate endpoint associated with that address. Gl
 
 ## Pilot Light vs Warm Standby
 
+[Pilot Light/Warm Standby Arch](]https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-iii-pilot-light-and-warm-standby/)
+
 > The distinction is that pilot light cannot process requests without additional action taken
 first, whereas warm standby can handle traffic (at reduced capacity levels) immediately. The pilot light
 approach requires you to “turn on” servers, possibly deploy additional (non-core) infrastructure, and
@@ -81,11 +85,18 @@ running). Use your RTO and RPO needs to help you choose between these approaches
 > If you have RTO of <= 5 minutes, Pilot Light would not work.
 > If you have RTO of <= 30 minutes for application tier, a Warm standby is required. Pilot light may work as well. AMI snapshots backup and restore **would not work.**
 
+## Warm Standby vs Hot Standby
+
+> The warm standby strategy deploys a functional stack, but at reduced capacity. It is always less than the full production deployment for cost savings. 
+> If the passive stack is deployed to the recovery Region at full production capacity however, then this strategy is known as **“hot standby.”**
+
 ## Pilot Light vs Backup & Restore
 
 > For Backup & Restore, RTO/RPO is in hours. If the RTO is <= 30 minutes, Backup and Restore will not work. 
 
 ## Multi-site Active/Active
+
+[Multi-site active/active Arch](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-iv-multi-site-active-active/)
 
 - A write global strategy routes all writes to a single Region. In case of failure of that Region, another
 Region would be promoted to accept writes. **Aurora global database** is a good fit for write global,
