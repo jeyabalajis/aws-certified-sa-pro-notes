@@ -8,7 +8,7 @@ If you want to speed up delivery of your web content, you can use Amazon CloudFr
 
 > CloudFront Signed URL requires an application server that authenticates and then generates a CloudFront Signed URL for the client.
 
-> CloudFront Signed URL: Allow access to a path no matter the origin, leverage caching features. S3 Pre-Signed URL: impersonates the person who pre-signed the URL; limited lifetime.
+> CloudFront Signed URL: Allow access to a path no matter the origin, leverage caching features. S3 Pre-Signed URL: impersonates the person who pre-signed the URL; limited lifetime. _Use Signed cookies for multiple files._
 
 > Restrict access to custom origins and ALB: Use a custom-header and set ALB rule to accept requests that contain this custom header. Keep the custom-header name & value a secret.
 
@@ -79,6 +79,7 @@ Choose the protocol policy that you want viewers to use to access your content i
 - Lambda@Edge can be configured to inspect the viewer request and look for the user-agent HTTP header.
 - This header is a string that can be used to identify the application, operating system, vendor, and/or version of the requesting user agent.
 - Based on the operating system of the client, the function can then return different media assets from the CloudFront cache.
+- Lambda@Edge can be used in viewer request, origin request, origin response and viewer response.
 
 ### Key Use Cases
 - Inspect cookies to rewrite URLs to different versions of a site for A/B testing.
@@ -105,3 +106,22 @@ Choose the protocol policy that you want viewers to use to access your content i
 
 - The CloudFront security savings bundle is a simple way to save up to 30% on the CloudFront charges on your AWS bill when you make an upfront commitment.
 - When you purchase a savings bundle, you also get credits for AWS WAF, a web application firewall that helps protect your CloudFront distribution against common web exploits.
+
+## Origin Access Identity
+
+- Access to S3 origin is restricted through CloudFront.
+- Bucket policy is created that provides bucket access to only OAI as _AWS Principal_.
+- With OAI, an identity is created and that is in turn used as AWS principal in S3 Bucket policy to restrict access.
+
+## Behavior
+
+- Redirect requests to specific origin based on path pattern
+- Example: If file type is .mp4, go to origin 1, else to origin 2. There could be a default behavior too.
+
+## Geo-Restriction
+
+- Restrict access to specific countries based on white-list or black-list based approach.
+
+## Cache Invalidation
+
+- You need to pay for invalidation requests.
