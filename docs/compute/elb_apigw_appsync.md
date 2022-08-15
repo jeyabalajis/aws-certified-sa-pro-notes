@@ -36,7 +36,7 @@ With Classic Load Balancers, the load balancer node that receives the request se
 
 With Network Load Balancers, the load balancer node that receives the connection uses the following process:
 
-- Selects a target from the target group for the default rule using a flow hash algorithm. It bases the algorithm on:
+- Selects a target from the target group for the default rule using a **flow hash algorithm**. It bases the algorithm on:
 - The protocol
 - The source IP address and source port
 - The destination IP address and destination port
