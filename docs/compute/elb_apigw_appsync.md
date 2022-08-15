@@ -63,7 +63,8 @@ With Network Load Balancers, the load balancer node that receives the connection
 It is a transparent bump-in-the-wire device that does not change any part of the packet. 
 It is architected to handle millions of requests/second, volatile traffic patterns, and introduces extremely low latency.
 
-> All load balancers support Connection draining (deregistration delay)
+> All load balancers support Connection draining (deregistration delay).
+> For the duration of the configured connection draining timeout, the load balancer _will allow existing, in-flight requests made to an instance to complete_, but it will not send any new requests to the instance. During this time, the API will report the status of the instance as InService, along with a message stating that “Instance deregistration currently in progress.” Once the timeout is reached, any remaining connections will be forcibly closed.
 
 
 ## API Gateway
