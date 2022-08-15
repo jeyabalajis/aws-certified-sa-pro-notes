@@ -7,6 +7,7 @@
 3. Global tables eliminate the difficult work of replicating data between Regions and resolving update conflicts, enabling you to focus on your application's business logic.
 
 ### Benefits
+
 1. Read and write locally, access your data globally
 2. Performant
 3. Easy to set up and operate
@@ -21,18 +22,29 @@
 > You can scale DynamoDB tables and global secondary indexes using **target tracking scaling policies** and **scheduled scaling**.
 > You cannot schedule RDS database instances to scale up or down. Auto-scaling feature is available for DynamoDB only.
 
+## Time to Live (TTL)
+
+- TTL lets you define when items in a table expire so that they can be automatically deleted from the database.
+- Enables deletion of data on a per-item basis.
 
 ## Adaptive Capacity
 
 > Adaptive capacity is enabled automatically for every DynamoDB table, at no additional cost. **You don't need to explicitly enable or disable it.**
 
+## DynamoDB Streams
+
+- Captures time-ordered sequence of item-level modifications in a DynamoDB table and durably stores the information for upto 24 hours. Often used with Lambda and Kinesis Client Library (KCL)
+
 ## DAX
 
-DAX is a caching solution for DynamoDB that can be placed in front of the database. This will provide much improved read performance _without any application changes_.
+- DAX is a caching solution for DynamoDB that can be placed in front of the database.
+- This will provide much improved read performance _without any application changes_.
+- Provides microsecond latency
 
 > For read-heavy or bursty workloads, DAX provides increased throughput and potential operational cost savings by reducing the need to overprovision read capacity units. This is especially beneficial for _applications that require repeated reads for individual keys_.
 
 ### Use Cases
+
 - Applications that require the fastest possible response time for reads. Some examples include real-time bidding, social gaming, and trading applications. DAX delivers fast, in-memory read performance for these use cases.
 - Applications that read a small number of items more frequently than others. For example, consider an ecommerce system that has a one-day sale on a popular product. During the sale, demand for that product (and its data in DynamoDB) would sharply increase, compared to all of the other products. To mitigate the impacts of a "hot" key and a non-uniform traffic distribution, you could offload the read activity to a DAX cache until the one-day sale is over.
 - Applications that are read-intensive, but are also cost-sensitive.
