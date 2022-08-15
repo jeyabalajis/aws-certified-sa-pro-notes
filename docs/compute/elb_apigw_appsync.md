@@ -10,16 +10,21 @@
 - ALB: Health checks are at target group level. Targets can be EC2 instances (auto-scaling group), ECS Service, Lambda functions or private IPs.
 
 #### Application Load Balancer (V2)
+
 With Application Load Balancers, the load balancer node that receives the request uses the following process:
+
 - Evaluates the listener rules in priority order to determine which rule to apply.
-- Selects a target from the target group for the rule action, using the routing algorithm configured for the target group. The default routing algorithm is round robin. Routing is performed independently for each target group, even when a target is registered with multiple target groups.
+- Selects a target from the target group for the rule action, using the routing algorithm configured for the target group. 
+- **The default routing algorithm is round robin.**
+- Routing is performed independently for each target group, even when a target is registered with multiple target groups.
 
 
 #### Classic Load Balancer
+
 With Classic Load Balancers, the load balancer node that receives the request selects a registered instance as follows:
+
 - Uses the round robin routing algorithm for TCP listeners
 - Uses the least outstanding requests routing algorithm for HTTP and HTTPS listeners
-
 
 ### NLB:
 
@@ -30,11 +35,12 @@ With Classic Load Balancers, the load balancer node that receives the request se
 - NLB: NLB **does not** have a security group. Basically, you will have the ability to either use the security group function already associated with your EC2 Instance’s network card (ENI), a VPC Network Access Control List (NACL), AWS Network Firewall, or some other type of marketplace solution to provide the necessary security controls that you are seeking. 
 
 With Network Load Balancers, the load balancer node that receives the connection uses the following process:
+
 - Selects a target from the target group for the default rule using a flow hash algorithm. It bases the algorithm on:
-  - The protocol
-  - The source IP address and source port
-  - The destination IP address and destination port
-  - The TCP sequence number
+- The protocol
+- The source IP address and source port
+- The destination IP address and destination port
+- The TCP sequence number
 - Routes each individual TCP connection to a single target for the life of the connection. The TCP connections from a client have different source ports and sequence numbers, and can be routed to different targets.
 
 ### GLB:
