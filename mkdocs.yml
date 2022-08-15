@@ -48,7 +48,7 @@ nav:
       - ECS & Lambda: compute/ecs_lambda.md
       - Data Management: compute/data_management.md
       - ELB & API Gateway: compute/elb_apigw_appsync.md
-      - AutoScaling: compute/autoscaling.md
+      - AutoScaling: compute/auto_scaling.md
       - Elastic Beanstalk: compute/elastic_bean_stalk.md
       - AppSync: compute/appsync.md
       - WorkDocs: compute/workdocs.md
