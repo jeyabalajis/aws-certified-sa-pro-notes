@@ -59,6 +59,15 @@
 - EFS is the most expensive (3x of gp2 pricing) and available across multiple instances.
 - S3 - typical for huge, long term storage. Glacier for cold storage.
 
+### Copying and Sharing
+
+- Volume to Snapshot: Encryption state retained, same region
+- Snapshot to encrypted snapshot: Can be encrypted and can change regions
+- Unencrypted snapshot to encrypted volume: can be encrypted and can change AZ
+- Unencrypted snapshot to AMI: cannot be encrypted, can be shared with other accounts, can be shared publicly
+- Snapshot to snapshot: can change regions
+- Encrypted snapshot to encrypted volume: can be encrypted, can change AZ
+
 ### Best Practices
 > To get additional IOPS performance on a gp2 EBS Volume, simply increase the storage size.
 > POSIX and on-premise is supported by EFS; this works on-premise when you connect through Direct Connect or Site-to-Site VPN. 
