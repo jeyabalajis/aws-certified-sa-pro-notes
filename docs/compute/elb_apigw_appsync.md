@@ -72,7 +72,12 @@ It is architected to handle millions of requests/second, volatile traffic patter
 ### Edge-Optimized vs. Region
 
 > **An edge-optimized API endpoint is best for geographically distributed clients. API requests are routed to the nearest CloudFront Point of Presence (POP). For mobile clients this is a good use case for this type of endpoint.**
+
 >  **The Regional endpoint is best suited to traffic coming from within the Region only.**
+
+- Edge Optimized: Reduced Latency for requests around the world.
+- Regional: Reduced latency for requests that originate in the same region. Can also configure your own CDN and protect with WAF.
+- Private: Accessible within a VPC (or) Direct Connect
 
 ### Security & Logging:
 
@@ -92,13 +97,28 @@ It is architected to handle millions of requests/second, volatile traffic patter
 
 - 502: Bad Gateway Exception, usually for an incompatible output returned from a Lambda proxy integration backend and occasionally for out-of-order invocations due to heavy loads.
 - 503: Service Unavailable Exception
-- 504: Integration Failure – ex Endpoint Request Timed-out Exception. API Gateway requests time out after 29 second maximum
+- 504: Integration Failure – ex Endpoint Request Timed-out Exception.** API Gateway requests time out after 29 second maximum**
 
 4xx means Client errors 
 
 - 400: Bad Request
 - 403: Access Denied, WAF filtered
 - 429: Quota exceeded, Throttle
+
+### Integrations
+
+- Lambda: Lambda Proxy (or) Lambda custom
+- HTTP: HTTP Proxy (or) HTTP Custom
+- AWS service: Only non-proxy
+
+### Throttling
+
+- Beyond 10,000 requests per second (or) 5,000 concurrent requests, you receive 429 Too Many Requests error response.
+
+### Usage Plans
+
+- Premium users vs. Basic Users.
+- API Key can be distributed per each usage plan. 
 
 ## AWS AppSync
 
