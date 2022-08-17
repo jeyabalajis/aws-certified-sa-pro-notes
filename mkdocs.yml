@@ -55,6 +55,7 @@ nav:
       - X-Ray: compute/xray.md
       - Application Auto Scaling: compute/application_auto_scaling.md
       - Step Functions: compute/step_functions.md
+      - SQS: compute/sqs.md
   - Data Engineering:
       - Data Engineering: data_engineering/data_engineering.md
   - Databases:
