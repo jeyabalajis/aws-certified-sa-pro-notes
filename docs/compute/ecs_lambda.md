@@ -58,9 +58,10 @@ If the Lambda is being called through SQS, ensure that the **SQS employs batchin
 
 [Lambda Throttling](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-troubleshoot-throttling/) 
 
-
-> Note: To work around burst concurrency limits, you can configure provisioned concurrency.
-> Note that the burst concurrency quota is not per-function; it applies to all your functions in the Region.
+#### Handling
+- To work around burst concurrency limits, you can configure provisioned concurrency.
+- Note that the burst concurrency quota is not per-function; it applies to all your functions in the Region.
+- Use exponential backoff in your application code
 
 ### Concurrency
 
@@ -95,13 +96,20 @@ A batching window is the maximum amount of time to gather records into a single 
 ### AWS Lambda versions:
 - Version = code + configuration (nothing can be changed - immutable)
 - Each version of the lambda function can be accessed 
+- A version includes: the function code & dependencies, the Lambda runtime, function settings and a Unique ARN
+- $LATEST is mutable.
+- Publish a new version (each version is immutable). Each version has it's own ARN
+- You can use each version to be used in a separate environment.  
 
 ### AWS Lambda Aliases
-- Aliases are ”pointers” to Lambda function versions
 
-You can’t incrementally deploy your software across a fleet of servers when there are no servers!* In fact, even the term “deployment” takes on a different meaning with functions as a service (FaaS).
+> Aliases are ”pointers” to Lambda function versions. An alias points to one or more versions.
 
-> With the introduction of alias traffic shifting, it is now possible to trivially implement canary deployments of Lambda functions. By updating additional version weights on an alias, invocation traffic is routed to the new function versions based on the weight specified. 
+- You can’t incrementally deploy your software across a fleet of servers when there are no servers!
+- In fact, even the term “deployment” takes on a different meaning with functions as a service (FaaS).
+
+> **With the introduction of alias traffic shifting, it is now possible to trivially implement canary deployments of Lambda functions. By updating additional version weights on an alias, invocation traffic is routed to the new function versions based on the weight specified. **
+> For example, an alias can send 80% of traffic to Version 1 and 20% of traffic to Version 2.
 
 ### Using AWS CLI for Canary
 
@@ -121,4 +129,4 @@ aws lambda update-alias --function-name myfunction --name myalias --routing-conf
 aws lambda update-alias --function-name myfunction --name myalias --function-version 2 --routing-config '{}'
 ```
 
-The above can be automated with AWS Step Functions.
+**The above can be automated with AWS Step Functions.**
