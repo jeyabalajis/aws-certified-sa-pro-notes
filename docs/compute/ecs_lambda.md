@@ -30,6 +30,10 @@
 - Cluster auto-scaling is applicable only for EC2 Launch type and uses EC2 Auto scaling. Cluster auto-scaling uses Capacity Provider.
 - Cluster auto-scaling supports _Managed Instance Termination Protection_ when scale-in happens.  Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action.
 
+### ECS and ELB
+
+> The Classic Load Balancer doesn't allow you to run multiple copies of a task on the same instance. Instead, when using the Classic Load Balancer, you must statically map port numbers on a container instance. **However, an Application Load Balancer uses dynamic port mapping, so you can run multiple tasks from a single service on the same container instance**.
+
 ### Deployment Types
 
 #### Rolling update: 
