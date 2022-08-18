@@ -7,7 +7,7 @@
 - **Rolling with additional batch**: Same as Rolling, but an additional batch is deployed before taking the current batch instances out of service. _Small additional cost but no performance impact._
 - **Immutable**: Launch a fresh ASG group, alongside instances running the old version. Avoids partial failure. _Zero downtime, but cost is higher. Longer deployment time._ Rollback is the fastest.
 - **Traffic splitting**: Same as Immutable, but weight is configurable. It is canary, so a percentage of traffic is sent to new batch and if healthy, moves all traffic to new.
-- **Blue/Green**: Setup a stage environment and deploy updates there. Swap URls in Elastic Beanstalk.
+- **Blue/Green**: Setup a stage environment and deploy updates there. Use **Swap URLs** in Elastic Beanstalk to conduct a Blue/Green deployment.
 
 > Elastic Beanstalk abstracts the finer details and automatically handles all the details such as provisioning an ECS cluster, balancing load, auto-scaling, monitoring, and placing the containers across the cluster.
 
