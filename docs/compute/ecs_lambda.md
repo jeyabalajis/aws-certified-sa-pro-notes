@@ -8,12 +8,27 @@
 - You can use these and other CloudWatch metrics to scale out your service (add more tasks) to deal with high demand at peak times, and to scale in your service (run fewer tasks) to reduce costs during periods of low utilization.
 - Target Tracking Policies are recommended.
 - ECS / Fargate is preferred for running arbitrary Docker images.
+- Fargate Launch mode _DOES NOT_ support EBS & EFS integration, but EC2 launch mode does.
+- Fargate automates underlying infrastructure, so limited control vis-a-vis EC2 launch type, which offers more granular control, but with more responsibility.
+
+### ECS and IAM Roles
+
+- With EC2 launch type, there is IAM Instance Role and IAM Task Role. Container inherits permissions provided through IAM Instance Role.
+- With Fargate launch type, there is only IAM Task Role. 
 
 ### Spot Instance Draining
 
 - If Amazon ECS Spot Instance draining is enabled on the instance, ECS receives the Spot Instance interruption notice and places the instance in DRAINING status.
-- New tasks are not scheduled on these instances
+- **New tasks are not scheduled on these instances**
 - Spot Instance draining is disabled by default and must be manually enabled (through user data that is executed during instance launch). 
+
+### Scaling
+
+- Service auto-scaling and Cluster auto-scaling
+- Service auto-scaling: Specify _Desired Task Count_. This is automatically adjusted based on _Application Auto-Scaling_
+- Service auto-scaling supports step, scheduled, and target tracking
+- Cluster auto-scaling is applicable only for EC2 Launch type and uses EC2 Auto scaling. Cluster auto-scaling uses Capacity Provider.
+- Cluster auto-scaling supports _Managed Instance Termination Protection_ when scale-in happens.  Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action.
 
 ### Deployment Types
 
