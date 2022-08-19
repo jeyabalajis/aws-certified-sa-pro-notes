@@ -4,11 +4,14 @@
 - Direct Connect allows for private communication over a dedicated line, and can provide additional security, performance, and privacy.
 - It can also bridge the network architecture gap between on-premises networks and AWS.
 - Direct Connect locations are public datacenters that have AWS operated private backbone connectivity to AWS regions.
-- A virtual interface is like a subinterface on a router in a virtual routing and forwarding (VRF) table, with a route in the VRF toward a specific location.
+- A virtual interface (VIF) is a virtual interface (_802.1Q VLAN_ and a _BGP_ session.)
 - Virtual interfaces can be private or public. 
-- Private virtual interfaces are used to route a Direct Connect connection to a specific VPC.
-- Public virtual interfaces allow for direct routing into AWS’s public services.
+- A Private virtual interfaces (Private VIF) connects to a single VPC in the same AWS Region using a VGW.
+- A Public virtual interfaces (public VIF) can be used to connect to AWS _Public Services_ in any Region (but _not_ the internet).
 - Key requirement: Your device must support Border Gateway Protocol (BGP) and BGP MD5 authentication.
+- DX Connections are **NOT encrypted**. Use an IPSec site-to-site VPN over a VIF to add encryption in transit.
+- LAG - Used to combine multiple _physical_ connections into a single _logical_ connection using _LACP_ - provides _improved speed_
+- Can use Site-to-site VPN as a backup path for primary DX Connection (High Availability at a lower cost than DX-DX architecture) - DO NOT use this architecture if you need speed above 1Gbps
 
 > To connect to services such as EC2 using just Direct Connect you need to create a private virtual interface. 
 However, if you want to encrypt the traffic flowing through Direct Connect, you will need to use _the public virtual interface of DX to create a VPN connection_ that will allow access to AWS services such as S3, EC2, and other services. Direct Connect in itself does not provide encryption in-transit.
