@@ -37,7 +37,7 @@ However, if you want to encrypt the traffic flowing through Direct Connect, you 
 - AWS Transit Gateway connects your Amazon Virtual Private Clouds (VPCs) and on-premises networks **through a central hub**. Your data is automatically encrypted and never travels over the public internet.
 - A route table includes dynamic and static routes that decide the next hop based on the destination IP address of the packet.
 - Attachments: A Transit Gateway can be attached to one of the following:
-    - One or more VPCs
+    - One or more VPC - AWS Transit Gateway deploys an elastic network interface within VPC subnets, which is then used by the transit gateway to route traffic to and from the chosen subnets.
     - A Connect SD-WAN/third-party network appliance
     - An AWS Direct Connect gateway. In this configuration, Corporate office is connected to a DX Gateway which is connected to TGW. Transit VIF is used.
     - A peering connection with another transit gateway
@@ -52,6 +52,16 @@ However, if you want to encrypt the traffic flowing through Direct Connect, you 
     - Appliance VPC
  
  ![image](https://user-images.githubusercontent.com/15995686/173280790-8b98c725-63a5-4e7f-8de2-2a48f862627e.png)
+ 
+### Use Cases
+
+-  Centralized Router: In this scenario, TGW acts as a simple layer 3 IP router connecting all VPCs, AWS Direct Connect and Site-to-Site VPN Connections.
+-  Isolated VPCs: In this scenario, TGW acts as multiple isolated routers for isolated VPCs. Outbound traffic is routed through TGW, but VPCs cannot communicate with each other.
+-  Isolated VPCs with shared services: In this scenario, isolated VPCs can connect to a shared services VPC through TGW, but cannot communicate with each other. (_they are blocked because there is no route for them in the transit gateway route table_)
+-  Peering: In this scenario, two TGWs are connected with each other, providing transitive peering across resources connected to each of the TGW. 
+-  Centralized outbound routing to the internet: In this scenario, outbound traffic from private subnets are routed to TGW, which in turns routes the request to a VPC that contains NAT Gateway and Internet Gateway.
+-  Appliance VPC: In this use case, multiple VPC outbound traffic is routed to transit gateway (TGW), which in turn routes traffic to a VPC which contains a security appliance that inspects traffic. The appliance is a stateful appliance, therefore both the request and response are inspected.
+
  
 ## S3endpoints
 - With S3 endpoints, you can create a private route in your VPC that allows you to route traffic directly to and from S3 in your VPC. 
