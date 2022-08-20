@@ -62,7 +62,27 @@ However, if you want to encrypt the traffic flowing through Direct Connect, you 
 -  Centralized outbound routing to the internet: In this scenario, outbound traffic from private subnets are routed to TGW, which in turns routes the request to a VPC that contains NAT Gateway and Internet Gateway.
 -  Appliance VPC: In this use case, multiple VPC outbound traffic is routed to transit gateway (TGW), which in turn routes traffic to a VPC which contains a security appliance that inspects traffic. The appliance is a stateful appliance, therefore both the request and response are inspected.
 
- 
+### Sharing
+
+- Use Border Gateway Protocol (BGP) Site-to-Site VPN connections.
+- Associate the same VPC route table with all of the subnets that are associated with the transit gateway, unless your network design requires multiple VPC route tables.
+- You can use AWS Resource Access Manager (RAM) to share a transit gateway for VPC attachments across accounts or across your organization in AWS Organizations. 
+
+### Flow Logs
+
+- Transit Gateway Flow Logs is a feature that enables you to capture information about the IP traffic going to and from your transit gateways. Flow log data can be published to Amazon CloudWatch Logs or Amazon S3.
+
+### Monitoring
+
+- Transit Gateway can be monitored through Cloudwatch Logs and CloudTrail Logs. All calls to transit gateway actions are logged by CloudTrail.
+
+### Design Best practices
+
+- Use a separate (small) subnet for each TGW subnet attachment
+- Create one network ACL and associate it with all of the subnets that are associated with the transit gateway.
+- Use Border Gateway Protocol (BGP) Site-to-Site VPN connections.
+- Associate the same VPC route table with all of the subnets that are associated with the transit gateway, unless your network design requires multiple VPC route tables.
+
 ## S3endpoints
 - With S3 endpoints, you can create a private route in your VPC that allows you to route traffic directly to and from S3 in your VPC. 
 - S3 was the first AWS service with endpoints, and AWS is constantly evaluating endpoints for other services.
