@@ -28,18 +28,21 @@ However, if you want to encrypt the traffic flowing through Direct Connect, you 
 - A Direct connect Gateway is associated with either of the following:
     - A transit gateway when you have _multiple VPCs in the same Region_
     - A virtual private gateway
+- Network traffic can be routed from _on-premises_ to _any VPC across regions_. However, DX Gateway does not allow inter-vpc communication among VGWs.
+- 
 
 > **AWS Managed VPN can be combined with Direct Connect Gateway to provide an IPSEC-encrypted private connection**
 
 ## Transit Gateway
-- AWS Transit Gateway connects your Amazon Virtual Private Clouds (VPCs) and on-premises networks through a central hub. Your data is automatically encrypted and never travels over the public internet.
+- AWS Transit Gateway connects your Amazon Virtual Private Clouds (VPCs) and on-premises networks **through a central hub**. Your data is automatically encrypted and never travels over the public internet.
 - A route table includes dynamic and static routes that decide the next hop based on the destination IP address of the packet.
 - Attachments: A Transit Gateway can be attached to one of the following:
     - One or more VPCs
     - A Connect SD-WAN/third-party network appliance
-    - An AWS Direct Connect gateway
+    - An AWS Direct Connect gateway. In this configuration, Corporate office is connected to a DX Gateway which is connected to TGW. Transit VIF is used.
     - A peering connection with another transit gateway
     - A VPN connection to a transit gateway
+- Transit Gateway with Direct Connect Gateway supports _full transitive_ routing between _on-premises, TGW and VPCs._
 - Example configurations
     - Centralized Router
     - Isolated VPCs
