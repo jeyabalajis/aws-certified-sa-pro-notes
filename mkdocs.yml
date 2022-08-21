@@ -64,6 +64,7 @@ nav:
   - Cost Control:
       - Cost Control: cost_control/cost_control.md
       - Trusted Advisor: cost_control/trusted_advisor.md
+      - Savings Plan: cost_control/savings_plan.md
   - Logging:
       - Logging: logging/logging.md
   - Deployment:
