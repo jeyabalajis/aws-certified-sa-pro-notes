@@ -94,6 +94,13 @@ Example Trust Policy:
 - Preferred by aws.
 - Can create Roles within Cognito with least privileges.
 - **Key Advantages**: MFA, Data sync and anonymous users support.
+- Cognito Identity Pools (CIP): Identity pools are used to obtain temporary, limited-privilege credentials for AWS service. An IAM Role is assumed providing access tp aws services.
+
+### Cognito User Pools & Identity Pools
+
+1. Authenticate with CUP & get JWT Token
+2. Exchange Tokens for Credentials from CIP
+3. Use Credentials to access aws services
 
 ### Web Identity Federation - IAM Policy
 
@@ -150,7 +157,3 @@ A user portal for logins and MFA is required for easy access and added security.
 - Restricting the usage of AWS services per AWS account with a Service Control Policy (SCP).
 
 > AWS CloudFormation Stack Sets can be used to deploy your Infrastructure as Code templates to multiple/all AWS accounts within your organization.
-
-
-
-
