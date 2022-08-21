@@ -2,10 +2,18 @@
 
 ## Salient points
 - NAT Gateway is resilient to failure within a single AZ. Require multiple NAT Gateways for resilience across multi-AZ.
+- NAT Gateway is created in public subnet (i.e. a subnet that has internet gateway). 0.0.0.0/0 is routed to NAT Gateway from private subnet.
+- NAT instance uses a special AMI with the string “amzn-ami-vpc-nat” in the name. 
+    - Must disable source/destination checks. 
+    - Need to assign security group.
+    - Can use as bastion host
+    - Can implement port forwarding through customization (not possible with NAT Gateway)
 - NACL is stateless. Incoming does not mean outgoing is allowed. Both allow and deny rules. Applied at subnet level.
-- Security Group is stateful. Only allow rules, deny rules not possible. Instance level
+- Security Group is stateful. Only allow rules, deny rules not possible. Instance level.
+- Subnet routes. _Longest prefix wins._
 - Can reference other security groups in the same region.
 - Egress Only Internet Gateway for IPV6 traffic
+- An Egress-only Internet Gateway allows IPv6 traffic outbound but not inbound
 - Transitive connections are not allowed with VPC Peering, establish one on one. CIDR cannot overlap.
 - VPC Peering can work inter-region and cross-account.
 - Edge to edge routing not allowed with VPC Peering. 
@@ -35,13 +43,13 @@ AWS PrivateLink is a highly available, scalable technology that enables you to p
 4. Service consumers create interface VPC endpoints to connect to the endpoint services (created in service provider account)
 5. You can configure Amazon Route 53 to route domain traffic to a VPC endpoint.
 6. If the NLB is in multiple AZ, and the ENI in multiple AZ, the solution is fault tolerant!
-7. NLB on the service provider side and VPC endpoint on the service consumer side. 
+7. **NLB on the service provider side and VPC endpoint on the service consumer side. **
 
 ### Interface endpoint
 
 1. An elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported AWS service, endpoint service, or AWS Marketplace service.
 2. Leverage security groups for security
-3. Uses Private DNS
+3. Uses Private DNS entries to redirect traffic.
 4. Interface can be accessed from Direct Connect and Site-to-Site VPN, through intra-region VPC peering connections from Nitro instances, and through inter-region VPC peering connections from any type of instance.
 
 ### Under the Hood
@@ -51,7 +59,7 @@ AWS PrivateLink is a highly available, scalable technology that enables you to p
 - The hosted zone contains a record set for the default DNS name for the service (for example, ec2.us-east-1.amazonaws.com) that resolves to the private IP addresses of the endpoint network interfaces in your VPC. **This enables you to make requests to the service using its default DNS hostname instead of the endpoint-specific DNS hostnames.**
 - With Private DNS enabled on the endpoint, instances can send requests AWS services through the interface endpoint using either the default DNS hostname or the endpoint-specific DNS hostname.
 
-### VPC Endpoint policies
+### VPC Endpoint policies (Gateway endpoint)
 - Does not replace IAM Policies or resource based policies.
 - use aws:SourceVpc in S3 bucket policies to allow access only from endpoint (more secure) 
 
@@ -59,8 +67,10 @@ AWS PrivateLink is a highly available, scalable technology that enables you to p
 
 ### Gateway Endpoint
 1. Works only for S3 and DynamoDB
-2. Gateway is defined at VPC Level and must update route table entries
-3. Gateway endpoint **cannot** be extended out of a VPC (VPN, DX, TGW, peering)
+2. Gateway is defined at VPC Level and must update route table entries with prefix list.
+3. A Prefix List is a collection of CIDR blocks that can be used to configure VPC security groups, VPC route tables, and AWS Transit Gateway route tables and can be shared with other AWS accounts using Resource Access Manager (RAM).
+4. Gateway endpoint **cannot** be extended out of a VPC (VPN, DX, TGW, peering)
+5. Gateway endpoint employs routing and requires prefix lists in the route table to redirect traffic.
 
 ## Transit Gateway
 - Works with Direct Connect Gateway, VPN connections
