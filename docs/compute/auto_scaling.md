@@ -5,7 +5,8 @@
 - ASGAverageCPUUtilization: Average CPU utilization of the Auto Scaling group
 - ASGAverageNetworkIn: Average number of bytes received on all network interfaces by the Auto Scaling group
 - ASGAverageNetworkOut: Average number of bytes sent out on all network interfaces by the Auto Scaling group
-- ALBRequestCountPerTarget: Number of requests completed per target in an Application Load Balancer target group
+- ALBRequestCountPerTarget: Number of requests completed per target in an Application Load Balancer target group. _Use Case: Need to scale EC2 instances behind an 
+ALB based on the number of requests completed by each instance._
 
 ## ALB based solution architecture
 - Use Route 53 CNAME Weighted record to route traffic across multiple ALBs. Each ALB can connect to an auto-scaling group.
