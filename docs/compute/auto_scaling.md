@@ -1,8 +1,14 @@
-# Auto-Scaling
+# EC2 Auto-Scaling
+
+## Metrics
+
+- ASGAverageCPUUtilization: Average CPU utilization of the Auto Scaling group
+- ASGAverageNetworkIn: Average number of bytes received on all network interfaces by the Auto Scaling group
+- ASGAverageNetworkOut: Average number of bytes sent out on all network interfaces by the Auto Scaling group
+- ALBRequestCountPerTarget: Number of requests completed per target in an Application Load Balancer target group
 
 ## ALB based solution architecture
 - Use Route 53 CNAME Weighted record to route traffic across multiple ALBs. Each ALB can connect to an auto-scaling group.
-
 
 ## Auto-scaling and Unhealthy Instances
 
