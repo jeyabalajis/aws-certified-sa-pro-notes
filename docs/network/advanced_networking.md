@@ -7,6 +7,14 @@
 - You can create and attach additional network interfaces. 
 - The maximum number of network interfaces that you can use varies by instance type.
 
+## Forward Web Proxy
+
+- A forward proxy server acts as an intermediary for requests from internal users and servers, often caching content to speed up subsequent requests.
+- Companies usually implement proxy solutions to provide URL and web content filtering, IDS/IPS, data loss prevention, monitoring, and advanced threat protection. 
+- AWS customers often use a VPN or AWS Direct Connect connection to leverage existing corporate proxy server infrastructure, or build a forward proxy farm on AWS using software such as Squid proxy servers with internal Elastic Load Balancing (ELB).
+
+> A NACL or Security Group cannot filter requests based on URLs.
+
 ## Centralized Egress
 
 - NAT gateway is a managed network address translation service. 
