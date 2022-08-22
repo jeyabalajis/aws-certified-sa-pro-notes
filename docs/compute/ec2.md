@@ -22,6 +22,10 @@
 ## EC2 Metrics
 - RAM is not included in EC2 Metrics
 
+## EC2 Instance Role
+
+- Temporary security credentials are retrieved from instance metadat and not user data.
+
 ## Enhanced networking
 
 ### EC2 Enhanced Networking (SR-IOV)
