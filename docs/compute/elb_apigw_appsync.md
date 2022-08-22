@@ -35,8 +35,9 @@ With Classic Load Balancers, the load balancer node that receives the request se
 - NLB: Target groups: private IPs, EC2 instances or ALB
 - If target instance is specified by Instance ID, client's IP address is seen by the target instance.
 - If target instance is specified by IP Address, NLB's IP address is seen by the target instance.
-- When using an NLB with VPC Endpoint or Global Accelerator, source IPs are private IPs of NLB nodes.
-- With NLB, entire traffic is encrypted and target instances must use public certificate. 
+- When using an NLB with VPC Endpoint or Global Accelerator, source IPs are private IPs of NLB nodes. (i.e. as if the target's IP Address is registered)
+- With NLB, entire traffic is encrypted and target instances must use public certificate.
+- When using an NLB with VPC Endpoint, NACL associated with the NLB subnets must allow communication to and from the targets.
 
 - NLB: NLB **does not** have a security group. Basically, you will have the ability to either use the security group function already associated with your EC2 Instance’s network card (ENI), a VPC Network Access Control List (NACL), AWS Network Firewall, or some other type of marketplace solution to provide the necessary security controls that you are seeking. 
 
