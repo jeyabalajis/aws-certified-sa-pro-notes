@@ -1,5 +1,12 @@
 # Advanced Networking
 
+## ENI
+
+- An elastic network interface is a logical networking component in a VPC that represents a virtual network card. It includes one primary IPV4 and multiple secondary IPV4 addresses.
+- You cannot detach a primary network interface from an instance. 
+- You can create and attach additional network interfaces. 
+- The maximum number of network interfaces that you can use varies by instance type.
+
 ## Centralized Egress
 
 - NAT gateway is a managed network address translation service. 
