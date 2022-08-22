@@ -138,3 +138,7 @@ It is architected to handle millions of requests/second, volatile traffic patter
 
 ![image](https://user-images.githubusercontent.com/15995686/181864402-c1d5982f-1720-4601-a68b-30129adc9bf4.png)
 
+### WebSocket APIs
+
+- WebSocket APIs are often used in real-time applications such as chat applications, collaboration platforms, multiplayer games, and financial trading platforms.
+- You can use the @connections API from your backend service to send a callback message to a connected client, get connection information or disconnect from the client.
