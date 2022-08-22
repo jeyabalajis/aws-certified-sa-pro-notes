@@ -18,8 +18,8 @@
 ### EBS Block types
 - Provisioned IOPS SSD (io2 Block Express, io2, and io1)
 - General Purpose SSD (gp3 and gp2). gp3 - no bursting, gp2 - bursting
-- Throughput Optimized HDD (st1)
-- Cold HDD (sc1).
+- Throughput Optimized HDD (st1) - _Frequently accessed Throughput Intensive Workloads_
+- Cold HDD (sc1) - _ lowest cost HDD volume and is designed for in-frequently accessed workloads_
 
 - EBS-optimized instances deliver dedicated throughput between Amazon EC2 and Amazon EBS, with options between 62.5 MB/s and 7,500 MB/s depending on the instance type used. 
 - To achieve the limit of 64,000 IOPS and 1,000 MB/s throughput, the volume must be attached to a Nitro System-based EC2 instance.
