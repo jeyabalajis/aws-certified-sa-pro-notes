@@ -9,7 +9,10 @@
 
 > Read replicas are available in Amazon RDS for MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server as well as Amazon Aurora.
 
+> Amazon RDS does not support certain features in Oracle such as Multitenant Database, Real Application Clusters (RAC), Unified Auditing, Database Vault, and many more. If any of these features are needed, then Oracle must be installed in a custom EC2 instance.
+
 ## Oracle RDS
+
 - DMS works on Oracle RDS
 - RDS for Oracle does NOT support RAC
 - If Oracle RMAN is used, restore to RDS not supported (only non-RDS supported)
@@ -38,6 +41,7 @@ Amazon RDS provides three storage types:
 [RDS Multi-AZ](https://aws.amazon.com/rds/features/multi-az/)
 
 ### RDS Proxy
+
 - With RDS Proxy, you no longer need code that handles cleaning up idle connections and managing connection pools
 - Multiple Lambda functions can connect to a single RDS Proxy, which handles connection pool
 
@@ -48,6 +52,7 @@ Amazon RDS provides three storage types:
 - You cannot create unencrypted read replicas of an encrypted DB instance.
 
 ## Aurora
+
 - Cross Region RR: entire database is copied (not select tables)
 - Cross Region replication supported in Aurora
 - Shared storage volume across all instances (master and reader) - auto expandable upto 128 TB
@@ -104,5 +109,6 @@ Amazon RDS provides three storage types:
 > X-Ray can be used to collect the parameters sent for query and it then can be used for diagnosis of database performance.
 
 ### Best Practices
+
 > Real-time indexing of DynamoDB objects into Elastic Search: Can be accomplished by dynamodb streams - Kinesis Data Streams - Kinesis Data Firehose - Elastic Search/Open Search.
 > Aurora maximum capacity is 128 TB. For unlimited storage, choose DynamoDB.
