@@ -3,6 +3,9 @@
 ## Salient points
 - NAT Gateway is resilient to failure within a single AZ. Require multiple NAT Gateways for resilience across multi-AZ.
 - NAT Gateway is created in public subnet (i.e. a subnet that has internet gateway). 0.0.0.0/0 is routed to NAT Gateway from private subnet.
+- Private NAT Gateway: Instances in private subnets can connect to other VPCs or your on-premises network through a private NAT gateway.
+    - You can route traffic from the NAT gateway through a transit gateway or a virtual private gateway.
+    - If you route traffic from the private NAT gateway to the internet gateway, the internet gateway drops the traffic.
 - NAT instance uses a special AMI with the string “amzn-ami-vpc-nat” in the name. 
     - Must disable source/destination checks. 
     - Need to assign security group.
