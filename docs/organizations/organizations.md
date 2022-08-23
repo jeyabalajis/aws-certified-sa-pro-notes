@@ -25,7 +25,7 @@
 - Use tagging standards for billing purpose
 - Enable CloudTrail on all accounts, send logs to central S3 account
 - Send CloudWatch Logs to central logging account
-- Consolidated billing features (or) all features (default)
+- Consolidated billing features (or) all features (default). If Consolidated billing feature is set, you cannot use the SCP to your member AWS accounts anymore.
 - Consolidated billing features:
     - Consolidated Billing across all accounts - single payment method
     - Pricing benefits from aggregated usage (volume discount for EC2, S3…)
