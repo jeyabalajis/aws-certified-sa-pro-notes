@@ -78,6 +78,12 @@
 
 > **An explicit Deny overrides an explicit Allow, which overrides the default implicit Deny**
 
+> Any account has only those permissions permitted by every parent above it. If a permission is blocked at any level above the account, either implicitly (by not being included in an Allow policy statement) or explicitly (by being included in a Deny policy statement), a user or role in the affected account can't use that permission, even if the account administrator attaches the AdministratorAccess IAM policy with */* permissions to the user. See the diagram below
+
+![image](https://user-images.githubusercontent.com/15995686/186134160-5ecf9a80-5ebe-42ab-9bcf-b2e716fb3541.png)
+
+> This means that to allow an AWS service API at the member account level, you must allow that API at every level between the member account and the root of your organization.
+
 ## Consolidated Billing
 
 - For billing purposes, the consolidated billing feature of AWS Organizations treats all the accounts in the organization as one account. 
