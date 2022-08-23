@@ -20,6 +20,16 @@ With Application Load Balancers, the load balancer node that receives the reques
 - x-forwarded-for can be used with ALB to capture client IP.
 - With ALB, SSL can be terminated at ALB itself. Optionally, a self-signed certificate can be used by target instances for a full encrypted connectivity.
 
+#### Multiple Web domains
+
+- SNI allows multiple domains to serve SSL traffic without the need to re-authenticate and re-provision a new certificate whenever a new domain name is added. 
+- SNI Custom SSL relies on the SNI extension of the Transport Layer Security protocol, which allows multiple domains to serve SSL traffic over the same IP address by including the hostname which the viewers are trying to connect to.
+
+> It’s always been possible to use wildcard and subject-alternate-name (SAN) certificates with ALB, but these come with limitations. 
+> _Wildcard certificates only work for related subdomains that match a simple pattern_.
+> While SAN certificates can support many different domains, the same certificate authority has to authenticate each one. _That means you have reauthenticate and reprovision your certificate everytime you add a new domain._ If the requirement specifies "without the need to re-authenticate and re-provision" - choose SNI.
+
+> You can configure Amazon CloudFront to require viewers to interact with your content over an HTTPS connection using the HTTP to HTTPS Redirect feature. If you configure CloudFront to serve HTTPS requests using SNI,_ CloudFront associates your alternate domain name with an IP address for each edge location_. The IP address to your domain name is determined during the SSL/TLS handshake negotiation and isn’t dedicated to your distribution.
 
 #### Classic Load Balancer
 
