@@ -7,9 +7,12 @@
 - Amazon ECS publishes CloudWatch metrics with your service’s average CPU and memory usage.
 - You can use these and other CloudWatch metrics to scale out your service (add more tasks) to deal with high demand at peak times, and to scale in your service (run fewer tasks) to reduce costs during periods of low utilization.
 - Target Tracking Policies are recommended.
-- ECS / Fargate is preferred for running arbitrary Docker images.
-- Fargate Launch mode _DOES NOT_ support EBS & EFS integration, but EC2 launch mode does.
+- ECS / Fargate is preferred for running arbitrary Docker images. 
+- AWS Fargate clusters scale up or down **significantly faster than EC2 instances** because they are only containers and can be provisioned quickly.
+- Fargate Launch mode _DOES NOT_ support EBS & EFS integration, but EC2 launch mode _DOES SUPPORT_.
 - Fargate automates underlying infrastructure, so limited control vis-a-vis EC2 launch type, which offers more granular control, but with more responsibility.
+
+> Scaling EC2 instances can take a few minutes because the EBS volumes need to be provisioned and the OS needs to load along with the user script. For this reason, if a service is expected to respond to short but significant system load spikes, Fargate is preferred over EC2 instances.
 
 ### ECS and IAM Roles
 
