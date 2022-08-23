@@ -125,3 +125,17 @@ Choose the protocol policy that you want viewers to use to access your content i
 ## Cache Invalidation
 
 - You need to pay for invalidation requests.
+
+## CloudFront HTTPS
+
+### HTTPS between viewers and CloudFront
+
+- You can use a certificate that was issued by a trusted certificate authority (CA) such as Comodo, DigiCert, Symantec or other third-party providers.
+- You can use a certificate provided by AWS Certificate Manager (ACM)
+
+### HTTPS between CloudFront and a custom origin
+
+- If the origin is not an ELB load balancer, such as Amazon EC2, **the certificate must be issued by a trusted CA such as Comodo, DigiCert, Symantec or other third-party providers**.
+- If your origin is an ELB load balancer, _you can also use a certificate provided by ACM_.
+- If the origin is Amazon EC2 instances, certificate must be issued by a trusted CA such as Comodo.
+- If you're using your own domain name, you also need to use an SSL/TLS certificate provided by AWS Certificate Manager (ACM), or import a certificate from a third-party certificate authority into ACM or the IAM certificate store.
