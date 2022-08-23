@@ -13,6 +13,7 @@
 ### Multi-region or Multi-account logging
 - Push multiple CloudTrail events into a common S3 (cross-account access through bucket policy)
 - Trails can be pushed into management account for all member accounts
+- Flag "_Enable for all accounts in my organization_" can be checked when you create a new CloudTrail trail. 
 
 ### Alerts for API Calls
 - Metric filters of CloudWatchLogs can be used to detect a high level of API happening. 
