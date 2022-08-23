@@ -35,6 +35,11 @@ AWS Systems Manager is a collection of capabilities to help you manage your appl
 
 AWS Systems Manager Automation simplifies common maintenance and deployment tasks for Amazon Elastic Compute Cloud (Amazon EC2) instances and other AWS resources. Automation enables you build automations to configure and manage instances and AWS resources. You can create custom runbooks or use predefined runbooks maintained by AWS.
 
+- SSM Automation offers one-click automation for simplifying complex tasks such as creating golden Amazon Machines Images (AMIs) and recovering unreachable EC2 instances.
+- For example, you can use Use the AWS-UpdateLinuxAmi and AWS-UpdateWindowsAmi runbooks to create golden AMIs from a source AMI.
+- You can run custom scripts before and after updates are applied. 
+- You can also include or exclude specific packages from being installed. 
+
 ## SSM Agent
 
 - AWS Systems Manager Agent (SSM Agent) is Amazon software that runs on Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and virtual machines (VMs). 
