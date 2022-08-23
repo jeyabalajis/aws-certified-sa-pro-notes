@@ -1,5 +1,9 @@
 # DynamoDB
 
+## Tables
+
+- In Amazon DynamoDB table, each entry is limited to 400 KB only.
+
 ## Global Tables
 
 1. Global tables build on the global Amazon DynamoDB footprint to provide you with a fully managed, multi-Region, and multi-active database that delivers fast, local, read and write performance for massively scaled, global applications. 
