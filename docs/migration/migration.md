@@ -192,6 +192,13 @@ With AWS MGN, you can migrate your applications from physical infrastructure, VM
 
 > AWS Application Migration Service (MGN) is a highly automated lift-and-shift (rehost) solution that simplifies, expedites, and reduces the cost of migrating applications to AWS. It enables companies to lift-and-shift a large number of physical, virtual, or cloud servers without compatibility issues, performance disruption, or long cutover windows. MGN replicates source servers into your AWS account
 
+### AWS MGN vs SMS
+
+- AWS SMS is primarily designed to migrate on-premises VMware vSphere, Microsoft Hyper-V/SCVMM, and Azure virtual machines to the AWS Cloud.
+- AWS Application Migration Service (AWS MGN) allows you to quickly lift-and-shift **physical**, **virtual**, or **cloud servers** to AWS.
+
+> If only VMs, SMS could be a good choice. VMs plus physical and other cloud servers, MGN is better.
+
 ## Database Migration
 
 When you use AWS SCT and an AWS Snowball Edge device, you migrate your data in two stages. 
