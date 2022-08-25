@@ -96,6 +96,7 @@ If the Lambda is being called through SQS, ensure that the **SQS employs batchin
 Can set a “reserved concurrency” at the function level (=limit)
 • Each invocation over the concurrency limit will trigger a “Throttle”
 
+> **Default burst concurrency for Lambda is between 500-3000 requests per second (depending on region).** _For RPS beyond this, and especially for serving files, choose EFS over Lambda or S3._ _EFS provides 10000+ requests per second typically._
 
 ### Asynchronous processing
 > Lambda – Asynchronous Invocation: S3, SNS, CloudWatch Events
