@@ -1,11 +1,14 @@
 # EC2
 
 ## Placement groups
+
 - Control the EC2 Instance placement strategy using placement groups
-- Cluster: Clusters instances into a low-latency group in a single Availability Zone. Great network bandwidth. Typical for HPC applications
-- Spread: Spreads instances across underlying hardware (max 7 instances per group per AZ) – critical applications. Can span across multiple AZ. Reduces correlated failures. Each instance is located on a separate rack.
-- Partition: spreads instances across many different partitions (which rely on different sets of racks) within an AZ. Scales to 100s of EC2 instances per group (Hadoop, Cassandra, Kafka). Each partition is located on a separate rack. Partitions can be in multiple AZ. Upto 7 per AZ.
+- **Cluster**: Clusters instances into a low-latency group in a single Availability Zone. Great network bandwidth. Typical for HPC applications
+- **Spread**: Spreads instances across underlying hardware (max 7 instances per group per AZ) – critical applications. Can span across multiple AZ. Reduces correlated failures. Each instance is located on a separate rack, and are therefore suitable for mixing instance types or launching instances over time.
+- **Partition**: spreads instances across many different partitions (which rely on different sets of racks) within an AZ. Scales to 100s of EC2 instances per group (Hadoop, Cassandra, Kafka). Each partition is located on a separate rack. Partitions can be in multiple AZ. Upto 7 per AZ.
 - Moving an instance (stop, use CLI, start)
+
+> Before you move or remove the instance, **the instance must be in the stopped state**. _There is no need to terminate or restart to move an instance to a placement group._
 
 ## Launch Types
 - Dedicated Instances: no other customers will share your hardware. Per Instance billing. If the use case requires dedicated hardware.
