@@ -36,15 +36,37 @@ Key use-cases:
 ### General purpose (default): 
 
 - Latency-sensitive use cases (web server, CMS, etc…) and also general file serving.
+- **upto 35,000 IOPs**
 
 ### Max I/O:
 
 - Higher latency, Higher throughput, highly parallel (big data, media processing)
-- Trade-off Latency for higher throughput.
+- **upto 500,000+ IOPs**, _but trades off latency for higher throughput._
 
-### Throughput mode:
+## Throughput mode:
 
-- Bursting Throughput (1 TB = 50MiB/s + burst of up to 100MiB/s) - _Throughput scales as the file system grows._
-- Provisioned Throughput: Set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage is also possible.
+- You can switch an existing file system's throughput mode, with the restriction that you can make only one restricted change in a 24-hour period
+- 
+### Bursting Throughput: 
+
+- (1 TB = 50MiB/s + burst of up to 100MiB/s) - _Throughput scales as the file system grows._
+- Uses the concept of burst credits.
+- When throughput is low, Bursting Throughput mode uses _burst buckets to save burst credits_. When throughput is higher, _it uses burst credits_.
+- When burst credits are available, a file system can drive up to 100 MBps per terabyte (TB) of storage, with a minimum of 100 MBps. 
+- If no burst credits are available, a file system can drive up to 50 MBps per TB of storage with a minimum of 1 MBps.
+
+#### Baseline performance:
+
+- 1 TB and above file system can drive 150 MiBps read only per TiB of storage and 50 MiBps write only per TiB of storage.
+- 100 GB~ file system can drive 15 MiBps read only per TiB of storage and 5 MiBps write only per TiB of storage.
+
+#### Burst performance:
+
+- 1 TB and above file system can drive 300 MiBps read only per TiB of storage and 100 MiBps write only per TiB of storage - for 12 hours per day.
+- 100 GB~ file system can drive 300 MiBps read only per TiB of storage and 100 MiBps write only per TiB of storage - for 72 minutes per day.
+
+### Provisioned Throughput:
+
+- Set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage is also possible.
 
 > If you need to prioritize _higher throughput without compromising latency_, choose _Provisioned Throughput_ 
