@@ -4,6 +4,22 @@
 
 - In Amazon DynamoDB table, each entry is limited to 400 KB only.
 
+## Keys
+
+### Partition Key
+
+- If your table has a simple primary key (partition key only), DynamoDB stores and retrieves each item based on its partition key value.
+- DynamoDB uses the value of the partition key as input to an internal hash function.
+- The output value from the hash function determines the partition in which the item will be stored.
+- Choose a partition key that can have a large number of distinct values relative to the number of items in the table.
+
+### Partition Key and Sort Key
+
+- DynamoDB calculates the hash value of the partition key in the same way as described above.
+- However, it stores all the items with the same partition key value physically close together, ordered by sort key value.
+
+> Use case: Pets table. Partition Key can be _AnimalType_ (i.e. Dog, Cat etc.) and Sort Key can be _Name_.
+
 ## Global Tables
 
 1. Global tables build on the global Amazon DynamoDB footprint to provide you with a fully managed, multi-Region, and multi-active database that delivers fast, local, read and write performance for massively scaled, global applications. 
