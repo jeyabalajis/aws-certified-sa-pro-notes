@@ -69,6 +69,11 @@ nav:
       - Logging: logging/logging.md
   - Deployment:
       - Systems Manager: deployment/systems_manager.md
+      - Serverless Application Manager: deployment/sam.md
+      - Ops Works: deployment/opsworks.md
+      - Elastic Bean Stalk: deployment/elastic_bean_stalk.md
+      - Code Deploy: deployment/code_deploy.md
+      - CloudFormation: deployment/cloudformation.md
   - Organizations:
       - Organizations: organizations/organizations.md
   - Disaster Recovery:
