@@ -1,5 +1,6 @@
-# Route 53
+# Amazon Route 53
 
+- Route 53 is designed to propagate updates you make to your DNS records to its worldwide network of authoritative DNS servers _within 60 seconds_ under normal conditions.
 - Routing policies: Simple, Weighted, Latency based, Failover (Active-Passive), Geo-location, Geo-proximity, 
 
 > Alias: Points a hostname to an AWS Resource. Works for both root domain and non-root domain.
