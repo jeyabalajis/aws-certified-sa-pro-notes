@@ -16,6 +16,8 @@
 - If you are restoring an AWS Storage Gateway volume snapshot, you can choose to restore the snapshot as an AWS Storage Gateway volume or as an Amazon EBS volume. 
 - AWS Backup integrates with both services, and any AWS Storage Gateway snapshot can be restored to either an AWS Storage Gateway volume or an Amazon EBS volume.
 
+> You can run AWS Storage Gateway either _on-premises as a VM appliance_, _as a hardware appliance_, or _in AWS as an Amazon Elastic Compute Cloud (Amazon EC2) instance_.
+
 ### Storage Gateway vs Data Sync
 
 - Use AWS DataSync to migrate existing data to Amazon S3
@@ -53,12 +55,13 @@
 > Volume Gateway stores your data locally in the gateway and syncs them to Amazon S3. It also allows you to take point-in-time copies of your volumes with EBS snapshots which you can restore and mount to your appliance as iSCSI device.
 
 ### Tape Gateway
-- Some companies have backup processes using physical tapes (!)
-- With Tape Gateway, companies use the same processes but in the cloud
-- Virtual Tape Library (VTL) backed by Amazon S3 and Glacier
-- Back up data using existing tape-based processes (and iSCSI interface)
-- Works with leading backup software vendors 
-- You can’t access single file within tapes. You need to restore the tape entirely
+- Some companies have backup processes using physical tapes.
+- With Tape Gateway, companies use the same processes but in the cloud.
+- Virtual Tape Library (VTL) is backed by Amazon S3 and Glacier.
+- Back up data using existing tape-based processes (and iSCSI interface).
+- Works with leading backup software vendors.
+- You can’t access single file within tapes. You need to restore the tape entirely.
+- You can setup a File Gateway appliance on-premises itself (or) in AWS as an EC2 instance.
 
 ### Amazon FSx Gateway
 - Native access to Amazon FSx for Windows File Server
@@ -161,6 +164,7 @@ typically between 250 MB/s and 400 MB/s
 - We recommend using AWS Server Migration Service (SMS) to migrate VMs from a vCenter environment to AWS. 
 - SMS automates the migration process by replicating on-premises VMs incrementally and converting them to Amazon machine images (AMIs). 
 - **You can continue using your on-premises VMs while migration is in progress.**
+- AWS SMS supports up to 16 TB volumes so you can use it to migrate the data volumes as well (**upto 16 TB**).
 
 If any of the following are true, you should consider using AWS SMS:
 - You are using vCenter 6.5 Server.
@@ -175,6 +179,10 @@ If any of the following are true, you should consider using AWS SMS:
 > Each server volume replicated is saved as a new Amazon Machine Image (AMI), which can be launched as an EC2 instance (virtual machine) in the AWS cloud. If you are using application groupings, Server Migration Service will launch the servers in a CloudFormation stack using an auto-generated CloudFormation template.
 
 > Multi-server migration provides you the ability to migrate entire application stacks as opposed to migrating each server individually. You can group servers into applications, replicate the entire application together, and monitor its migration status. You can also easily launch and configure the migrated application with an auto-generated CloudFormation Template.
+
+### SMS vs VM Import/Export
+
+- AWS VM Import/Export does not support synching incremental changes from the on-premises environment to AWS.
 
 ### Snowball based migration vs SMS
 
