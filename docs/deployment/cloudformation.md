@@ -8,6 +8,8 @@
 
 > The default policy is Snapshot for AWS::RDS::DBCluster resources and for AWS::RDS::DBInstance resources that don't specify the DBClusterIdentifier property.
 
+> **For highly available solutions, Retain is better than Snapshot. Snapshot option requires significant time to restore if the underlying CFN stack is deleted.**
+
 ## CloudFormation and OpsWorks
 
 CloudFormation also supports OpsWorks. You can model OpsWorks components (stacks, layers, instances, and applications) inside CloudFormation templates, and provision them as CloudFormation stacks. This enables you to document, version control, and share your OpsWorks configuration.
