@@ -25,9 +25,14 @@
 ## EC2 Metrics
 - RAM is not included in EC2 Metrics
 
-## EC2 Instance Role
+## EC2 Instance Profiles
 
-- Temporary security credentials are retrieved from instance metadat and not user data.
+- Amazon EC2 uses an instance profile as a container for an IAM role.
+- An Instance profile can contain only one IAM Role, although a role can be included in multiple instance profiles.
+- You can remove the existing role and then add a different role to an instance profile.
+- Temporary security credentials are retrieved from instance metadata and not user data.
+
+> If you created your IAM role using the console, the instance profile was created for you and given the same name as the role. If you created your IAM role using the AWS CLI, API, or an AWS SDK, you may have named your instance profile differently.
 
 ## Enhanced networking
 
@@ -68,6 +73,8 @@
 The goal of Capacity Rebalancing is to keep processing your workload without interruption. When Spot Instances are at an elevated risk of interruption, the Amazon EC2 Spot service notifies Amazon EC2 Auto Scaling with an EC2 instance rebalance recommendation.
 
 > Capacity Rebalancing helps you maintain workload availability by proactively augmenting your fleet with a new Spot Instance before a running instance is interrupted by Amazon EC2. You can switch on _Capacity Rebalancing_ in your Auto-Scaling-Group (ASG) configuration.
+
+> Spot instances are usually reclaimed by AWS based on the supply and demand of its global computing capacity. _For highly reliable solutions, avoid using Spot instances, as reliability will take a hit._
 
 ## Elastic IPs
 
