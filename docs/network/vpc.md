@@ -3,6 +3,7 @@
 ## Salient points
 - NAT Gateway is resilient to failure within a single AZ. Require multiple NAT Gateways for resilience across multi-AZ.
 - NAT Gateway is created in public subnet (i.e. a subnet that has internet gateway). 0.0.0.0/0 is routed to NAT Gateway from private subnet.
+- NAT gateway can be assigned an _Elastic IP Address_ which can then be used as a single white-listed IP for external APIs that demand the same.
 - Private NAT Gateway: Instances in private subnets can connect to other VPCs or your on-premises network through a private NAT gateway.
     - You can route traffic from the NAT gateway through a transit gateway or a virtual private gateway.
     - If you route traffic from the private NAT gateway to the internet gateway, the internet gateway drops the traffic.
