@@ -16,6 +16,7 @@ With Application Load Balancers, the load balancer node that receives the reques
 - Evaluates the listener rules in priority order to determine which rule to apply.
 - Selects a target from the target group for the rule action, using the routing algorithm configured for the target group. 
 - **The default routing algorithm is round robin.**
+- Consider _Least Outstanding Requests_ if the targets vary in processing capability (or) requests for your application vary in complexity.
 - Routing is performed independently for each target group, even when a target is registered with multiple target groups.
 - x-forwarded-for can be used with ALB to capture client IP.
 - With ALB, SSL can be terminated at ALB itself. Optionally, a self-signed certificate can be used by target instances for a full encrypted connectivity.
@@ -48,6 +49,7 @@ With Classic Load Balancers, the load balancer node that receives the request se
 - When using an NLB with VPC Endpoint or Global Accelerator, source IPs are private IPs of NLB nodes. (i.e. as if the target's IP Address is registered)
 - With NLB, entire traffic is encrypted and target instances must use public certificate.
 - When using an NLB with VPC Endpoint, NACL associated with the NLB subnets must allow communication to and from the targets.
+- NLB uses **Flow Hash algorithm** for routing.
 
 - NLB: NLB **does not** have a security group. Basically, you will have the ability to either use the security group function already associated with your EC2 Instance’s network card (ENI), a VPC Network Access Control List (NACL), AWS Network Firewall, or some other type of marketplace solution to provide the necessary security controls that you are seeking. 
 
