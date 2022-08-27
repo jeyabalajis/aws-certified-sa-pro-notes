@@ -44,8 +44,10 @@ This type of endpoint acts like a regional endpoint, but has an AWS-managed Clou
 > CloudFront uses the edge location to **cache**, while GA uses the edge location to **find the optimal path to the origin**.
 
 Global Accelerator Use Case:
-- For example, you have a banking application that is scattered through multiple AWS regions and low latency is a must. 
+- For example, you have a banking application _that is scattered through multiple AWS regions_ and low latency is a must. 
 - Global Accelerator will route the user to the nearest edge location then route it to the nearest regional endpoint where your applications are hosted. 
+- AWS Global Accelerator provides improved performance and high availability **when you have copies of your application running in multiple AWS Regions**. 
+- GA leverages global aws network and is beneficial if the resources are scattered across regions but still latency CANNOT be sacrificed.
 
 > GA preserves client IP except for NLBs and EIPs endpoints.
 
