@@ -22,10 +22,10 @@
 
 ## Block Public Access
 
-- BlockPublicAcls: PUT Bucket acl and PUT Object acl calls fail if the specified access control list (ACL) is public. PUT object call fails. Enabling this setting doesn’t affect existing policies or ACLs.
-- IgnorePublicAcls: Setting this option to TRUE causes Amazon S3 to ignore all public ACLs on a bucket and any objects that it contains. This setting enables you to _safely block public access granted by ACLs while still allowing PUT Object calls that include a public ACL_ (as opposed to BlockPublicAcls, which rejects PUT Object calls that include a public ACL). Enabling this setting doesn’t affect the persistence of any existing ACLs and doesn’t prevent new public ACLs from being set.
-- BlockPublicPolicy: Setting this option to TRUE for a bucket causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access, and to reject calls to PUT access point policy for all of the bucket's access points if the specified policy allows public access. To use this setting effectively, you should apply it at the account level.
-- RestrictPublicBuckets: Setting this option to TRUE restricts access to an access point or bucket with a public policy _to only AWS service principals and authorized users within the bucket owner's account_.
+- BlockPublicAcls: Block PUT Bucket acl and PUT Object acl calls if the specified ACL is public. Enabling this setting doesn’t affect existing policies or ACLs.
+- IgnorePublicAcls: Ignore all public ACLs on a bucket and any objects that it contains. This setting enables you to _safely block public access granted by ACLs while still allowing PUT Object calls that include a public ACL_ (as opposed to BlockPublicAcls, which rejects PUT Object calls that include a public ACL). Enabling this setting doesn’t affect the persistence of any existing ACLs and doesn’t prevent new public ACLs from being set.
+- BlockPublicPolicy: Reject calls to PUT Bucket policy if the specified bucket policy allows public access, and to reject calls to PUT access point policy for all of the bucket's access points if the specified policy allows public access. To use this setting effectively, you should apply it at the account level.
+- RestrictPublicBuckets: Setting this option to TRUE restricts access to an access point or bucket with a public policy _to only AWS service principals and authorized users within the bucket owner's account_. Principals from other accounts cannot read S3 contents.
 
 ### Access Analyzer
 
