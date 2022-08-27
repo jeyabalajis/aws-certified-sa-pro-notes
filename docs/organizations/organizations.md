@@ -63,6 +63,7 @@
 ### Policy Inheritance
 - When you attach a policy to the organization root, all OUs and accounts in the organization inherit that policy.
 - When you attach a policy to a specific OU, accounts that are directly under that OU or any child OU inherit the policy.
+- You _CANNOT_ modify an SCP that is applied to multiple OUs at one child OU.
 - When you attach a policy to a specific account, it affects only that account.
 
 ### SCP Strategies
