@@ -4,6 +4,8 @@ AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS r
 
 WAF provides additional protection against web attacks using the criteria you specify.
 
+> If you have a requirement to filter all inbound requests _for common vulnerability attacks_ in your web app (layer 7), WAF is a good choice for the same.
+
 ## Criteria
 
 - IP addresses that requests originate from.
