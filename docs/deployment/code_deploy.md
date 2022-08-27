@@ -22,11 +22,15 @@ Unlike CloudFormation and OpsWorks, CodeDeploy does not deal with infrastructure
 
 ## Deployment Configuration
 
-> A deployment configuration specifies how the behavior for how deployment should proceed, including how to handle deployment failure, through for a deployment group. You can use a deployment configuration to perform zero-downtime deployments to multi-instance deployment groups. For example, if your application needs at least 50% of the instances in a deployment group to be up and serving traffic, you can specify that in your deployment configuration so that a deployment does not cause downtime. If no deployment configuration is associated with either the deployment or the deployment group, then by default AWS CodeDeploy will deploy to one instance at a time.
+- A deployment configuration specifies how the behavior for how deployment should proceed, including how to handle deployment failure, through for a deployment group.
+- You can use a deployment configuration to perform zero-downtime deployments to multi-instance deployment groups. 
+- For example, if your application needs at least 50% of the instances in a deployment group to be up and serving traffic, you can specify that in your deployment configuration so that a deployment does not cause downtime. 
+- If no deployment configuration is associated with either the deployment or the deployment group, then by default AWS CodeDeploy will _deploy to one instance at a time_.
 
 ## Multi-region deployments
 
-> AWS CodeDeploy performs deployments with AWS resources located in the same region. To deploy an application to multiple regions, define the application in your target regions, copy the application bundle to an Amazon S3 bucket in each region, and then start the deployments using either a serial or parallel rollout across the regions.
+- AWS CodeDeploy performs deployments with AWS resources located in the same region. 
+- To deploy an application to multiple regions, define the application in your target regions, copy the application bundle to an Amazon S3 bucket in each region, and then start the deployments using either a serial or parallel rollout across the regions.
 
 ## Code Deploy options for ECS / Elastic Beanstalk
 
@@ -37,6 +41,7 @@ Blue/Green does not apply to Lambda functions.
 - Canary
 - Linear
 - All at Once
+- Lambda aliases can be used for canary (without Code Deploy) - Use aws lambda update-alias along with routing-config.
 
 ### EC2
 
