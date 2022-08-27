@@ -59,7 +59,7 @@ Amazon RDS provides three storage types:
 - **Aurora Cross Region Read Replicas: Useful for disaster recovery**
 - Aurora global database: Upto 5 secondary regions with less than 1 second replication lag.
         - Promoting another region for disaster recovery has an RTO of less than 1 minute.
-- Use Aurora multi-master if immediate failover is required for Write node (HA)
+- Use Aurora multi-master if immediate failover is required for Write node (HA). **_Multi-master is within a region only (i.e. not cross-region). _**
         - every node does R/W instead of only one master node.
         
 
