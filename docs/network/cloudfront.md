@@ -2,6 +2,8 @@
 
 If you want to speed up delivery of your web content, you can use Amazon CloudFront, the AWS content delivery network (CDN). CloudFront can deliver your entire website—including dynamic, static, streaming, and interactive content—by using a global network of edge locations. Requests for your content are automatically routed to the edge location that gives your users the lowest latency.
 
+- CloudFront also offers basic DDoS protections with AWS Shield standard offered for free for use with CloudFront.
+
 ## Best Practices
 
 > EC2 Instance or ALB must be public for CloudFront to talk to them. The security group of ALB must allow public IPs of CloudFront.
