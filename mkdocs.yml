@@ -32,7 +32,7 @@ nav:
       - Advanced Networking: network/advanced_networking.md
       - VPC: network/vpc.md
       - Route 53: network/route53.md
-      - CloudFront: network/CloudFront.md
+      - CloudFront: network/cloudfront.md
       - Forward Proxy: network/web_proxy.md
   - Storage:
       - EBS: storage/ebs.md
