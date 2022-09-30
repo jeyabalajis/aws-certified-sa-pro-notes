@@ -1,0 +1,2036 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+    
+    
+      
+        <title>VPC - AWS Solution Architect Professional - Concept Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vpc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="AWS Solution Architect Professional - Concept Notes" class="md-header__button md-logo" aria-label="AWS Solution Architect Professional - Concept Notes" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Solution Architect Professional - Concept Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VPC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jeyabalajis/aws-certified-sa-pro-notes.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="AWS Solution Architect Professional - Concept Notes" class="md-nav__button md-logo" aria-label="AWS Solution Architect Professional - Concept Notes" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    AWS Solution Architect Professional - Concept Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jeyabalajis/aws-certified-sa-pro-notes.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Identity & Federation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Identity & Federation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Identity & Federation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/identity.html" class="md-nav__link">
+        Identity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/identity_federation.html" class="md-nav__link">
+        Identity Federation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/cloudtrail.html" class="md-nav__link">
+        CloudTrail
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/keys_parameter_management.html" class="md-nav__link">
+        Keys and Parameters Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/waf.html" class="md-nav__link">
+        WAF
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/ddos_attacks_mitigation.html" class="md-nav__link">
+        Mitigate DDoS Attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/guard_duty.html" class="md-nav__link">
+        Guard Duty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/inspector_config.html" class="md-nav__link">
+        Inspector & Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/s3_security.html" class="md-nav__link">
+        S3 Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certificate_manager.md" class="md-nav__link">
+        Certificate Manager
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hybrid_networking.html" class="md-nav__link">
+        Hybrid Networking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="advanced_networking.html" class="md-nav__link">
+        Advanced Networking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          VPC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="vpc.html" class="md-nav__link md-nav__link--active">
+        VPC
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#salient-points" class="md-nav__link">
+    Salient points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bastion-hosts" class="md-nav__link">
+    Bastion Hosts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-privatelink-vpc-endpoint-service" class="md-nav__link">
+    AWS PrivateLink (VPC Endpoint Service)
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS PrivateLink (VPC Endpoint Service)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interface-endpoint" class="md-nav__link">
+    Interface endpoint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#under-the-hood" class="md-nav__link">
+    Under the Hood
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc-endpoint-policies-gateway-endpoint" class="md-nav__link">
+    VPC Endpoint policies (Gateway endpoint)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway-endpoint" class="md-nav__link">
+    Gateway Endpoint
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transit-gateway" class="md-nav__link">
+    Transit Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-to-site-vpn" class="md-nav__link">
+    Site-to-Site VPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-connect" class="md-nav__link">
+    Direct Connect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat-gateway" class="md-nav__link">
+    NAT Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-sharing" class="md-nav__link">
+    VPC Sharing
+  </a>
+  
+    <nav class="md-nav" aria-label="VPC Sharing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best Practices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="route53.html" class="md-nav__link">
+        Route 53
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cloudfront.html" class="md-nav__link">
+        CloudFront
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="web_proxy.html" class="md-nav__link">
+        Forward Proxy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/ebs.html" class="md-nav__link">
+        EBS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/efs.html" class="md-nav__link">
+        EFS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/s3.html" class="md-nav__link">
+        S3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/cloudfront.html" class="md-nav__link">
+        CloudFront
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/elasticache.html" class="md-nav__link">
+        ElastiCache
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/migration.html" class="md-nav__link">
+        Migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/aws_discovery_agent.md" class="md-nav__link">
+        Discovery Agent
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Computing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Computing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/ec2.html" class="md-nav__link">
+        EC2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/ecs_lambda.html" class="md-nav__link">
+        ECS & Lambda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/data_management.html" class="md-nav__link">
+        Data Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/elb_apigw_appsync.html" class="md-nav__link">
+        ELB & API Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/auto_scaling.html" class="md-nav__link">
+        AutoScaling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/elastic_bean_stalk.html" class="md-nav__link">
+        Elastic Beanstalk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/appsync.html" class="md-nav__link">
+        AppSync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/workdocs.html" class="md-nav__link">
+        WorkDocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/xray.html" class="md-nav__link">
+        X-Ray
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/application_auto_scaling.html" class="md-nav__link">
+        Application Auto Scaling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/step_functions.html" class="md-nav__link">
+        Step Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/sqs.html" class="md-nav__link">
+        SQS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Data Engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Data Engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_engineering/data_engineering.html" class="md-nav__link">
+        Data Engineering
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Databases
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Databases" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Databases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/rds.html" class="md-nav__link">
+        RDS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/dynamodb.html" class="md-nav__link">
+        DynamoDB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Cost Control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cost Control" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Cost Control
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost_control/cost_control.html" class="md-nav__link">
+        Cost Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost_control/trusted_advisor.html" class="md-nav__link">
+        Trusted Advisor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost_control/savings_plan.html" class="md-nav__link">
+        Savings Plan
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Logging
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logging" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Logging
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging/logging.html" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/systems_manager.html" class="md-nav__link">
+        Systems Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/sam.html" class="md-nav__link">
+        Serverless Application Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/opsworks.html" class="md-nav__link">
+        Ops Works
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/elastic_bean_stalk.html" class="md-nav__link">
+        Elastic Bean Stalk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/code_deploy.html" class="md-nav__link">
+        Code Deploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/cloudformation.html" class="md-nav__link">
+        CloudFormation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          Organizations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Organizations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Organizations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../organizations/organizations.html" class="md-nav__link">
+        Organizations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          Disaster Recovery
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Disaster Recovery" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          Disaster Recovery
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster_recovery/disaster_recovery.html" class="md-nav__link">
+        Disaster Recovery
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          Cloud Operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Operations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud_ops/aws_config.html" class="md-nav__link">
+        AWS Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud_ops/systems_manager.html" class="md-nav__link">
+        Systems Manager
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Miscellaneous
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Miscellaneous" data-md-level="1">
+        <label class="md-nav__title" for="__nav_16">
+          <span class="md-nav__icon md-icon"></span>
+          Miscellaneous
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/misc_services.html" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_17">
+          Exam Preparation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Exam Preparation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_17">
+          <span class="md-nav__icon md-icon"></span>
+          Exam Preparation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam_prep/exam_prep.html" class="md-nav__link">
+        Exam Prep
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#salient-points" class="md-nav__link">
+    Salient points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bastion-hosts" class="md-nav__link">
+    Bastion Hosts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-privatelink-vpc-endpoint-service" class="md-nav__link">
+    AWS PrivateLink (VPC Endpoint Service)
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS PrivateLink (VPC Endpoint Service)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interface-endpoint" class="md-nav__link">
+    Interface endpoint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#under-the-hood" class="md-nav__link">
+    Under the Hood
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc-endpoint-policies-gateway-endpoint" class="md-nav__link">
+    VPC Endpoint policies (Gateway endpoint)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway-endpoint" class="md-nav__link">
+    Gateway Endpoint
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transit-gateway" class="md-nav__link">
+    Transit Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-to-site-vpn" class="md-nav__link">
+    Site-to-Site VPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-connect" class="md-nav__link">
+    Direct Connect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat-gateway" class="md-nav__link">
+    NAT Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-sharing" class="md-nav__link">
+    VPC Sharing
+  </a>
+  
+    <nav class="md-nav" aria-label="VPC Sharing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best Practices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/jeyabalajis/aws-certified-sa-pro-notes.git/edit/master/docs/network/vpc.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="vpc">VPC</h1>
+<h2 id="salient-points">Salient points</h2>
+<ul>
+<li>NAT Gateway is resilient to failure within a single AZ. Require multiple NAT Gateways for resilience across multi-AZ.</li>
+<li>NAT Gateway is created in public subnet (i.e. a subnet that has internet gateway). 0.0.0.0/0 is routed to NAT Gateway from private subnet.</li>
+<li>NAT gateway can be assigned an <em>Elastic IP Address</em> which can then be used as a single white-listed IP for external APIs that demand the same.</li>
+<li>Private NAT Gateway: Instances in private subnets can connect to other VPCs or your on-premises network through a private NAT gateway.<ul>
+<li>You can route traffic from the NAT gateway through a transit gateway or a virtual private gateway.</li>
+<li>If you route traffic from the private NAT gateway to the internet gateway, the internet gateway drops the traffic.</li>
+</ul>
+</li>
+<li>NAT instance uses a special AMI with the string “amzn-ami-vpc-nat” in the name. <ul>
+<li>Must disable source/destination checks. </li>
+<li>Need to assign security group.</li>
+<li>Can use as bastion host</li>
+<li>Can implement port forwarding through customization (not possible with NAT Gateway)</li>
+</ul>
+</li>
+<li>NACL is stateless. Incoming does not mean outgoing is allowed. Both allow and deny rules. Applied at subnet level.</li>
+<li>Security Group is stateful. Only allow rules, deny rules not possible. Instance level.</li>
+<li>Subnet routes. <em>Longest prefix wins.</em></li>
+<li>Can reference other security groups in the same region.</li>
+<li>Egress Only Internet Gateway for IPV6 traffic</li>
+<li>An Egress-only Internet Gateway allows IPv6 traffic outbound but not inbound</li>
+<li>Transitive connections are not allowed with VPC Peering, establish one on one. CIDR cannot overlap.</li>
+<li>VPC Peering can work inter-region and cross-account.</li>
+<li>Edge to edge routing not allowed with VPC Peering. <ul>
+<li>For example: VPC A and VPC B are paired. </li>
+<li>If VPC B is connected to a Site-site VPN (or) Direct connect, VPC A cannot use them</li>
+<li>Edge to edge routing through a VPC gateway endpoint not allowed</li>
+<li>Edge to edge routing through an internet gateway not allowed  </li>
+</ul>
+</li>
+<li>For edge-to-edge routing and transitive connections, <em>use Transit Gateway</em>, which supports more complex routing rules, overlapping CIDR ranges, network-level packet filtering.     </li>
+</ul>
+<blockquote>
+<p>When configuring NACL in a private subnet to reach ALB node (which is in a public subnet), an outbound rule for ports 1024 through 65535 to destination CIDR is required. This is because, <strong>source port of ALB Node is a dynamically defined high number port between 1024 and 65535.</strong> </p>
+</blockquote>
+<h2 id="bastion-hosts">Bastion Hosts</h2>
+<ol>
+<li>SSH into private EC2 instances through a public EC2 instance (bastion host)</li>
+<li>You must manage these instances yourself (failover, recovery)</li>
+<li>SSM Session Manager is a more secure way to remote control without SSH</li>
+</ol>
+<h2 id="aws-privatelink-vpc-endpoint-service">AWS PrivateLink (VPC Endpoint Service)</h2>
+<p>AWS PrivateLink is a highly available, scalable technology that enables you to privately connect your VPC to services as if they were in your VPC.</p>
+<ol>
+<li>You do not need to use an internet gateway, NAT device, public IP address, AWS Direct Connect connection, or AWS Site-to-Site VPN connection to allow communication with the service from your private subnets.</li>
+<li>Use Cases:<ul>
+<li>Connect to other aws services (hosted in a separate VPC)</li>
+<li>Connect to other AWS Account service, through VPC endpoint service (requires NLB)</li>
+<li>Connect to an AWS Marketplace partner service</li>
+</ul>
+</li>
+<li>Endpoint services that are hosted by service providers.</li>
+<li>Service consumers create interface VPC endpoints to connect to the endpoint services (created in service provider account)</li>
+<li>You can configure Amazon Route 53 to route domain traffic to a VPC endpoint.</li>
+<li>If the NLB is in multiple AZ, and the ENI in multiple AZ, the solution is fault tolerant!</li>
+<li><strong>NLB on the service provider side and VPC endpoint on the service consumer side. </strong></li>
+</ol>
+<h3 id="interface-endpoint">Interface endpoint</h3>
+<ol>
+<li>An elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported AWS service, endpoint service, or AWS Marketplace service.</li>
+<li>Leverage security groups for security</li>
+<li>Uses Private DNS entries to redirect traffic.</li>
+<li>Interface can be accessed from Direct Connect and Site-to-Site VPN, through intra-region VPC peering connections from Nitro instances, and through inter-region VPC peering connections from any type of instance.</li>
+</ol>
+<h3 id="under-the-hood">Under the Hood</h3>
+<ul>
+<li>You must ensure that the security group that's associated with the endpoint network interface allows communication between the endpoint network interface and the resources in your VPC that communicate with the service.</li>
+<li>When you create an interface endpoint, endpoint-specific DNS hostnames are generated. For AWS services and AWS Marketplace Partner services, the private DNS option (enabled by default) associates a private hosted zone with your VPC.</li>
+<li>The hosted zone contains a record set for the default DNS name for the service (for example, ec2.us-east-1.amazonaws.com) that resolves to the private IP addresses of the endpoint network interfaces in your VPC. <strong>This enables you to make requests to the service using its default DNS hostname instead of the endpoint-specific DNS hostnames.</strong></li>
+<li>With Private DNS enabled on the endpoint, instances can send requests AWS services through the interface endpoint using either the default DNS hostname or the endpoint-specific DNS hostname.</li>
+</ul>
+<h3 id="vpc-endpoint-policies-gateway-endpoint">VPC Endpoint policies (Gateway endpoint)</h3>
+<ul>
+<li>Does not replace IAM Policies or resource based policies.</li>
+<li>use aws:SourceVpc in S3 bucket policies to allow access only from endpoint (more secure) </li>
+</ul>
+<blockquote>
+<p>To provide aws-only access from EC2 instances to S3 bucket, create S3 Gateway endpoint and set endpoint policy with <em>SourceVpce</em> as a condition.</p>
+</blockquote>
+<h3 id="gateway-endpoint">Gateway Endpoint</h3>
+<ol>
+<li>Works only for S3 and DynamoDB</li>
+<li>Gateway is defined at VPC Level and must update route table entries with prefix list.</li>
+<li>A Prefix List is a collection of CIDR blocks that can be used to configure VPC security groups, VPC route tables, and AWS Transit Gateway route tables and can be shared with other AWS accounts using Resource Access Manager (RAM).</li>
+<li>Gateway endpoint <strong>cannot</strong> be extended out of a VPC (VPN, DX, TGW, peering)</li>
+<li>Gateway endpoint employs routing and requires prefix lists in the route table to redirect traffic.</li>
+</ol>
+<h2 id="transit-gateway">Transit Gateway</h2>
+<ul>
+<li>Works with Direct Connect Gateway, VPN connections</li>
+<li>Supports IP Multicast (not supported by any other AWS service)</li>
+<li>Instances in a VPC can access a NAT Gateway, NLB, PrivateLink, and EFS in others VPCs attached to the AWS Transit Gateway (This is not possible with Transit Gateway)</li>
+</ul>
+<blockquote>
+<p>Without AWS Transit Gateway, you have to combine an internet gateway with NAT gateways or NAT instances for each VPC needing outbound internet access. 
+However, if you have more significant numbers of VPCs, the management of multiple internet gateways and NAT gateways and instances adds labor and costs. 
+In that case, you can save overhead by centralizing outbound traffic with AWS Transit Gateway.
+With Transit Gateway, communication between VPCs through NAT Gateway can be denied 
+&amp; outbound communication to internet from VPCs can be routed through Transit Gateway, which in turn routes all traffic to Internet Gateway.  </p>
+</blockquote>
+<h2 id="site-to-site-vpn">Site-to-Site VPN</h2>
+<ol>
+<li>Setup a software or hardware VPN appliance to your on-premises network.</li>
+<li>On-premises VPN must be accessible through public IP.</li>
+<li>Customer Gateway on the data center side, Virtual Gateway on aws side</li>
+<li>Can use Global Accelerator for worldwide networks.  </li>
+<li>An accelerated Site-to-Site VPN connection (accelerated VPN connection) uses AWS Global Accelerator to route traffic from your on-premises network to an AWS edge location that is closest to your customer gateway device.</li>
+<li>Static routing to allow bi-directional traffic. Use BGP (Border Gateway Protocol) for dynamic routing.</li>
+<li>The cost of a VPN is very less when compared with AWS Direct Connect. Also, there is an option of VPN per connection hour pricing which is not available with Direct Connect.</li>
+<li>AWS VPN CloudHub can connect upto 10 Customer Gateway for a single virtual gateway. The traffic goes through public network only.</li>
+<li>Can be a failover connection between your on-premises locations</li>
+<li>VPN to multiple VPC: Direct Connect is preferred since it has direct connect gateway.</li>
+</ol>
+<h2 id="direct-connect">Direct Connect</h2>
+<ul>
+<li>Provides a dedicated private connection from a remote network to your VPC</li>
+<li>Dedicated connection must be setup between your DC and AWS Direct Connect locations</li>
+<li>More expensive than running a VPN solution</li>
+<li>Private access to AWS services through VIF</li>
+<li>Bypass ISP, reduce network cost, increase bandwidth and stability</li>
+<li>Not redundant by default (must setup a failover DX or VPN)</li>
+<li>Dedicated connections: Lead times are often longer than 1 month to establish a new connection, but offers upto 100 Gbps</li>
+<li>Hosted connections: upto 10 Gbps from partners</li>
+<li><strong>Data in transit is not encrypted but is private</strong></li>
+<li>AWS Direct Connect + VPN provides an IPsec-encrypted private connection (complicated to setup)</li>
+<li>LAG: Get increased speed and failover by summing up existing DX connections into a logical one (up to 4 can be aggregated)</li>
+<li>If you want to setup a Direct Connect to one or more VPC in many different regions (same/cross account), you must use a Direct Connect Gateway</li>
+</ul>
+<h2 id="nat-gateway">NAT Gateway</h2>
+<blockquote>
+<p>If you have resources in multiple Availability Zones and they share one NAT gateway, in the event that the NAT gateway’s Availability Zone is down, resources in the other Availability Zones lose internet access.</p>
+</blockquote>
+<h2 id="vpc-sharing">VPC Sharing</h2>
+<p>VPC sharing allows customers to share subnets with other AWS accounts within the same AWS Organization. This is a very powerful concept that allows for a number of benefits:</p>
+<ol>
+<li>Separation of duties: centrally controlled VPC structure, routing, IP address allocation.</li>
+<li>Application owners continue to own resources, accounts, and security groups.</li>
+<li>VPC sharing participants can reference security group IDs of each other.</li>
+<li>Efficiencies: higher density in subnets, efficient use of VPNs and AWS Direct Connect.</li>
+<li>Hard limits can be avoided, for example, 50 VIFs per AWS Direct Connect connection through simplified network architecture.</li>
+<li>Costs can be optimized through reuse of NAT gateways, VPC interface endpoints, and intra-Availability Zone traffic.</li>
+</ol>
+<blockquote>
+<p>Essentially, we can now decouple accounts and networks. I expect customers to continue to have multiple VPCs even with VPC sharing. But they can now have fewer, larger, centrally managed VPCs. Highly interconnected apps automatically benefit from this approach.</p>
+</blockquote>
+<h3 id="best-practices">Best Practices</h3>
+<ul>
+<li>Isolate subnets across child accounts to reduce blast radius. On non-production accounts, share subnets</li>
+<li>Have dedicated subnets for shared AWS infrastructure components such as VPC interface endpoints, firewall endpoints, and NAT Gateways.</li>
+<li>Isolate environments (dev, staging, production) and isolate VPCs per each environment</li>
+<li>Segregate security zones inside a VPC, such as External zone, Customer Zone and Internal Zone, with different permissions</li>
+<li>For bigger scale, have a separate VPC per each unique security zone.</li>
+<li>VPC Sharing uses RAM for controlling which subnets are shared with which AWS accounts.</li>
+<li>Enable fow logs at each VPC that is shared</li>
+<li>Amazon GuardDuty logs findings on the owner account  </li>
+</ul>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="advanced_networking.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced Networking" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Advanced Networking
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="route53.html" class="md-footer__link md-footer__link--next" aria-label="Next: Route 53" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Route 53
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

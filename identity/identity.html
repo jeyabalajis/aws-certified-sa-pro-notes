@@ -1,0 +1,2160 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+    
+    
+      
+        <title>Identity - AWS Solution Architect Professional - Concept Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#identity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="AWS Solution Architect Professional - Concept Notes" class="md-header__button md-logo" aria-label="AWS Solution Architect Professional - Concept Notes" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Solution Architect Professional - Concept Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Identity
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jeyabalajis/aws-certified-sa-pro-notes.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="AWS Solution Architect Professional - Concept Notes" class="md-nav__button md-logo" aria-label="AWS Solution Architect Professional - Concept Notes" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    AWS Solution Architect Professional - Concept Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jeyabalajis/aws-certified-sa-pro-notes.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Identity & Federation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Identity & Federation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Identity & Federation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Identity
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="identity.html" class="md-nav__link md-nav__link--active">
+        Identity
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-iam-entities" class="md-nav__link">
+    Summary of IAM Entities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles-sts" class="md-nav__link">
+    Roles &amp; STS
+  </a>
+  
+    <nav class="md-nav" aria-label="Roles &amp; STS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iam-groups-vs-roles" class="md-nav__link">
+    IAM Groups vs Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-account-access" class="md-nav__link">
+    Cross-account access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumerole-vs-getsessiontoken" class="md-nav__link">
+    AssumeRole vs GetSessionToken
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-permission-boundary" class="md-nav__link">
+    IAM Permission Boundary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-policies" class="md-nav__link">
+    Session Policies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-dive" class="md-nav__link">
+    Deep Dive:
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Dive:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles-vs-resource-based-policy" class="md-nav__link">
+    Roles vs. Resource-based Policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-vs-identity-policies" class="md-nav__link">
+    Resource vs. Identity Policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effect-of-resource-based-policies-identity-policies-and-permissions-boundary" class="md-nav__link">
+    Effect of resource based policies, identity policies and permissions boundary:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios" class="md-nav__link">
+    Scenarios:
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenarios:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#third-party-access-to-aws-services" class="md-nav__link">
+    Third-party access to aws services:
+  </a>
+  
+    <nav class="md-nav" aria-label="Third-party access to aws services:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    Question:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    Answer:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-managed-vs-inline" class="md-nav__link">
+    Customer Managed vs Inline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best Practices
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mandate-mfa-for-cross-account-assume-role" class="md-nav__link">
+    Mandate MFA for Cross-account assume role
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="identity_federation.html" class="md-nav__link">
+        Identity Federation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/cloudtrail.html" class="md-nav__link">
+        CloudTrail
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/keys_parameter_management.html" class="md-nav__link">
+        Keys and Parameters Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/waf.html" class="md-nav__link">
+        WAF
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/ddos_attacks_mitigation.html" class="md-nav__link">
+        Mitigate DDoS Attacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/guard_duty.html" class="md-nav__link">
+        Guard Duty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/inspector_config.html" class="md-nav__link">
+        Inspector & Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/s3_security.html" class="md-nav__link">
+        S3 Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certificate_manager.md" class="md-nav__link">
+        Certificate Manager
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/hybrid_networking.html" class="md-nav__link">
+        Hybrid Networking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/advanced_networking.html" class="md-nav__link">
+        Advanced Networking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/vpc.html" class="md-nav__link">
+        VPC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/route53.html" class="md-nav__link">
+        Route 53
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/cloudfront.html" class="md-nav__link">
+        CloudFront
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/web_proxy.html" class="md-nav__link">
+        Forward Proxy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/ebs.html" class="md-nav__link">
+        EBS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/efs.html" class="md-nav__link">
+        EFS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/s3.html" class="md-nav__link">
+        S3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/cloudfront.html" class="md-nav__link">
+        CloudFront
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/elasticache.html" class="md-nav__link">
+        ElastiCache
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/migration.html" class="md-nav__link">
+        Migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/aws_discovery_agent.md" class="md-nav__link">
+        Discovery Agent
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Computing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Computing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/ec2.html" class="md-nav__link">
+        EC2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/ecs_lambda.html" class="md-nav__link">
+        ECS & Lambda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/data_management.html" class="md-nav__link">
+        Data Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/elb_apigw_appsync.html" class="md-nav__link">
+        ELB & API Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/auto_scaling.html" class="md-nav__link">
+        AutoScaling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/elastic_bean_stalk.html" class="md-nav__link">
+        Elastic Beanstalk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/appsync.html" class="md-nav__link">
+        AppSync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/workdocs.html" class="md-nav__link">
+        WorkDocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/xray.html" class="md-nav__link">
+        X-Ray
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/application_auto_scaling.html" class="md-nav__link">
+        Application Auto Scaling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/step_functions.html" class="md-nav__link">
+        Step Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compute/sqs.html" class="md-nav__link">
+        SQS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Data Engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Data Engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_engineering/data_engineering.html" class="md-nav__link">
+        Data Engineering
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Databases
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Databases" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Databases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/rds.html" class="md-nav__link">
+        RDS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/dynamodb.html" class="md-nav__link">
+        DynamoDB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Cost Control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cost Control" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Cost Control
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost_control/cost_control.html" class="md-nav__link">
+        Cost Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost_control/trusted_advisor.html" class="md-nav__link">
+        Trusted Advisor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost_control/savings_plan.html" class="md-nav__link">
+        Savings Plan
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Logging
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logging" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Logging
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging/logging.html" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/systems_manager.html" class="md-nav__link">
+        Systems Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/sam.html" class="md-nav__link">
+        Serverless Application Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/opsworks.html" class="md-nav__link">
+        Ops Works
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/elastic_bean_stalk.html" class="md-nav__link">
+        Elastic Bean Stalk
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/code_deploy.html" class="md-nav__link">
+        Code Deploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/cloudformation.html" class="md-nav__link">
+        CloudFormation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          Organizations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Organizations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          Organizations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../organizations/organizations.html" class="md-nav__link">
+        Organizations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          Disaster Recovery
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Disaster Recovery" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          Disaster Recovery
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster_recovery/disaster_recovery.html" class="md-nav__link">
+        Disaster Recovery
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          Cloud Operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Operations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud_ops/aws_config.html" class="md-nav__link">
+        AWS Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud_ops/systems_manager.html" class="md-nav__link">
+        Systems Manager
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Miscellaneous
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Miscellaneous" data-md-level="1">
+        <label class="md-nav__title" for="__nav_16">
+          <span class="md-nav__icon md-icon"></span>
+          Miscellaneous
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/misc_services.html" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_17">
+          Exam Preparation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Exam Preparation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_17">
+          <span class="md-nav__icon md-icon"></span>
+          Exam Preparation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam_prep/exam_prep.html" class="md-nav__link">
+        Exam Prep
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-iam-entities" class="md-nav__link">
+    Summary of IAM Entities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles-sts" class="md-nav__link">
+    Roles &amp; STS
+  </a>
+  
+    <nav class="md-nav" aria-label="Roles &amp; STS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iam-groups-vs-roles" class="md-nav__link">
+    IAM Groups vs Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-account-access" class="md-nav__link">
+    Cross-account access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumerole-vs-getsessiontoken" class="md-nav__link">
+    AssumeRole vs GetSessionToken
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-permission-boundary" class="md-nav__link">
+    IAM Permission Boundary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-policies" class="md-nav__link">
+    Session Policies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-dive" class="md-nav__link">
+    Deep Dive:
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Dive:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles-vs-resource-based-policy" class="md-nav__link">
+    Roles vs. Resource-based Policy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-vs-identity-policies" class="md-nav__link">
+    Resource vs. Identity Policies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effect-of-resource-based-policies-identity-policies-and-permissions-boundary" class="md-nav__link">
+    Effect of resource based policies, identity policies and permissions boundary:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios" class="md-nav__link">
+    Scenarios:
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenarios:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#third-party-access-to-aws-services" class="md-nav__link">
+    Third-party access to aws services:
+  </a>
+  
+    <nav class="md-nav" aria-label="Third-party access to aws services:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    Question:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    Answer:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-managed-vs-inline" class="md-nav__link">
+    Customer Managed vs Inline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best Practices
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mandate-mfa-for-cross-account-assume-role" class="md-nav__link">
+    Mandate MFA for Cross-account assume role
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/jeyabalajis/aws-certified-sa-pro-notes.git/edit/master/docs/identity/identity.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="identity">Identity</h1>
+<h2 id="summary-of-iam-entities">Summary of IAM Entities</h2>
+<p><img alt="image" src="https://user-images.githubusercontent.com/15995686/171551779-bcfc010d-9ee7-4357-8db1-b907a6cfd7e3.png" /></p>
+<h2 id="roles-sts">Roles &amp; STS</h2>
+<ul>
+<li>Roles use AWS STS to retrieve credentials and impersonate the IAM role the principal has access to.</li>
+<li>Temporary credentials can be valid between 15 minutes to 12 hours.</li>
+<li>Assume Role to an IAM User:</li>
+<li>Explicitly grant your users permission  to assume the role.</li>
+<li>Users must switch to the this role using Console (or) AWS CLI (or) AWS API</li>
+<li>Additional protection: Mandate MFA for assuming the role, for extra security.</li>
+<li>MFA can be added as an additional layer of security for either assuming the role (or) for accessing aws services.</li>
+<li>Federated users cannot be assigned an MFA device. So resources protected by <em>MFA Mandatory</em> condition cannot be accessed by federated session contexts.</li>
+</ul>
+<blockquote>
+<p>Important:  When you assume a role, you give up your current permissions and temporarily take on a new role (with corresponding permissions).</p>
+</blockquote>
+<h3 id="iam-groups-vs-roles">IAM Groups vs Roles</h3>
+<blockquote>
+<p>For easily assigning duties or responsibilities to teams at scale, use IAM Groups</p>
+</blockquote>
+<ul>
+<li>IAM Groups: If a person changes jobs in your organization, instead of editing that user's permissions, you can remove him or her from the old user groups and add him or her to the appropriate new user groups. <strong>This is a simple way of assigning appropriate permissions to teams at scale</strong>. </li>
+<li>A user group cannot be identified as a Principal in a resource-based policy. A user group is a way to attach policies to multiple users at one time. </li>
+</ul>
+<blockquote>
+<p>For allowing users <em>temporary</em> access, you can allow them to assume a role.</p>
+</blockquote>
+<ul>
+<li>An IAM role is very similar to a user, in that it is an identity with permission policies that determine what the identity can and cannot do in AWS. </li>
+<li>However, <em>a role does not have any credentials (password or access keys) associated with it.</em> </li>
+<li>Instead of being uniquely associated with one person, <strong>a role is intended to be assumable by anyone who needs it.</strong> An IAM user can assume a role to temporarily take on different permissions for a specific task.</li>
+</ul>
+<h3 id="cross-account-access">Cross-account access</h3>
+<ul>
+<li><strong>Resource owner account</strong>: Create a role in the resource owner account (i.e the account where the resource resides), and provide permission to requester account root, the required access.</li>
+<li>Trust Policy: Establishes trust relationship to another account. Trust policy establishes <em>who</em>.</li>
+<li>Permissions: Describes what is allowed when this role is assumed. Permissions establishes <em>what</em>.</li>
+<li><strong>Requester account</strong>: Provide <em>permissions</em> to the users or group or role to assume this <em>cross-account role</em> that is created in the resource owner account.</li>
+<li><strong>Providing access to aws accounts owned by third-parties</strong>:</li>
+<li>The 3rd party aws account id is required.<ul>
+<li>Add External ID - secret between you and the 3rd party. It helps to handle <em>confused deputy</em> problem.</li>
+<li>Define permissions in the IAM Policy</li>
+</ul>
+</li>
+</ul>
+<h3 id="assumerole-vs-getsessiontoken">AssumeRole vs GetSessionToken</h3>
+<ul>
+<li>GetSessionToken:<ul>
+<li>User or root account</li>
+<li>Access resources in the <strong>same account</strong> as that of the user.</li>
+<li>The purpose of the GetSessionToken operation is to authenticate the user using MFA.   </li>
+<li>Note that temporary credentials from a GetSessionToken request can access IAM and AWS STS API operations only if you include MFA information in the request for credentials.</li>
+</ul>
+</li>
+<li>AssumeRole<ul>
+<li>Role</li>
+<li>Call API operations that access resources in the <em>same or a different AWS account</em>.</li>
+<li>The temporary credentials returned by AssumeRole <strong>do not include MFA information</strong> in the context</li>
+</ul>
+</li>
+</ul>
+<h2 id="iam-permission-boundary">IAM Permission Boundary</h2>
+<ul>
+<li>IAM Permission Boundaries are supported for users and roles (not groups)</li>
+<li>Advanced feature to use a managed policy to set the maximum permissions an IAM entity can get. </li>
+<li>When you set a permissions boundary for an entity, the entity can perform only the actions that are allowed by both its identity-based policies and its permissions boundaries.</li>
+<li>Example: Permission boundary allows only s3:<em> and ec2:</em>, if policy allows iam:*, then nothing is allowed!</li>
+</ul>
+<blockquote>
+<p>NOTE: Permission boundary limits the permissions (i.e. acts as an upper boundary) but does not provide permission on it's own.</p>
+</blockquote>
+<h2 id="session-policies">Session Policies</h2>
+<ul>
+<li>Session policies are advanced policies that you pass as a parameter when you programmatically create a temporary session for a role or federated user. </li>
+<li>The permissions for a session come from the IAM entity (user or role) used to create the session and from the session policy. </li>
+<li>The entity's identity-based policy permissions are limited by the session policy and the permissions boundary. </li>
+<li>The effective permissions for this set of policy types are the intersection of all three policy types.</li>
+</ul>
+<h2 id="deep-dive">Deep Dive:</h2>
+<h3 id="roles-vs-resource-based-policy">Roles vs. Resource-based Policy</h3>
+<ul>
+<li>When you assume a role (user, application or service), <strong>you give up your original permissions</strong> and take the permissions assigned to the role.</li>
+<li>When using a resource-based policy, the principal doesn’t have to give up any permissions.</li>
+</ul>
+<h3 id="resource-vs-identity-policies">Resource vs. Identity Policies</h3>
+<ul>
+<li>Resource policies are inline only, not managed.</li>
+<li>If there is a deny in either of identity or resource policies, the action is denied, otherwise allowed, provided the resource is within an aws account</li>
+<li>For cross-account, the action must be allowed in both the accounts.</li>
+<li>For KMS and IAM role trust policies, resources must have a resource-based policy even when the principal and the KMS key or IAM role are in the same account.</li>
+</ul>
+<h3 id="effect-of-resource-based-policies-identity-policies-and-permissions-boundary">Effect of resource based policies, identity policies and permissions boundary:</h3>
+<ul>
+<li>Resource-based policies that specify the user or role as the principal are not limited by the permissions boundary.</li>
+</ul>
+<p><em>Resource-based policies for IAM users:</em></p>
+<blockquote>
+<p>Within the same account, resource-based policies that grant permissions to an IAM user ARN (that is not a federated user session) <strong>are not limited by an implicit deny in an identity-based policy or permissions boundary</strong>.</p>
+</blockquote>
+<p><em>Resource-based policies for IAM Roles:</em></p>
+<blockquote>
+<p>Resource-based policies that grant permissions to an IAM role ARN <strong>are limited by an implicit deny in a permissions boundary or session policy</strong>
+Within the same account, resource-based policies that grant permissions to an IAM role session ARN grant permissions directly to the assumed role session. Permissions granted directly to a session are not limited by an implicit deny in an identity-based policy, a permissions boundary, or session policy. </p>
+</blockquote>
+<p><em>Resource-based policies for IAM federated user sessions</em></p>
+<blockquote>
+<p>Resource-based policies that grant Permissions directly to a session are not limited by an implicit deny in an identity-based policy, a permissions boundary, or session policy.
+However, if a resource-based policy grants permission to the ARN of the IAM user who federated, then requests made by the federated user during the session are limited by an implicit deny in a permission boundary or session policy.</p>
+</blockquote>
+<ul>
+<li>Depending on the type of principal, an Allow in a resource-based policy can result in a final decision of Allow , even if an implicit deny in an identity-based policy, permissions boundary, or session policy is present. </li>
+<li>This is different than the way that other policies impact policy evaluation.</li>
+<li>For example, policy evaluation differs when the principal specified in the resource-based policy is that of an IAM user, an IAM role, or a session principal. </li>
+<li>Session principals include IAM role sessions or an IAM federated user session. </li>
+<li>If a resource-based policy grants permission directly to the IAM user or the session principal that is making the request, then an implicit deny in an identity-based policy, a permissions boundary, or a session policy does not impact the final decision.</li>
+</ul>
+<p><img alt="image" src="https://user-images.githubusercontent.com/15995686/171557195-0d32a91e-7f9c-4f60-8b14-ea0ce487a4bb.png" /></p>
+<h2 id="scenarios">Scenarios:</h2>
+<h3 id="third-party-access-to-aws-services">Third-party access to aws services:</h3>
+<h4 id="question">Question:</h4>
+<p>Scenario: For example, let's say that you decide to hire a third-party company called Example Corp to monitor your AWS account and help optimize costs. In order to track your daily spending, 
+Example Corp needs to access your AWS resources. Example Corp also monitors many other AWS accounts for other customers.
+<strong>How will you provide access to Example Corp?</strong></p>
+<h4 id="answer">Answer:</h4>
+<p>Do not give Example Corp access to an IAM user and its long-term credentials in your AWS account. Instead, use an IAM role and its temporary security credentials. An IAM role provides a mechanism to allow a third party to access your AWS resources without needing to share long-term credentials (for example, an IAM user's access key).
+<strong>Include External ID in the Trust Policy</strong></p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;Principal&quot;: {&quot;AWS&quot;: &quot;Example Corp&#39;s AWS Account ID&quot;},
+  &quot;Condition&quot;: {&quot;StringEquals&quot;: {&quot;sts:ExternalId&quot;: &quot;Unique ID Assigned by Example Corp&quot;}}
+}  
+</code></pre></div>
+<h4 id="customer-managed-vs-inline">Customer Managed vs Inline</h4>
+<ul>
+<li>Customer managed policies are reusable identity-based policies that can be attached to multiple identities. </li>
+<li>Customer managed policies are useful when you have multiple principals with identical access requirements. </li>
+<li>Inline policies are identity-based policies that are attached to a single principal. </li>
+<li>Use AWS managed policies as a starting point, but better move to customer managed policies.</li>
+</ul>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Use least privilege for maximum security.</li>
+<li><em>Access Advisor</em>: See permissions granted and when last accessed.</li>
+<li><em>Access Analyzer</em>: Analyze resources that are shared with external entity.</li>
+<li>Use SCP and Permission Boundaries to <em>control access</em>. They <strong>DO NOT</strong> provice access, but rather control.</li>
+</ul>
+<h3 id="mandate-mfa-for-cross-account-assume-role">Mandate MFA for Cross-account assume role</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;AWS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCOUNT-B-ID&quot;</span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sts:AssumeRole&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Condition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Bool&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;aws:MultiFactorAuthPresent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">}}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/example_sts_AssumeRole_section.html">STS Assume Role</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_examples.html">IAM Access Policies examples</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">IAM Permissions Boundary</a></li>
+</ul>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="identity_federation.html" class="md-footer__link md-footer__link--next" aria-label="Next: Identity Federation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Identity Federation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
